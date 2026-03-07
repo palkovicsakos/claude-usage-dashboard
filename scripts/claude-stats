@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# claude-stats — generate + push Claude usage stats to GitHub
+# Usage:
+#   claude-stats          generate stats.json, commit, push
+#   claude-stats --open   generate, push, then open dashboard URL
+#   claude-stats --dry    generate only (no write, no push)
+#   claude-stats --local  generate + write stats.json, no push
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+DASHBOARD_URL="https://claude-stats.vercel.app"
+
+cd "$PROJECT_DIR"
+
+# Parse flags
+DRY=false
+OPEN=false
+LOCAL=false
+
+for arg in "$@"; do
+  case $arg in
+    --dry)   DRY=true ;;
+    --open)  OPEN=true ;;
+    --local) LOCAL=true ;;
+  esac
+done
+
+echo "claude-stats: generating data..."
+
+if [ "$DRY" = true ]; then
+  node scripts/generate-stats.js --dry
+  echo "Dry run complete. No files written."
+  exit 0
+fi
+
+# Generate stats.json
+node scripts/generate-stats.js
+
+if [ "$LOCAL" = true ]; then
+  echo "Local mode: stats.json updated. Not pushing."
+  exit 0
+fi
+
+# Commit and push
+echo "claude-stats: pushing to GitHub..."
+git add data/stats.json
+git diff --cached --quiet && echo "No changes to push." && exit 0
+
+git commit -m "chore: update claude stats $(date '+%Y-%m-%d %H:%M')"
+git push
+
+echo "claude-stats: pushed. Vercel will redeploy automatically."
+
+if [ "$OPEN" = true ]; then
+  echo "Opening dashboard..."
+  open "$DASHBOARD_URL"
+fi
