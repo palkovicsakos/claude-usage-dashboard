@@ -68,26 +68,30 @@ function parseAllSessions() {
       let sessionTokens = { input: 0, output: 0, cache_create: 0, cache_read: 0, total: 0 }
       let sessionModels = new Set()
       let timestamps = []
+      const seenMsgIds = new Set()
 
       for (const line of lines) {
         try {
           const entry = JSON.parse(line)
+          const usage = entry.message?.usage
+          const model = entry.message?.model || ''
+          const msgId = entry.message?.id
 
-          if (entry.usage) {
-            const model = entry.model || ''
-            const cost = calcCost(entry.usage, model)
+          if (usage && entry.type === 'assistant' && msgId && !seenMsgIds.has(msgId)) {
+            seenMsgIds.add(msgId)
+            const cost = calcCost(usage, model)
             sessionCost += cost
 
-            sessionTokens.input += entry.usage.input_tokens || 0
-            sessionTokens.output += entry.usage.output_tokens || 0
-            sessionTokens.cache_create += entry.usage.cache_creation_input_tokens || 0
-            sessionTokens.cache_read += entry.usage.cache_read_input_tokens || 0
+            sessionTokens.input += usage.input_tokens || 0
+            sessionTokens.output += usage.output_tokens || 0
+            sessionTokens.cache_create += usage.cache_creation_input_tokens || 0
+            sessionTokens.cache_read += usage.cache_read_input_tokens || 0
 
             if (model) sessionModels.add(model.replace('claude-', ''))
+          }
 
-            if (entry.timestamp) {
-              timestamps.push(new Date(entry.timestamp).getTime())
-            }
+          if (entry.timestamp) {
+            timestamps.push(new Date(entry.timestamp).getTime())
           }
         } catch (_) {}
       }
