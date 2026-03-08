@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-03-08T10:19:02.128Z",
+  "generated_at": "2026-03-08T10:25:45.651Z",
   "meta": {
     "first_session": "2026-02-20",
     "last_session": "2026-03-08",
     "total_projects": 32
   },
   "today": {
-    "cost": 63.48049034999999,
+    "cost": 73.90254555000004,
     "tokens": {
-      "input": 2582,
-      "output": 125558,
-      "cache_create": 9263013,
-      "cache_read": 89510252,
-      "total": 98901405
+      "input": 2760,
+      "output": 143929,
+      "cache_create": 10960239,
+      "cache_read": 102114781,
+      "total": 113221709
     },
     "hours": {
-      "active_minutes": 860,
-      "span_minutes": 1065,
-      "idle_minutes": 205
+      "active_minutes": 898,
+      "span_minutes": 1192,
+      "idle_minutes": 294
     },
-    "sessions": 89,
+    "sessions": 102,
     "cost_delta": null,
     "days": [
       {
         "date": "2026-03-08",
-        "cost": 63.48049034999999,
+        "cost": 73.90254555000004,
         "tokens": {
-          "input": 2582,
-          "output": 125558,
-          "cache_create": 9263013,
-          "cache_read": 89510252,
-          "total": 98901405
+          "input": 2760,
+          "output": 143929,
+          "cache_create": 10960239,
+          "cache_read": 102114781,
+          "total": 113221709
         },
         "hours": {
-          "active_minutes": 860,
-          "span_minutes": 1065,
-          "idle_minutes": 205
+          "active_minutes": 898,
+          "span_minutes": 1192,
+          "idle_minutes": 294
         },
-        "sessions": 89,
+        "sessions": 102,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
@@ -46,20 +46,20 @@
     ]
   },
   "daily": {
-    "cost": 920.6632779199998,
+    "cost": 931.0853331199999,
     "tokens": {
-      "input": 384830,
-      "output": 1385030,
-      "cache_create": 65098333,
-      "cache_read": 993044123,
-      "total": 1059912316
+      "input": 385008,
+      "output": 1403401,
+      "cache_create": 66795559,
+      "cache_read": 1005648652,
+      "total": 1074232620
     },
     "hours": {
-      "active_minutes": 6395,
-      "span_minutes": 37710,
-      "idle_minutes": 31308
+      "active_minutes": 6433,
+      "span_minutes": 37837,
+      "idle_minutes": 31397
     },
-    "sessions": 297,
+    "sessions": 310,
     "cost_delta": null,
     "days": [
       {
@@ -215,20 +215,20 @@
       },
       {
         "date": "2026-03-08",
-        "cost": 63.48049034999999,
+        "cost": 73.90254555000004,
         "tokens": {
-          "input": 2582,
-          "output": 125558,
-          "cache_create": 9263013,
-          "cache_read": 89510252,
-          "total": 98901405
+          "input": 2760,
+          "output": 143929,
+          "cache_create": 10960239,
+          "cache_read": 102114781,
+          "total": 113221709
         },
         "hours": {
-          "active_minutes": 860,
-          "span_minutes": 1065,
-          "idle_minutes": 205
+          "active_minutes": 898,
+          "span_minutes": 1192,
+          "idle_minutes": 294
         },
-        "sessions": 89,
+        "sessions": 102,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
@@ -237,20 +237,20 @@
     ]
   },
   "weekly": {
-    "cost": 2697.1742500699993,
+    "cost": 2707.5963052699994,
     "tokens": {
-      "input": 674035,
-      "output": 1973268,
-      "cache_create": 106361552,
-      "cache_read": 2082129488,
-      "total": 2191138343
+      "input": 674213,
+      "output": 1991639,
+      "cache_create": 108058778,
+      "cache_read": 2094734017,
+      "total": 2205458647
     },
     "hours": {
-      "active_minutes": 10634,
-      "span_minutes": 63176,
-      "idle_minutes": 52546
+      "active_minutes": 10672,
+      "span_minutes": 63303,
+      "idle_minutes": 52635
     },
-    "sessions": 413,
+    "sessions": 426,
     "cost_delta": null,
     "days": [
       {
@@ -598,20 +598,20 @@
       },
       {
         "date": "2026-03-08",
-        "cost": 63.48049034999999,
+        "cost": 73.90254555000004,
         "tokens": {
-          "input": 2582,
-          "output": 125558,
-          "cache_create": 9263013,
-          "cache_read": 89510252,
-          "total": 98901405
+          "input": 2760,
+          "output": 143929,
+          "cache_create": 10960239,
+          "cache_read": 102114781,
+          "total": 113221709
         },
         "hours": {
-          "active_minutes": 860,
-          "span_minutes": 1065,
-          "idle_minutes": 205
+          "active_minutes": 898,
+          "span_minutes": 1192,
+          "idle_minutes": 294
         },
-        "sessions": 89,
+        "sessions": 102,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
@@ -620,20 +620,20 @@
     ]
   },
   "monthly": {
-    "cost": 2697.1742500699993,
+    "cost": 2707.5963052699994,
     "tokens": {
-      "input": 674035,
-      "output": 1973268,
-      "cache_create": 106361552,
-      "cache_read": 2082129488,
-      "total": 2191138343
+      "input": 674213,
+      "output": 1991639,
+      "cache_create": 108058778,
+      "cache_read": 2094734017,
+      "total": 2205458647
     },
     "hours": {
-      "active_minutes": 10634,
-      "span_minutes": 63176,
-      "idle_minutes": 52546
+      "active_minutes": 10672,
+      "span_minutes": 63303,
+      "idle_minutes": 52635
     },
-    "sessions": 413,
+    "sessions": 426,
     "cost_delta": null,
     "days": [
       {
@@ -981,20 +981,20 @@
       },
       {
         "date": "2026-03-08",
-        "cost": 63.48049034999999,
+        "cost": 73.90254555000004,
         "tokens": {
-          "input": 2582,
-          "output": 125558,
-          "cache_create": 9263013,
-          "cache_read": 89510252,
-          "total": 98901405
+          "input": 2760,
+          "output": 143929,
+          "cache_create": 10960239,
+          "cache_read": 102114781,
+          "total": 113221709
         },
         "hours": {
-          "active_minutes": 860,
-          "span_minutes": 1065,
-          "idle_minutes": 205
+          "active_minutes": 898,
+          "span_minutes": 1192,
+          "idle_minutes": 294
         },
-        "sessions": 89,
+        "sessions": 102,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
@@ -1003,20 +1003,20 @@
     ]
   },
   "all_time": {
-    "cost": 2697.1742500699993,
+    "cost": 2707.5963052699994,
     "tokens": {
-      "input": 674035,
-      "output": 1973268,
-      "cache_create": 106361552,
-      "cache_read": 2082129488,
-      "total": 2191138343
+      "input": 674213,
+      "output": 1991639,
+      "cache_create": 108058778,
+      "cache_read": 2094734017,
+      "total": 2205458647
     },
     "hours": {
-      "active_minutes": 10634,
-      "span_minutes": 63176,
-      "idle_minutes": 52546
+      "active_minutes": 10672,
+      "span_minutes": 63303,
+      "idle_minutes": 52635
     },
-    "sessions": 413,
+    "sessions": 426,
     "cost_delta": null,
     "days": [
       {
@@ -1364,20 +1364,20 @@
       },
       {
         "date": "2026-03-08",
-        "cost": 63.48049034999999,
+        "cost": 73.90254555000004,
         "tokens": {
-          "input": 2582,
-          "output": 125558,
-          "cache_create": 9263013,
-          "cache_read": 89510252,
-          "total": 98901405
+          "input": 2760,
+          "output": 143929,
+          "cache_create": 10960239,
+          "cache_read": 102114781,
+          "total": 113221709
         },
         "hours": {
-          "active_minutes": 860,
-          "span_minutes": 1065,
-          "idle_minutes": 205
+          "active_minutes": 898,
+          "span_minutes": 1192,
+          "idle_minutes": 294
         },
-        "sessions": 89,
+        "sessions": 102,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
@@ -1388,10 +1388,10 @@
   "projects": [
     {
       "name": "claude/workspace",
-      "cost": 1434.58,
-      "active_hours": 136.8,
+      "cost": 1444.07,
+      "active_hours": 137.4,
       "sessions": 291,
-      "pct": 53.2,
+      "pct": 53.3,
       "last_active": "2026-03-08"
     },
     {
@@ -1399,7 +1399,7 @@
       "cost": 401.92,
       "active_hours": 11.1,
       "sessions": 2,
-      "pct": 14.9,
+      "pct": 14.8,
       "last_active": "2026-02-22"
     },
     {
@@ -1519,7 +1519,7 @@
       "cost": 12.14,
       "active_hours": 0.5,
       "sessions": 1,
-      "pct": 0.5,
+      "pct": 0.4,
       "last_active": "2026-02-21"
     },
     {
@@ -1564,9 +1564,9 @@
     },
     {
       "name": "claude/workspace/1/Projects/context/os/p",
-      "cost": 5.37,
+      "cost": 6.31,
       "active_hours": 1,
-      "sessions": 61,
+      "sessions": 74,
       "pct": 0.2,
       "last_active": "2026-03-08"
     },
