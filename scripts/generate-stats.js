@@ -243,6 +243,9 @@ function main() {
 
   const projects = aggregateByProject(sessions, totalCost)
 
+  // Today
+  const todayDays = allDays.filter(d => d.date === today)
+
   const stats = {
     generated_at: new Date().toISOString(),
     meta: {
@@ -250,6 +253,7 @@ function main() {
       last_session: allDays[allDays.length - 1]?.date || today,
       total_projects: new Set(sessions.map(s => s.project)).size,
     },
+    today: buildPeriod(todayDays),
     daily: buildPeriod(dailyDays),
     weekly: buildPeriod(weeklyDays),
     monthly: buildPeriod(monthlyDays),

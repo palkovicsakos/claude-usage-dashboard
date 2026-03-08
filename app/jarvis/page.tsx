@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Space_Mono, IBM_Plex_Sans } from 'next/font/google'
 import Link from 'next/link'
 import statsData from '@/data/stats.json'
-import type { StatsData, PeriodStats } from '@/lib/types'
+import type { StatsData, PeriodStats, DayStats } from '@/lib/types'
 import { formatCost, formatTokens, formatMinutes } from '@/lib/utils-stats'
 import { MetricCard } from '@/components/jarvis/metric-card'
 import { CostChart } from '@/components/jarvis/cost-chart'
@@ -24,21 +24,60 @@ const ibmPlexSans = IBM_Plex_Sans({
   variable: '--font-ibm-plex',
 })
 
-type Period = 'daily' | 'weekly' | 'monthly' | 'all_time'
+type Period = 'today' | 'daily' | 'weekly' | 'monthly' | 'all_time' | 'custom'
 
-const PERIOD_LABELS: Record<Period, string> = {
+const PRESET_PERIODS: Exclude<Period, 'custom'>[] = ['today', 'daily', 'weekly', 'monthly', 'all_time']
+
+const PERIOD_LABELS: Record<Exclude<Period, 'custom'>, string> = {
+  today: 'TODAY',
   daily: '7D',
   weekly: '4W',
   monthly: '6M',
   all_time: 'ALL',
 }
 
+function buildPeriodFromDays(days: DayStats[]): PeriodStats {
+  const totals = days.reduce(
+    (acc, d) => {
+      acc.cost += d.cost
+      acc.tokens.input += d.tokens.input
+      acc.tokens.output += d.tokens.output
+      acc.tokens.cache_create += d.tokens.cache_create
+      acc.tokens.cache_read += d.tokens.cache_read
+      acc.tokens.total += d.tokens.total
+      acc.hours.active_minutes += d.hours.active_minutes
+      acc.hours.span_minutes += d.hours.span_minutes
+      acc.hours.idle_minutes += d.hours.idle_minutes
+      acc.sessions += d.sessions
+      return acc
+    },
+    {
+      cost: 0,
+      tokens: { input: 0, output: 0, cache_create: 0, cache_read: 0, total: 0 },
+      hours: { active_minutes: 0, span_minutes: 0, idle_minutes: 0 },
+      sessions: 0,
+    }
+  )
+  return { ...totals, cost_delta: null, days }
+}
+
 const stats = statsData as StatsData
 
 export default function JarvisPage() {
   const [period, setPeriod] = useState<Period>('daily')
+  const todayStr = new Date().toISOString().split('T')[0]
+  const [dateFrom, setDateFrom] = useState(todayStr)
+  const [dateTo, setDateTo] = useState(todayStr)
 
-  const data: PeriodStats = stats[period]
+  const data: PeriodStats = useMemo(() => {
+    if (period === 'custom') {
+      const filtered = (stats.all_time.days as DayStats[]).filter(
+        (d) => d.date >= dateFrom && d.date <= dateTo
+      )
+      return buildPeriodFromDays(filtered)
+    }
+    return stats[period]
+  }, [period, dateFrom, dateTo])
 
   return (
     <div
@@ -125,8 +164,8 @@ export default function JarvisPage() {
         />
 
         {/* ── Period selector ── */}
-        <div className="flex items-center gap-1 mb-6">
-          {(Object.keys(PERIOD_LABELS) as Period[]).map((p) => (
+        <div className="flex items-center gap-1 mb-3 flex-wrap">
+          {PRESET_PERIODS.map((p) => (
             <button
               key={p}
               onClick={() => setPeriod(p)}
@@ -154,6 +193,32 @@ export default function JarvisPage() {
             </button>
           ))}
 
+          {/* Custom range button */}
+          <button
+            onClick={() => setPeriod('custom')}
+            className="relative px-4 py-1.5 text-xs font-mono tracking-widest transition-all duration-200 rounded-sm"
+            style={{
+              fontFamily: 'var(--font-space-mono), monospace',
+              background: period === 'custom' ? 'rgba(0,212,255,0.08)' : 'transparent',
+              color: period === 'custom' ? '#00D4FF' : '#4A5568',
+              border: period === 'custom' ? '1px solid rgba(0,212,255,0.2)' : '1px solid transparent',
+              letterSpacing: '0.15em',
+            }}
+          >
+            RANGE
+            {period === 'custom' && (
+              <span
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4"
+                style={{
+                  height: 2,
+                  background: '#00D4FF',
+                  boxShadow: '0 0 6px #00D4FF',
+                  borderRadius: 1,
+                }}
+              />
+            )}
+          </button>
+
           <span
             className="ml-auto text-xs font-mono"
             style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}
@@ -161,6 +226,64 @@ export default function JarvisPage() {
             LAST SYNC: {new Date(stats.generated_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
+
+        {/* ── Custom date range inputs ── */}
+        {period === 'custom' && (
+          <div className="flex items-center gap-2 mb-6">
+            <span
+              className="text-xs font-mono tracking-widest"
+              style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}
+            >
+              FROM
+            </span>
+            <input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+              min={stats.meta.first_session}
+              max={dateTo}
+              className="text-xs font-mono rounded-sm px-3 py-1.5 outline-none"
+              style={{
+                fontFamily: 'var(--font-space-mono), monospace',
+                background: '#0D0D14',
+                border: '1px solid rgba(0,212,255,0.2)',
+                color: '#00D4FF',
+                letterSpacing: '0.05em',
+                colorScheme: 'dark',
+              }}
+            />
+            <span
+              className="text-xs font-mono tracking-widest"
+              style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}
+            >
+              TO
+            </span>
+            <input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+              min={dateFrom}
+              max={todayStr}
+              className="text-xs font-mono rounded-sm px-3 py-1.5 outline-none"
+              style={{
+                fontFamily: 'var(--font-space-mono), monospace',
+                background: '#0D0D14',
+                border: '1px solid rgba(0,212,255,0.2)',
+                color: '#00D4FF',
+                letterSpacing: '0.05em',
+                colorScheme: 'dark',
+              }}
+            />
+            <span
+              className="text-xs font-mono"
+              style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}
+            >
+              {data.days.length} day{data.days.length !== 1 ? 's' : ''} selected
+            </span>
+          </div>
+        )}
+
+        {period !== 'custom' && <div className="mb-6" />}
 
         {/* ── Metric cards ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
@@ -273,7 +396,7 @@ export default function JarvisPage() {
                 className="text-xs font-mono"
                 style={{ color: '#4A5568' }}
               >
-                {PERIOD_LABELS[period]}
+                {period === 'custom' ? 'RANGE' : PERIOD_LABELS[period]}
               </span>
             </div>
             <HoursDisplay hours={data.hours} />

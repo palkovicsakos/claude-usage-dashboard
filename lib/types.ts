@@ -41,6 +41,7 @@ export interface PeriodStats {
 
 export interface StatsData {
   generated_at: string
+  today: PeriodStats   // current day
   daily: PeriodStats   // last 7 days by day
   weekly: PeriodStats  // last 4 weeks by week
   monthly: PeriodStats // last 6 months by month
