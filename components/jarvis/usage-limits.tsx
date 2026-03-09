@@ -11,14 +11,14 @@ function UsageBar({
   label,
   pct,
   tokens,
-  limit,
+  peak,
   subtitle,
   color,
 }: {
   label: string
   pct: number
   tokens: number
-  limit: number
+  peak: number
   subtitle: string
   color: string
 }) {
@@ -29,7 +29,7 @@ function UsageBar({
           {label}
         </span>
         <span className="text-xs font-mono font-semibold" style={{ color }}>
-          {pct}% used
+          {pct}% of peak
         </span>
       </div>
       <div
@@ -50,7 +50,7 @@ function UsageBar({
           {subtitle}
         </span>
         <span className="text-xs font-mono" style={{ color: '#4A5568' }}>
-          {formatTokens(tokens)} / {formatTokens(limit)}
+          {formatTokens(tokens)} / {formatTokens(peak)} peak
         </span>
       </div>
     </div>
@@ -58,48 +58,44 @@ function UsageBar({
 }
 
 export function UsageLimitsDisplay({ usage }: UsageLimitsProps) {
-  const sessionPct = usage.session_pct
-  const weekPct = usage.week_pct
-  const sonnetPct = usage.week_sonnet_pct
-
   function barColor(pct: number): string {
-    if (pct >= 80) return '#FF4444'
-    if (pct >= 60) return '#F0A500'
-    return '#00D4FF'
+    if (pct >= 90) return '#F59E0B'
+    if (pct >= 60) return '#D97706'
+    return '#8B6B15'
   }
 
   return (
     <div>
       <UsageBar
         label="Current session (last 5h)"
-        pct={sessionPct}
+        pct={usage.session_pct}
         tokens={usage.session_tokens}
-        limit={usage.limits.session_tokens}
-        subtitle="5-hour rolling window"
-        color={barColor(sessionPct)}
+        peak={usage.peak_day_tokens}
+        subtitle="vs your peak day"
+        color={barColor(usage.session_pct)}
       />
       <UsageBar
-        label="Current week — all models"
-        pct={weekPct}
+        label="This week — all models"
+        pct={usage.week_pct}
         tokens={usage.week_tokens}
-        limit={usage.limits.week_all_tokens}
+        peak={usage.peak_week_tokens}
         subtitle={`Resets ${usage.week_reset}`}
-        color={barColor(weekPct)}
+        color={barColor(usage.week_pct)}
       />
       <UsageBar
-        label="Current week — Sonnet only"
-        pct={sonnetPct}
+        label="This week — Sonnet only"
+        pct={usage.week_sonnet_pct}
         tokens={usage.week_sonnet_tokens}
-        limit={usage.limits.week_sonnet_tokens}
+        peak={usage.peak_week_tokens}
         subtitle={`Resets ${usage.week_reset}`}
-        color={barColor(sonnetPct)}
+        color={barColor(usage.week_sonnet_pct)}
       />
 
       <div
         className="mt-3 pt-3 text-xs font-mono"
         style={{ color: '#4A5568', borderTop: '1px solid rgba(255,255,255,0.05)' }}
       >
-        Limits are approximate (Claude Max plan). Regenerate stats to refresh.
+        % = this period vs your all-time peak week
       </div>
     </div>
   )

@@ -13,33 +13,33 @@ export function MetricCard({ title, value, subtitle, delta }: MetricCardProps) {
       className="group relative rounded-sm p-5 transition-all duration-200"
       style={{
         background: '#0D0D14',
-        border: '1px solid rgba(0, 212, 255, 0.13)',
-        boxShadow: '0 0 20px rgba(0, 212, 255, 0.07)',
+        border: '1px solid rgba(245, 158, 11, 0.13)',
+        boxShadow: '0 0 20px rgba(245, 158, 11, 0.07)',
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget
-        el.style.border = '1px solid rgba(0, 212, 255, 0.33)'
-        el.style.boxShadow = '0 0 28px rgba(0, 212, 255, 0.14)'
+        el.style.border = '1px solid rgba(245, 158, 11, 0.33)'
+        el.style.boxShadow = '0 0 28px rgba(245, 158, 11, 0.14)'
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget
-        el.style.border = '1px solid rgba(0, 212, 255, 0.13)'
-        el.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.07)'
+        el.style.border = '1px solid rgba(245, 158, 11, 0.13)'
+        el.style.boxShadow = '0 0 20px rgba(245, 158, 11, 0.07)'
       }}
     >
       {/* corner accent */}
       <div
         className="absolute top-0 left-0 w-4 h-4"
         style={{
-          borderTop: '1px solid rgba(0, 212, 255, 0.5)',
-          borderLeft: '1px solid rgba(0, 212, 255, 0.5)',
+          borderTop: '1px solid rgba(245, 158, 11, 0.5)',
+          borderLeft: '1px solid rgba(245, 158, 11, 0.5)',
         }}
       />
       <div
         className="absolute bottom-0 right-0 w-4 h-4"
         style={{
-          borderBottom: '1px solid rgba(0, 212, 255, 0.5)',
-          borderRight: '1px solid rgba(0, 212, 255, 0.5)',
+          borderBottom: '1px solid rgba(245, 158, 11, 0.5)',
+          borderRight: '1px solid rgba(245, 158, 11, 0.5)',
         }}
       />
 
@@ -61,7 +61,7 @@ export function MetricCard({ title, value, subtitle, delta }: MetricCardProps) {
         {delta != null && (
           <span
             className="text-xs font-mono font-semibold"
-            style={{ color: delta >= 0 ? '#00D4FF' : '#FF3B5C' }}
+            style={{ color: delta >= 0 ? '#F59E0B' : '#FF3B5C' }}
           >
             {delta >= 0 ? '+' : ''}{delta.toFixed(1)}%
           </span>

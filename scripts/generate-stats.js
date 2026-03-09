@@ -17,11 +17,13 @@ const PROJECTS_DIR = path.join(CLAUDE_DIR, 'projects')
 const OUT_FILE = path.join(__dirname, '..', 'data', 'stats.json')
 const IDLE_THRESHOLD_MS = 5 * 60 * 1000 // 5 minutes
 
-// ── Plan limits for /usage section ───────────────────────────────────────────
-const PLAN_LIMITS = {
-  session_tokens: 500_000,        // per 5h rolling window (approx Claude Max)
-  week_all_tokens: 3_000_000,     // per week, all models
-  week_sonnet_tokens: 2_000_000,  // per week, Sonnet only
+// ── Week-start helper ────────────────────────────────────────────────────────
+function getWeekStart(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00')
+  const day = d.getDay()
+  const diff = day === 0 ? -6 : 1 - day
+  d.setDate(d.getDate() + diff)
+  return d.toISOString().split('T')[0]
 }
 
 // ── Model pricing (USD per million tokens) ──────────────────────────────────
@@ -295,16 +297,9 @@ function main() {
     m.cost = Math.round(m.cost * 100) / 100
   }
 
-  // ── Usage limits ──────────────────────────────────────────────────────────
+  // ── Usage — historical peak comparison ────────────────────────────────────
   const fiveHoursAgo = Date.now() - 5 * 60 * 60 * 1000
-  const mondayThisWeek = (() => {
-    const d = new Date()
-    const day = d.getDay() // 0=Sun
-    const diff = (day === 0 ? -6 : 1 - day)
-    d.setDate(d.getDate() + diff)
-    d.setHours(0, 0, 0, 0)
-    return d.toISOString().split('T')[0]
-  })()
+  const mondayThisWeek = getWeekStart(today)
   const weekReset = (() => {
     const d = new Date()
     const day = d.getDay()
@@ -314,25 +309,38 @@ function main() {
     return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
   })()
 
+  // Compute per-week totals for historical max
+  const weeklyTokenMap = {}
+  const weeklySessionTokenMap = {}
+  for (const s of sessions) {
+    const ws = getWeekStart(s.date)
+    weeklyTokenMap[ws] = (weeklyTokenMap[ws] || 0) + s.tokens.total
+    const sonnetMt = Object.entries(s.model_tokens || {}).find(([k]) => k.includes('sonnet'))
+    const sonnetT = sonnetMt ? sonnetMt[1].input + sonnetMt[1].output + sonnetMt[1].cache_create + sonnetMt[1].cache_read : 0
+    if (!weeklySessionTokenMap[ws]) weeklySessionTokenMap[ws] = { all: 0, sonnet: 0 }
+    weeklySessionTokenMap[ws].all += s.tokens.total
+    weeklySessionTokenMap[ws].sonnet += sonnetT
+  }
+  const peakWeekTokens = Math.max(...Object.values(weeklyTokenMap), 1)
+  const peakDayTokens = Math.max(...allDays.map(d => d.tokens.total), 1)
+
   const sessionSessions = sessions.filter(s => s.last_timestamp && s.last_timestamp > fiveHoursAgo)
   const weekSessions = sessions.filter(s => s.date >= mondayThisWeek)
 
   const sessionTokens = sessionSessions.reduce((sum, s) => sum + s.tokens.total, 0)
-  const weekTokens = weekSessions.reduce((sum, s) => sum + s.tokens.total, 0)
-  const weekSonnetTokens = weekSessions.reduce((sum, s) => {
-    const mt = Object.entries(s.model_tokens || {}).find(([k]) => k.includes('sonnet'))
-    return sum + (mt ? mt[1].input + mt[1].output + mt[1].cache_create + mt[1].cache_read : 0)
-  }, 0)
+  const thisWeekAll = (weeklySessionTokenMap[mondayThisWeek] || { all: 0 }).all
+  const thisWeekSonnet = (weeklySessionTokenMap[mondayThisWeek] || { sonnet: 0 }).sonnet
 
   const usage = {
     session_tokens: sessionTokens,
-    session_pct: Math.min(Math.round((sessionTokens / PLAN_LIMITS.session_tokens) * 100), 100),
-    week_tokens: weekTokens,
-    week_pct: Math.min(Math.round((weekTokens / PLAN_LIMITS.week_all_tokens) * 100), 100),
-    week_sonnet_tokens: weekSonnetTokens,
-    week_sonnet_pct: Math.min(Math.round((weekSonnetTokens / PLAN_LIMITS.week_sonnet_tokens) * 100), 100),
+    session_pct: Math.min(Math.round((sessionTokens / peakDayTokens) * 100), 100),
+    week_tokens: thisWeekAll,
+    week_pct: Math.min(Math.round((thisWeekAll / peakWeekTokens) * 100), 100),
+    week_sonnet_tokens: thisWeekSonnet,
+    week_sonnet_pct: Math.min(Math.round((thisWeekSonnet / peakWeekTokens) * 100), 100),
     week_reset: weekReset,
-    limits: PLAN_LIMITS,
+    peak_week_tokens: peakWeekTokens,
+    peak_day_tokens: peakDayTokens,
   }
 
   const stats = {

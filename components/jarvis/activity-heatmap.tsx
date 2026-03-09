@@ -86,13 +86,13 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
   }, [days])
 
   function getCellColor(cost: number): string {
-    if (cost === 0) return 'rgba(0,212,255,0.04)'
+    if (cost === 0) return 'rgba(245,158,11,0.04)'
     const intensity = cost / maxCost
-    if (intensity < 0.2) return 'rgba(0,212,255,0.15)'
-    if (intensity < 0.4) return 'rgba(0,212,255,0.3)'
-    if (intensity < 0.6) return 'rgba(0,212,255,0.5)'
-    if (intensity < 0.8) return 'rgba(0,212,255,0.7)'
-    return '#00D4FF'
+    if (intensity < 0.2) return 'rgba(245,158,11,0.15)'
+    if (intensity < 0.4) return 'rgba(245,158,11,0.3)'
+    if (intensity < 0.6) return 'rgba(245,158,11,0.5)'
+    if (intensity < 0.8) return 'rgba(245,158,11,0.7)'
+    return '#F59E0B'
   }
 
   const CELL = 12
@@ -176,13 +176,13 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
       <div className="mt-4 pt-4 grid grid-cols-2 gap-x-8 gap-y-2" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div>
           <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Favorite model: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#F59E0B' }}>
             {favoriteModel ? favoriteModel.replace('claude-', '') : '—'}
           </span>
         </div>
         <div>
           <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Total tokens: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#F59E0B' }}>
             {formatTokensShort(totalTokens)}
           </span>
         </div>
@@ -192,7 +192,7 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
         </div>
         <div>
           <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Longest streak: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{longestStreak} days</span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#F59E0B' }}>{longestStreak} days</span>
         </div>
         <div>
           <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Active days: </span>
@@ -202,7 +202,7 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
         </div>
         <div>
           <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Current streak: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{currentStreak} days</span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#F59E0B' }}>{currentStreak} days</span>
         </div>
       </div>
     </div>

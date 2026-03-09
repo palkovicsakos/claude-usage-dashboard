@@ -58,11 +58,8 @@ export interface UsageLimits {
   week_sonnet_tokens: number
   week_sonnet_pct: number
   week_reset: string
-  limits: {
-    session_tokens: number
-    week_all_tokens: number
-    week_sonnet_tokens: number
-  }
+  peak_week_tokens: number
+  peak_day_tokens: number
 }
 
 export interface StatsData {

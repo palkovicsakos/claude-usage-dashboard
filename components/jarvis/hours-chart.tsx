@@ -24,10 +24,10 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   return (
     <div
       className="rounded-sm px-3 py-2 text-xs font-mono"
-      style={{ background: '#0D0D14', border: '1px solid rgba(0,212,255,0.33)' }}
+      style={{ background: '#0D0D14', border: '1px solid rgba(245,158,11,0.33)' }}
     >
       <div style={{ color: '#4A5568', marginBottom: 2 }}>{label}</div>
-      <div style={{ color: '#00D4FF', fontWeight: 700 }}>
+      <div style={{ color: '#F59E0B', fontWeight: 700 }}>
         {h > 0 ? `${h}h ` : ''}{m}m
       </div>
     </div>
@@ -47,8 +47,8 @@ export function HoursChart({ days }: HoursChartProps) {
       <BarChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
         <defs>
           <linearGradient id="hoursGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#00D4FF" stopOpacity={0.9} />
-            <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.3} />
+            <stop offset="0%" stopColor="#F59E0B" stopOpacity={0.9} />
+            <stop offset="100%" stopColor="#F59E0B" stopOpacity={0.3} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />

@@ -93,8 +93,8 @@ function computeStreaks(days: DayStats[]): { longest: number; current: number } 
 
 const CARD_STYLE = {
   background: '#0D0D14',
-  border: '1px solid rgba(0,212,255,0.13)',
-  boxShadow: '0 0 20px rgba(0,212,255,0.07)',
+  border: '1px solid rgba(245,158,11,0.13)',
+  boxShadow: '0 0 20px rgba(245,158,11,0.07)',
 }
 
 const SECTION_TITLE_STYLE = {
@@ -219,17 +219,17 @@ export default function JarvisPage() {
               className="flex items-center gap-1.5 px-3 py-1 rounded-sm text-xs font-mono tracking-widest transition-all duration-200"
               style={{
                 fontFamily: 'var(--font-space-mono), monospace',
-                background: refreshing ? 'rgba(0,212,255,0.08)' : 'rgba(255,255,255,0.03)',
-                border: refreshing ? '1px solid rgba(0,212,255,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                color: refreshing ? '#00D4FF' : '#4A5568',
+                background: refreshing ? 'rgba(245,158,11,0.08)' : 'rgba(255,255,255,0.03)',
+                border: refreshing ? '1px solid rgba(245,158,11,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                color: refreshing ? '#F59E0B' : '#4A5568',
                 cursor: refreshing ? 'not-allowed' : 'pointer',
                 letterSpacing: '0.1em',
               }}
               onMouseEnter={(e) => {
                 if (!refreshing) {
                   const el = e.currentTarget
-                  el.style.borderColor = 'rgba(0,212,255,0.3)'
-                  el.style.color = '#00D4FF'
+                  el.style.borderColor = 'rgba(245,158,11,0.3)'
+                  el.style.color = '#F59E0B'
                 }
               }}
               onMouseLeave={(e) => {
@@ -246,11 +246,11 @@ export default function JarvisPage() {
             {/* Status badge */}
             <div
               className="flex items-center gap-2 px-3 py-1 rounded-sm text-xs font-mono tracking-widest"
-              style={{ background: 'rgba(0,212,255,0.07)', border: '1px solid rgba(0,212,255,0.2)', color: '#00D4FF' }}
+              style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.2)', color: '#F59E0B' }}
             >
               <span
                 className="inline-block w-2 h-2 rounded-full"
-                style={{ background: '#00D4FF', boxShadow: '0 0 6px #00D4FF', animation: 'pulse 2s infinite' }}
+                style={{ background: '#F59E0B', boxShadow: '0 0 6px #F59E0B', animation: 'pulse 2s infinite' }}
               />
               SYS: ONLINE
             </div>
@@ -268,8 +268,8 @@ export default function JarvisPage() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget
-                el.style.borderColor = 'rgba(0,212,255,0.3)'
-                el.style.color = '#00D4FF'
+                el.style.borderColor = 'rgba(245,158,11,0.3)'
+                el.style.color = '#F59E0B'
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget
@@ -285,7 +285,7 @@ export default function JarvisPage() {
         {/* ── Cyan divider ── */}
         <div
           className="my-4 w-full"
-          style={{ height: 1, background: 'linear-gradient(90deg, #00D4FF 0%, rgba(0,212,255,0.15) 60%, transparent 100%)' }}
+          style={{ height: 1, background: 'linear-gradient(90deg, #F59E0B 0%, rgba(245,158,11,0.15) 60%, transparent 100%)' }}
         />
 
         {/* ── Period selector ── */}
@@ -297,16 +297,16 @@ export default function JarvisPage() {
               className="relative px-4 py-1.5 text-xs font-mono tracking-widest transition-all duration-200 rounded-sm"
               style={{
                 fontFamily: 'var(--font-space-mono), monospace',
-                background: period === p ? 'rgba(0,212,255,0.08)' : 'transparent',
-                color: period === p ? '#00D4FF' : '#4A5568',
-                border: period === p ? '1px solid rgba(0,212,255,0.2)' : '1px solid transparent',
+                background: period === p ? 'rgba(245,158,11,0.08)' : 'transparent',
+                color: period === p ? '#F59E0B' : '#4A5568',
+                border: period === p ? '1px solid rgba(245,158,11,0.2)' : '1px solid transparent',
                 letterSpacing: '0.15em',
               }}
             >
               {PERIOD_LABELS[p]}
               {period === p && (
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4"
-                  style={{ height: 2, background: '#00D4FF', boxShadow: '0 0 6px #00D4FF', borderRadius: 1 }} />
+                  style={{ height: 2, background: '#F59E0B', boxShadow: '0 0 6px #F59E0B', borderRadius: 1 }} />
               )}
             </button>
           ))}
@@ -315,16 +315,16 @@ export default function JarvisPage() {
             className="relative px-4 py-1.5 text-xs font-mono tracking-widest transition-all duration-200 rounded-sm"
             style={{
               fontFamily: 'var(--font-space-mono), monospace',
-              background: period === 'custom' ? 'rgba(0,212,255,0.08)' : 'transparent',
-              color: period === 'custom' ? '#00D4FF' : '#4A5568',
-              border: period === 'custom' ? '1px solid rgba(0,212,255,0.2)' : '1px solid transparent',
+              background: period === 'custom' ? 'rgba(245,158,11,0.08)' : 'transparent',
+              color: period === 'custom' ? '#F59E0B' : '#4A5568',
+              border: period === 'custom' ? '1px solid rgba(245,158,11,0.2)' : '1px solid transparent',
               letterSpacing: '0.15em',
             }}
           >
             RANGE
             {period === 'custom' && (
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4"
-                style={{ height: 2, background: '#00D4FF', boxShadow: '0 0 6px #00D4FF', borderRadius: 1 }} />
+                style={{ height: 2, background: '#F59E0B', boxShadow: '0 0 6px #F59E0B', borderRadius: 1 }} />
             )}
           </button>
 
@@ -344,7 +344,7 @@ export default function JarvisPage() {
               min={stats.meta.first_session}
               max={dateTo}
               className="text-xs font-mono rounded-sm px-3 py-1.5 outline-none"
-              style={{ fontFamily: 'var(--font-space-mono), monospace', background: '#0D0D14', border: '1px solid rgba(0,212,255,0.2)', color: '#00D4FF', letterSpacing: '0.05em', colorScheme: 'dark' }}
+              style={{ fontFamily: 'var(--font-space-mono), monospace', background: '#0D0D14', border: '1px solid rgba(245,158,11,0.2)', color: '#F59E0B', letterSpacing: '0.05em', colorScheme: 'dark' }}
             />
             <span className="text-xs font-mono tracking-widest" style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}>TO</span>
             <input
@@ -354,7 +354,7 @@ export default function JarvisPage() {
               min={dateFrom}
               max={todayStr}
               className="text-xs font-mono rounded-sm px-3 py-1.5 outline-none"
-              style={{ fontFamily: 'var(--font-space-mono), monospace', background: '#0D0D14', border: '1px solid rgba(0,212,255,0.2)', color: '#00D4FF', letterSpacing: '0.05em', colorScheme: 'dark' }}
+              style={{ fontFamily: 'var(--font-space-mono), monospace', background: '#0D0D14', border: '1px solid rgba(245,158,11,0.2)', color: '#F59E0B', letterSpacing: '0.05em', colorScheme: 'dark' }}
             />
             <span className="text-xs font-mono" style={{ color: '#4A5568', fontFamily: 'var(--font-space-mono), monospace' }}>
               {data.days.length} day{data.days.length !== 1 ? 's' : ''} selected
@@ -376,14 +376,14 @@ export default function JarvisPage() {
           <div className="rounded-sm p-5" style={CARD_STYLE}>
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Cost Timeline</p>
-              <span className="text-xs font-mono" style={{ color: '#00D4FF' }}>USD / period</span>
+              <span className="text-xs font-mono" style={{ color: '#F59E0B' }}>USD / period</span>
             </div>
             <CostChart days={data.days} />
           </div>
           <div className="rounded-sm p-5" style={CARD_STYLE}>
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Token Breakdown</p>
-              <span className="text-xs font-mono" style={{ color: '#7928CA' }}>stacked</span>
+              <span className="text-xs font-mono" style={{ color: '#D97706' }}>stacked</span>
             </div>
             <TokenChart days={data.days} />
           </div>
@@ -394,36 +394,16 @@ export default function JarvisPage() {
           <div className="rounded-sm p-5" style={CARD_STYLE}>
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Active Hours</p>
-              <span className="text-xs font-mono" style={{ color: '#00D4FF' }}>per day</span>
+              <span className="text-xs font-mono" style={{ color: '#F59E0B' }}>per day</span>
             </div>
             <HoursChart days={data.days} />
           </div>
           <div className="rounded-sm p-5" style={CARD_STYLE}>
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Sessions</p>
-              <span className="text-xs font-mono" style={{ color: '#7928CA' }}>per day</span>
+              <span className="text-xs font-mono" style={{ color: '#D97706' }}>per day</span>
             </div>
             <SessionsChart days={data.days} />
-          </div>
-        </div>
-
-        {/* ── Charts row 3: Working Hours breakdown + Project Matrix ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-          <div className="rounded-sm p-5" style={CARD_STYLE}>
-            <div className="flex items-center justify-between mb-5">
-              <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Working Hours</p>
-              <span className="text-xs font-mono" style={{ color: '#4A5568' }}>
-                {period === 'custom' ? 'RANGE' : PERIOD_LABELS[period]}
-              </span>
-            </div>
-            <HoursDisplay hours={data.hours} />
-          </div>
-          <div className="rounded-sm p-5" style={CARD_STYLE}>
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Project Matrix</p>
-              <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{stats.meta.total_projects} total</span>
-            </div>
-            <ProjectTable projects={stats.projects} />
           </div>
         </div>
 
@@ -444,6 +424,26 @@ export default function JarvisPage() {
             longestStreak={streaks.longest}
             currentStreak={streaks.current}
           />
+        </div>
+
+        {/* ── Charts row 3: Working Hours breakdown + Project Matrix ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+          <div className="rounded-sm p-5" style={CARD_STYLE}>
+            <div className="flex items-center justify-between mb-5">
+              <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Working Hours</p>
+              <span className="text-xs font-mono" style={{ color: '#4A5568' }}>
+                {period === 'custom' ? 'RANGE' : PERIOD_LABELS[period]}
+              </span>
+            </div>
+            <HoursDisplay hours={data.hours} />
+          </div>
+          <div className="rounded-sm p-5" style={CARD_STYLE}>
+            <div className="flex items-center justify-between mb-4">
+              <p className="text-xs uppercase tracking-widest" style={SECTION_TITLE_STYLE}>Project Matrix</p>
+              <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{stats.meta.total_projects} total</span>
+            </div>
+            <ProjectTable projects={stats.projects} />
+          </div>
         </div>
 
         {/* ── Models breakdown + Usage limits ── */}

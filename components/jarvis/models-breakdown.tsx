@@ -19,8 +19,8 @@ interface ModelsBreakdownProps {
 }
 
 const MODEL_COLORS: Record<string, string> = {
-  'claude-sonnet-4-6': '#00D4FF',
-  'claude-opus-4-6': '#7928CA',
+  'claude-sonnet-4-6': '#F59E0B',
+  'claude-opus-4-6': '#D97706',
   'claude-haiku-4-5': '#F0A500',
 }
 
@@ -38,7 +38,7 @@ function shortModelName(model: string): string {
 function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: { name: string; value: number; color: string }[]; label?: string }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="rounded-sm px-3 py-2 text-xs font-mono" style={{ background: '#0D0D14', border: '1px solid rgba(0,212,255,0.33)' }}>
+    <div className="rounded-sm px-3 py-2 text-xs font-mono" style={{ background: '#0D0D14', border: '1px solid rgba(245,158,11,0.33)' }}>
       <div style={{ color: '#4A5568', marginBottom: 4 }}>{label}</div>
       {payload.filter(p => p.value > 0).map((p) => (
         <div key={p.name} className="flex items-center gap-2 mb-1">

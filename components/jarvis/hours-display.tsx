@@ -67,15 +67,15 @@ export function HoursDisplay({ hours }: HoursDisplayProps) {
         label="Active"
         minutes={active_minutes}
         maxMinutes={max}
-        color="#00D4FF"
-        trackColor="rgba(0,212,255,0.08)"
+        color="#F59E0B"
+        trackColor="rgba(245,158,11,0.08)"
       />
       <ArcRow
         label="Span"
         minutes={span_minutes}
         maxMinutes={max}
-        color="#7928CA"
-        trackColor="rgba(121,40,202,0.12)"
+        color="#D97706"
+        trackColor="rgba(217,119,6,0.12)"
       />
       <ArcRow
         label="Idle"
@@ -96,19 +96,19 @@ export function HoursDisplay({ hours }: HoursDisplayProps) {
         <div className="flex items-center gap-2">
           <div
             className="w-16 rounded-full overflow-hidden"
-            style={{ height: 4, background: 'rgba(0,212,255,0.08)' }}
+            style={{ height: 4, background: 'rgba(245,158,11,0.08)' }}
           >
             <div
               className="h-full rounded-full"
               style={{
                 width: `${activeRatio.toFixed(0)}%`,
-                background: 'linear-gradient(90deg, #7928CA, #00D4FF)',
+                background: 'linear-gradient(90deg, #D97706, #F59E0B)',
               }}
             />
           </div>
           <span
             className="text-xs font-mono font-semibold"
-            style={{ color: '#00D4FF' }}
+            style={{ color: '#F59E0B' }}
           >
             {activeRatio.toFixed(0)}%
           </span>

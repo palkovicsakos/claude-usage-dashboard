@@ -1,81 +1,81 @@
 {
-  "generated_at": "2026-03-09T13:15:23.904Z",
+  "generated_at": "2026-03-09T13:32:02.698Z",
   "meta": {
     "first_session": "2026-02-20",
     "last_session": "2026-03-09",
     "total_projects": 33
   },
   "today": {
-    "cost": 12.9374904,
+    "cost": 16.43019885,
     "tokens": {
-      "input": 3648,
-      "output": 29706,
-      "cache_create": 1994482,
-      "cache_read": 16672163,
-      "total": 18699999
+      "input": 4739,
+      "output": 37777,
+      "cache_create": 2312193,
+      "cache_read": 23928677,
+      "total": 26283386
     },
     "hours": {
-      "active_minutes": 108,
-      "span_minutes": 1446,
-      "idle_minutes": 1338
+      "active_minutes": 145,
+      "span_minutes": 1499,
+      "idle_minutes": 1354
     },
-    "sessions": 41,
+    "sessions": 48,
     "cost_delta": null,
     "days": [
       {
         "date": "2026-03-09",
-        "cost": 12.9374904,
+        "cost": 16.43019885,
         "tokens": {
-          "input": 3648,
-          "output": 29706,
-          "cache_create": 1994482,
-          "cache_read": 16672163,
-          "total": 18699999
+          "input": 4739,
+          "output": 37777,
+          "cache_create": 2312193,
+          "cache_read": 23928677,
+          "total": 26283386
         },
         "hours": {
-          "active_minutes": 108,
-          "span_minutes": 1446,
-          "idle_minutes": 1338
+          "active_minutes": 145,
+          "span_minutes": 1499,
+          "idle_minutes": 1354
         },
-        "sessions": 41,
+        "sessions": 48,
         "models": [
           "sonnet-4-5-20250929",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1410,
-            "output": 873,
-            "cache_create": 293016,
-            "cache_read": 2997214,
-            "total": 3292513
+            "input": 1910,
+            "output": 1185,
+            "cache_create": 438300,
+            "cache_read": 4914103,
+            "total": 5355498
           },
           "claude-sonnet-4-6": {
-            "input": 2238,
-            "output": 28833,
-            "cache_create": 1701466,
-            "cache_read": 13674949,
-            "total": 15407486
+            "input": 2829,
+            "output": 36592,
+            "cache_create": 1873893,
+            "cache_read": 19014574,
+            "total": 20927888
           }
         }
       }
     ]
   },
   "daily": {
-    "cost": 721.7553307699999,
+    "cost": 725.2480392199999,
     "tokens": {
-      "input": 231579,
-      "output": 1095358,
-      "cache_create": 63181030,
-      "cache_read": 780331540,
-      "total": 844839507
+      "input": 232670,
+      "output": 1103429,
+      "cache_create": 63498741,
+      "cache_read": 787588054,
+      "total": 852422894
     },
     "hours": {
-      "active_minutes": 5724,
-      "span_minutes": 27239,
-      "idle_minutes": 21513
+      "active_minutes": 5761,
+      "span_minutes": 27292,
+      "idle_minutes": 21529
     },
-    "sessions": 437,
+    "sessions": 444,
     "cost_delta": null,
     "days": [
       {
@@ -363,58 +363,58 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 12.9374904,
+        "cost": 16.43019885,
         "tokens": {
-          "input": 3648,
-          "output": 29706,
-          "cache_create": 1994482,
-          "cache_read": 16672163,
-          "total": 18699999
+          "input": 4739,
+          "output": 37777,
+          "cache_create": 2312193,
+          "cache_read": 23928677,
+          "total": 26283386
         },
         "hours": {
-          "active_minutes": 108,
-          "span_minutes": 1446,
-          "idle_minutes": 1338
+          "active_minutes": 145,
+          "span_minutes": 1499,
+          "idle_minutes": 1354
         },
-        "sessions": 41,
+        "sessions": 48,
         "models": [
           "sonnet-4-5-20250929",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1410,
-            "output": 873,
-            "cache_create": 293016,
-            "cache_read": 2997214,
-            "total": 3292513
+            "input": 1910,
+            "output": 1185,
+            "cache_create": 438300,
+            "cache_read": 4914103,
+            "total": 5355498
           },
           "claude-sonnet-4-6": {
-            "input": 2238,
-            "output": 28833,
-            "cache_create": 1701466,
-            "cache_read": 13674949,
-            "total": 15407486
+            "input": 2829,
+            "output": 36592,
+            "cache_create": 1873893,
+            "cache_read": 19014574,
+            "total": 20927888
           }
         }
       }
     ]
   },
   "weekly": {
-    "cost": 2776.8444571699997,
+    "cost": 2780.3371656199997,
     "tokens": {
-      "input": 702547,
-      "output": 2101751,
-      "cache_create": 118775872,
-      "cache_read": 2185808575,
-      "total": 2307388745
+      "input": 703638,
+      "output": 2109822,
+      "cache_create": 119093583,
+      "cache_read": 2193065089,
+      "total": 2314972132
     },
     "hours": {
-      "active_minutes": 11541,
-      "span_minutes": 66717,
-      "idle_minutes": 55183
+      "active_minutes": 11578,
+      "span_minutes": 66770,
+      "idle_minutes": 55199
     },
-    "sessions": 591,
+    "sessions": 598,
     "cost_delta": null,
     "days": [
       {
@@ -1104,58 +1104,58 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 12.9374904,
+        "cost": 16.43019885,
         "tokens": {
-          "input": 3648,
-          "output": 29706,
-          "cache_create": 1994482,
-          "cache_read": 16672163,
-          "total": 18699999
+          "input": 4739,
+          "output": 37777,
+          "cache_create": 2312193,
+          "cache_read": 23928677,
+          "total": 26283386
         },
         "hours": {
-          "active_minutes": 108,
-          "span_minutes": 1446,
-          "idle_minutes": 1338
+          "active_minutes": 145,
+          "span_minutes": 1499,
+          "idle_minutes": 1354
         },
-        "sessions": 41,
+        "sessions": 48,
         "models": [
           "sonnet-4-5-20250929",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1410,
-            "output": 873,
-            "cache_create": 293016,
-            "cache_read": 2997214,
-            "total": 3292513
+            "input": 1910,
+            "output": 1185,
+            "cache_create": 438300,
+            "cache_read": 4914103,
+            "total": 5355498
           },
           "claude-sonnet-4-6": {
-            "input": 2238,
-            "output": 28833,
-            "cache_create": 1701466,
-            "cache_read": 13674949,
-            "total": 15407486
+            "input": 2829,
+            "output": 36592,
+            "cache_create": 1873893,
+            "cache_read": 19014574,
+            "total": 20927888
           }
         }
       }
     ]
   },
   "monthly": {
-    "cost": 2776.8444571699997,
+    "cost": 2780.3371656199997,
     "tokens": {
-      "input": 702547,
-      "output": 2101751,
-      "cache_create": 118775872,
-      "cache_read": 2185808575,
-      "total": 2307388745
+      "input": 703638,
+      "output": 2109822,
+      "cache_create": 119093583,
+      "cache_read": 2193065089,
+      "total": 2314972132
     },
     "hours": {
-      "active_minutes": 11541,
-      "span_minutes": 66717,
-      "idle_minutes": 55183
+      "active_minutes": 11578,
+      "span_minutes": 66770,
+      "idle_minutes": 55199
     },
-    "sessions": 591,
+    "sessions": 598,
     "cost_delta": null,
     "days": [
       {
@@ -1845,58 +1845,58 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 12.9374904,
+        "cost": 16.43019885,
         "tokens": {
-          "input": 3648,
-          "output": 29706,
-          "cache_create": 1994482,
-          "cache_read": 16672163,
-          "total": 18699999
+          "input": 4739,
+          "output": 37777,
+          "cache_create": 2312193,
+          "cache_read": 23928677,
+          "total": 26283386
         },
         "hours": {
-          "active_minutes": 108,
-          "span_minutes": 1446,
-          "idle_minutes": 1338
+          "active_minutes": 145,
+          "span_minutes": 1499,
+          "idle_minutes": 1354
         },
-        "sessions": 41,
+        "sessions": 48,
         "models": [
           "sonnet-4-5-20250929",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1410,
-            "output": 873,
-            "cache_create": 293016,
-            "cache_read": 2997214,
-            "total": 3292513
+            "input": 1910,
+            "output": 1185,
+            "cache_create": 438300,
+            "cache_read": 4914103,
+            "total": 5355498
           },
           "claude-sonnet-4-6": {
-            "input": 2238,
-            "output": 28833,
-            "cache_create": 1701466,
-            "cache_read": 13674949,
-            "total": 15407486
+            "input": 2829,
+            "output": 36592,
+            "cache_create": 1873893,
+            "cache_read": 19014574,
+            "total": 20927888
           }
         }
       }
     ]
   },
   "all_time": {
-    "cost": 2776.8444571699997,
+    "cost": 2780.3371656199997,
     "tokens": {
-      "input": 702547,
-      "output": 2101751,
-      "cache_create": 118775872,
-      "cache_read": 2185808575,
-      "total": 2307388745
+      "input": 703638,
+      "output": 2109822,
+      "cache_create": 119093583,
+      "cache_read": 2193065089,
+      "total": 2314972132
     },
     "hours": {
-      "active_minutes": 11541,
-      "span_minutes": 66717,
-      "idle_minutes": 55183
+      "active_minutes": 11578,
+      "span_minutes": 66770,
+      "idle_minutes": 55199
     },
-    "sessions": 591,
+    "sessions": 598,
     "cost_delta": null,
     "days": [
       {
@@ -2586,38 +2586,38 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 12.9374904,
+        "cost": 16.43019885,
         "tokens": {
-          "input": 3648,
-          "output": 29706,
-          "cache_create": 1994482,
-          "cache_read": 16672163,
-          "total": 18699999
+          "input": 4739,
+          "output": 37777,
+          "cache_create": 2312193,
+          "cache_read": 23928677,
+          "total": 26283386
         },
         "hours": {
-          "active_minutes": 108,
-          "span_minutes": 1446,
-          "idle_minutes": 1338
+          "active_minutes": 145,
+          "span_minutes": 1499,
+          "idle_minutes": 1354
         },
-        "sessions": 41,
+        "sessions": 48,
         "models": [
           "sonnet-4-5-20250929",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1410,
-            "output": 873,
-            "cache_create": 293016,
-            "cache_read": 2997214,
-            "total": 3292513
+            "input": 1910,
+            "output": 1185,
+            "cache_create": 438300,
+            "cache_read": 4914103,
+            "total": 5355498
           },
           "claude-sonnet-4-6": {
-            "input": 2238,
-            "output": 28833,
-            "cache_create": 1701466,
-            "cache_read": 13674949,
-            "total": 15407486
+            "input": 2829,
+            "output": 36592,
+            "cache_create": 1873893,
+            "cache_read": 19014574,
+            "total": 20927888
           }
         }
       }
@@ -2626,9 +2626,9 @@
   "projects": [
     {
       "name": "claude/workspace",
-      "cost": 1504.18,
-      "active_hours": 150,
-      "sessions": 315,
+      "cost": 1506.55,
+      "active_hours": 150.4,
+      "sessions": 316,
       "pct": 54.2,
       "last_active": "2026-03-09"
     },
@@ -2834,9 +2834,9 @@
     },
     {
       "name": "/Users/palkovicsakos//claude/mem/observe",
-      "cost": 2.02,
-      "active_hours": 0.4,
-      "sessions": 33,
+      "cost": 3.14,
+      "active_hours": 0.6,
+      "sessions": 39,
       "pct": 0.1,
       "last_active": "2026-03-09"
     },
@@ -2891,22 +2891,22 @@
   ],
   "model_breakdown": {
     "claude-sonnet-4-6": {
-      "input": 383497,
-      "output": 1590951,
-      "cache_create": 82053866,
-      "cache_read": 1281866221,
-      "total": 1365894535,
-      "cost": 717.28,
+      "input": 384088,
+      "output": 1598710,
+      "cache_create": 82226293,
+      "cache_read": 1287205846,
+      "total": 1371414937,
+      "cost": 719.64,
       "pct": 59.2
     },
     "claude-sonnet-4-5-20250929": {
-      "input": 1410,
-      "output": 873,
-      "cache_create": 293016,
-      "cache_read": 2997214,
-      "total": 3292513,
-      "cost": 2.02,
-      "pct": 0.1
+      "input": 1910,
+      "output": 1185,
+      "cache_create": 438300,
+      "cache_read": 4914103,
+      "total": 5355498,
+      "cost": 3.14,
+      "pct": 0.2
     },
     "claude-opus-4-6": {
       "input": 317480,
@@ -2915,7 +2915,7 @@
       "cache_read": 899737166,
       "total": 935968352,
       "cost": 2056.43,
-      "pct": 40.6
+      "pct": 40.4
     },
     "<synthetic>": {
       "input": 0,
@@ -2937,17 +2937,14 @@
     }
   },
   "usage": {
-    "session_tokens": 16553355,
-    "session_pct": 100,
-    "week_tokens": 215151807,
-    "week_pct": 100,
-    "week_sonnet_tokens": 215151807,
-    "week_sonnet_pct": 100,
+    "session_tokens": 24136742,
+    "session_pct": 7,
+    "week_tokens": 26283386,
+    "week_pct": 2,
+    "week_sonnet_tokens": 26283386,
+    "week_sonnet_pct": 2,
     "week_reset": "Mar 16, 08:00 AM GMT+1",
-    "limits": {
-      "session_tokens": 500000,
-      "week_all_tokens": 3000000,
-      "week_sonnet_tokens": 2000000
-    }
+    "peak_week_tokens": 1056779273,
+    "peak_day_tokens": 331323211
   }
 }

@@ -24,7 +24,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
       className="rounded-sm px-3 py-2 text-xs font-mono"
       style={{
         background: '#0D0D14',
-        border: '1px solid rgba(0, 212, 255, 0.33)',
+        border: '1px solid rgba(245, 158, 11, 0.33)',
       }}
     >
       <div style={{ color: '#4A5568', marginBottom: 4 }}>{label}</div>
@@ -86,9 +86,9 @@ export function TokenChart({ days }: TokenChartProps) {
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend content={<CustomLegend />} />
-        <Bar dataKey="Cache Read" stackId="a" fill="rgba(0, 212, 255, 0.2)" radius={[0, 0, 0, 0]} />
-        <Bar dataKey="Cache Create" stackId="a" fill="rgba(121, 40, 202, 0.53)" />
-        <Bar dataKey="I/O" stackId="a" fill="#00D4FF" radius={[2, 2, 0, 0]} />
+        <Bar dataKey="Cache Read" stackId="a" fill="rgba(245, 158, 11, 0.2)" radius={[0, 0, 0, 0]} />
+        <Bar dataKey="Cache Create" stackId="a" fill="rgba(217, 119, 6, 0.53)" />
+        <Bar dataKey="I/O" stackId="a" fill="#F59E0B" radius={[2, 2, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   )
