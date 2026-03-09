@@ -60,6 +60,10 @@ export interface UsageLimits {
   week_reset: string
   peak_week_tokens: number
   peak_day_tokens: number
+  // From ~/.claude/stats-cache.json (real /usage data)
+  total_messages?: number | null
+  total_sessions_cache?: number | null
+  hour_counts?: Record<string, number> | null
 }
 
 export interface StatsData {
@@ -76,5 +80,7 @@ export interface StatsData {
     first_session: string
     last_session: string
     total_projects: number
+    total_messages?: number | null
+    total_sessions?: number | null
   }
 }

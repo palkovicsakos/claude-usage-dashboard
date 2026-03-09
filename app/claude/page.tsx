@@ -104,6 +104,23 @@ export default function ClaudePage() {
   const totalTokensAllTime = stats.all_time?.tokens?.total ?? 0
   const activeDaysAllTime = stats.all_time?.days?.filter((d) => d.cost > 0).length ?? 0
 
+  // Compute streaks for heatmap
+  const streaks = useMemo(() => {
+    const activeDates = new Set((stats.all_time?.days ?? []).filter((d) => d.cost > 0).map((d) => d.date))
+    const sorted = [...activeDates].sort()
+    if (sorted.length === 0) return { longest: 0, current: 0 }
+    let longest = 1, cur = 1
+    for (let i = 1; i < sorted.length; i++) {
+      const diff = (new Date(sorted[i] + 'T00:00:00').getTime() - new Date(sorted[i-1] + 'T00:00:00').getTime()) / 86400000
+      if (diff === 1) { cur++; longest = Math.max(longest, cur) } else cur = 1
+    }
+    const today = new Date().toISOString().split('T')[0]
+    let current = 0
+    const check = new Date(today + 'T00:00:00')
+    while (activeDates.has(check.toISOString().split('T')[0])) { current++; check.setDate(check.getDate() - 1) }
+    return { longest, current }
+  }, [stats])
+
   return (
     <div
       className={`${lora.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} min-h-screen`}
@@ -245,7 +262,7 @@ export default function ClaudePage() {
             <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.activity}</h2>
             <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.weeksIntensity}</span>
           </div>
-          <ActivityHeatmap days={stats.all_time.days} totalSessions={stats.all_time.sessions} totalDays={activeDaysAllTime} favoriteModel={favoriteModel} totalTokens={totalTokensAllTime} lang={lang} />
+          <ActivityHeatmap days={stats.all_time.days} totalSessions={stats.all_time.sessions} totalDays={activeDaysAllTime} favoriteModel={favoriteModel} totalTokens={totalTokensAllTime} longestStreak={streaks.longest} currentStreak={streaks.current} lang={lang} />
         </div>
 
         {/* ── Row 3: Working Hours + Projects ── */}

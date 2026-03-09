@@ -10,6 +10,8 @@ interface ActivityHeatmapProps {
   totalDays: number
   favoriteModel: string
   totalTokens: number
+  longestStreak?: number
+  currentStreak?: number
   lang?: Lang
 }
 
@@ -21,10 +23,10 @@ function getMonthLabel(dateStr: string, lang: Lang): string {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString(locale, { month: 'short' })
 }
 
-export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens, lang = 'en' }: ActivityHeatmapProps) {
+export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens, longestStreak, currentStreak, lang = 'en' }: ActivityHeatmapProps) {
   const t = T[lang]
 
-  const { grid, monthLabels, longestStreak, currentStreak } = useMemo(() => {
+  const { grid, monthLabels, longestStreak: computedLongest, currentStreak: computedCurrent } = useMemo(() => {
     const WEEKS = 52
     const today = new Date()
     today.setHours(23, 59, 59, 999)
@@ -70,6 +72,9 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
 
     return { grid, monthLabels, longestStreak: longest, currentStreak: current }
   }, [days, lang])
+
+  const resolvedLongest = longestStreak ?? computedLongest
+  const resolvedCurrent = currentStreak ?? computedCurrent
 
   function getCellColor(cost: number): string {
     if (cost === 0) return '#F5F0EB'
@@ -128,12 +133,14 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
         </div>
       </div>
 
-      <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3" style={{ borderTop: '1px solid #EDE9E4' }}>
+      <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3" style={{ borderTop: '1px solid #EDE9E4' }}>
         {[
           { label: t.favoriteModel, value: favoriteModel ? favoriteModel.replace('claude-', '') : '—' },
           { label: t.totalTokensStat, value: formatTokensShort(totalTokens) },
+          { label: t.sessionsLabel, value: String(totalSessions) },
           { label: t.activeDays, value: `${totalDays}` },
-          { label: t.longestStreak, value: `${longestStreak} ${t.days}` },
+          { label: t.longestStreak, value: `${resolvedLongest} ${t.days}` },
+          { label: t.currentStreak, value: `${resolvedCurrent} ${t.days}` },
         ].map(({ label, value }) => (
           <div key={label}>
             <div className="text-xs" style={{ color: '#B0A9A1', marginBottom: 2, fontFamily: 'inherit' }}>{label}</div>

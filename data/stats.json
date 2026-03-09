@@ -1,81 +1,93 @@
 {
-  "generated_at": "2026-03-09T13:32:02.698Z",
+  "generated_at": "2026-03-09T15:11:28.842Z",
   "meta": {
     "first_session": "2026-02-20",
     "last_session": "2026-03-09",
-    "total_projects": 33
+    "total_projects": 33,
+    "total_messages": 172981,
+    "total_sessions": 548
   },
   "today": {
-    "cost": 16.43019885,
+    "cost": 43.91956815,
     "tokens": {
-      "input": 4739,
-      "output": 37777,
-      "cache_create": 2312193,
-      "cache_read": 23928677,
-      "total": 26283386
+      "input": 9758,
+      "output": 104115,
+      "cache_create": 4987345,
+      "cache_read": 78753418,
+      "total": 83854636
     },
     "hours": {
-      "active_minutes": 145,
-      "span_minutes": 1499,
-      "idle_minutes": 1354
+      "active_minutes": 432,
+      "span_minutes": 1873,
+      "idle_minutes": 1442
     },
-    "sessions": 48,
+    "sessions": 99,
     "cost_delta": null,
     "days": [
       {
         "date": "2026-03-09",
-        "cost": 16.43019885,
+        "cost": 43.91956815,
         "tokens": {
-          "input": 4739,
-          "output": 37777,
-          "cache_create": 2312193,
-          "cache_read": 23928677,
-          "total": 26283386
+          "input": 9758,
+          "output": 104115,
+          "cache_create": 4987345,
+          "cache_read": 78753418,
+          "total": 83854636
         },
         "hours": {
-          "active_minutes": 145,
-          "span_minutes": 1499,
-          "idle_minutes": 1354
+          "active_minutes": 432,
+          "span_minutes": 1873,
+          "idle_minutes": 1442
         },
-        "sessions": 48,
+        "sessions": 99,
         "models": [
           "sonnet-4-5-20250929",
+          "<synthetic>",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1910,
-            "output": 1185,
-            "cache_create": 438300,
-            "cache_read": 4914103,
-            "total": 5355498
+            "input": 6096,
+            "output": 3299,
+            "cache_create": 1666748,
+            "cache_read": 18734366,
+            "total": 20410509
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 2829,
-            "output": 36592,
-            "cache_create": 1873893,
-            "cache_read": 19014574,
-            "total": 20927888
+            "input": 3662,
+            "output": 100816,
+            "cache_create": 3320597,
+            "cache_read": 60019052,
+            "total": 63444127
           }
-        }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
       }
     ]
   },
   "daily": {
-    "cost": 725.2480392199999,
+    "cost": 752.7374085199999,
     "tokens": {
-      "input": 232670,
-      "output": 1103429,
-      "cache_create": 63498741,
-      "cache_read": 787588054,
-      "total": 852422894
+      "input": 237689,
+      "output": 1169767,
+      "cache_create": 66173893,
+      "cache_read": 842412795,
+      "total": 909994144
     },
     "hours": {
-      "active_minutes": 5761,
-      "span_minutes": 27292,
-      "idle_minutes": 21529
+      "active_minutes": 6048,
+      "span_minutes": 27666,
+      "idle_minutes": 21617
     },
-    "sessions": 444,
+    "sessions": 495,
     "cost_delta": null,
     "days": [
       {
@@ -113,7 +125,9 @@
             "cache_read": 6443403,
             "total": 6788613
           }
-        }
+        },
+        "message_count": 1298,
+        "tool_call_count": 200
       },
       {
         "date": "2026-03-03",
@@ -158,7 +172,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 11353,
+        "tool_call_count": 1651
       },
       {
         "date": "2026-03-04",
@@ -211,7 +227,9 @@
             "cache_read": 198186,
             "total": 693375
           }
-        }
+        },
+        "message_count": 7615,
+        "tool_call_count": 784
       },
       {
         "date": "2026-03-05",
@@ -240,7 +258,9 @@
             "cache_read": 50492864,
             "total": 54408609
           }
-        }
+        },
+        "message_count": 3625,
+        "tool_call_count": 536
       },
       {
         "date": "2026-03-06",
@@ -293,7 +313,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 24657,
+        "tool_call_count": 3185
       },
       {
         "date": "2026-03-07",
@@ -322,7 +344,9 @@
             "cache_read": 81088315,
             "total": 87827596
           }
-        }
+        },
+        "message_count": 12799,
+        "tool_call_count": 1230
       },
       {
         "date": "2026-03-08",
@@ -359,62 +383,74 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28429,
+        "tool_call_count": 2188
       },
       {
         "date": "2026-03-09",
-        "cost": 16.43019885,
+        "cost": 43.91956815,
         "tokens": {
-          "input": 4739,
-          "output": 37777,
-          "cache_create": 2312193,
-          "cache_read": 23928677,
-          "total": 26283386
+          "input": 9758,
+          "output": 104115,
+          "cache_create": 4987345,
+          "cache_read": 78753418,
+          "total": 83854636
         },
         "hours": {
-          "active_minutes": 145,
-          "span_minutes": 1499,
-          "idle_minutes": 1354
+          "active_minutes": 432,
+          "span_minutes": 1873,
+          "idle_minutes": 1442
         },
-        "sessions": 48,
+        "sessions": 99,
         "models": [
           "sonnet-4-5-20250929",
+          "<synthetic>",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1910,
-            "output": 1185,
-            "cache_create": 438300,
-            "cache_read": 4914103,
-            "total": 5355498
+            "input": 6096,
+            "output": 3299,
+            "cache_create": 1666748,
+            "cache_read": 18734366,
+            "total": 20410509
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 2829,
-            "output": 36592,
-            "cache_create": 1873893,
-            "cache_read": 19014574,
-            "total": 20927888
+            "input": 3662,
+            "output": 100816,
+            "cache_create": 3320597,
+            "cache_read": 60019052,
+            "total": 63444127
           }
-        }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
       }
     ]
   },
   "weekly": {
-    "cost": 2780.3371656199997,
+    "cost": 2807.8265349199996,
     "tokens": {
-      "input": 703638,
-      "output": 2109822,
-      "cache_create": 119093583,
-      "cache_read": 2193065089,
-      "total": 2314972132
+      "input": 708657,
+      "output": 2176160,
+      "cache_create": 121768735,
+      "cache_read": 2247889830,
+      "total": 2372543382
     },
     "hours": {
-      "active_minutes": 11578,
-      "span_minutes": 66770,
-      "idle_minutes": 55199
+      "active_minutes": 11865,
+      "span_minutes": 67144,
+      "idle_minutes": 55287
     },
-    "sessions": 598,
+    "sessions": 649,
     "cost_delta": null,
     "days": [
       {
@@ -452,7 +488,9 @@
             "cache_read": 73454323,
             "total": 75913912
           }
-        }
+        },
+        "message_count": 6492,
+        "tool_call_count": 201
       },
       {
         "date": "2026-02-21",
@@ -489,7 +527,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 5760,
+        "tool_call_count": 1633
       },
       {
         "date": "2026-02-22",
@@ -526,7 +566,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 4477,
+        "tool_call_count": 1275
       },
       {
         "date": "2026-02-23",
@@ -563,7 +605,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 1774,
+        "tool_call_count": 467
       },
       {
         "date": "2026-02-24",
@@ -608,7 +652,9 @@
             "cache_read": 24042227,
             "total": 25257737
           }
-        }
+        },
+        "message_count": 1441,
+        "tool_call_count": 416
       },
       {
         "date": "2026-02-25",
@@ -653,7 +699,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 3842,
+        "tool_call_count": 1135
       },
       {
         "date": "2026-02-26",
@@ -698,7 +746,9 @@
             "cache_read": 55850236,
             "total": 58383931
           }
-        }
+        },
+        "message_count": 4764,
+        "tool_call_count": 1292
       },
       {
         "date": "2026-02-27",
@@ -735,7 +785,9 @@
             "cache_read": 86814254,
             "total": 90362435
           }
-        }
+        },
+        "message_count": 13520,
+        "tool_call_count": 2564
       },
       {
         "date": "2026-02-28",
@@ -772,7 +824,9 @@
             "cache_read": 60340561,
             "total": 65232886
           }
-        }
+        },
+        "message_count": 12435,
+        "tool_call_count": 2181
       },
       {
         "date": "2026-03-01",
@@ -817,7 +871,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28692,
+        "tool_call_count": 3765
       },
       {
         "date": "2026-03-02",
@@ -854,7 +910,9 @@
             "cache_read": 6443403,
             "total": 6788613
           }
-        }
+        },
+        "message_count": 1298,
+        "tool_call_count": 200
       },
       {
         "date": "2026-03-03",
@@ -899,7 +957,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 11353,
+        "tool_call_count": 1651
       },
       {
         "date": "2026-03-04",
@@ -952,7 +1012,9 @@
             "cache_read": 198186,
             "total": 693375
           }
-        }
+        },
+        "message_count": 7615,
+        "tool_call_count": 784
       },
       {
         "date": "2026-03-05",
@@ -981,7 +1043,9 @@
             "cache_read": 50492864,
             "total": 54408609
           }
-        }
+        },
+        "message_count": 3625,
+        "tool_call_count": 536
       },
       {
         "date": "2026-03-06",
@@ -1034,7 +1098,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 24657,
+        "tool_call_count": 3185
       },
       {
         "date": "2026-03-07",
@@ -1063,7 +1129,9 @@
             "cache_read": 81088315,
             "total": 87827596
           }
-        }
+        },
+        "message_count": 12799,
+        "tool_call_count": 1230
       },
       {
         "date": "2026-03-08",
@@ -1100,62 +1168,74 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28429,
+        "tool_call_count": 2188
       },
       {
         "date": "2026-03-09",
-        "cost": 16.43019885,
+        "cost": 43.91956815,
         "tokens": {
-          "input": 4739,
-          "output": 37777,
-          "cache_create": 2312193,
-          "cache_read": 23928677,
-          "total": 26283386
+          "input": 9758,
+          "output": 104115,
+          "cache_create": 4987345,
+          "cache_read": 78753418,
+          "total": 83854636
         },
         "hours": {
-          "active_minutes": 145,
-          "span_minutes": 1499,
-          "idle_minutes": 1354
+          "active_minutes": 432,
+          "span_minutes": 1873,
+          "idle_minutes": 1442
         },
-        "sessions": 48,
+        "sessions": 99,
         "models": [
           "sonnet-4-5-20250929",
+          "<synthetic>",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1910,
-            "output": 1185,
-            "cache_create": 438300,
-            "cache_read": 4914103,
-            "total": 5355498
+            "input": 6096,
+            "output": 3299,
+            "cache_create": 1666748,
+            "cache_read": 18734366,
+            "total": 20410509
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 2829,
-            "output": 36592,
-            "cache_create": 1873893,
-            "cache_read": 19014574,
-            "total": 20927888
+            "input": 3662,
+            "output": 100816,
+            "cache_create": 3320597,
+            "cache_read": 60019052,
+            "total": 63444127
           }
-        }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
       }
     ]
   },
   "monthly": {
-    "cost": 2780.3371656199997,
+    "cost": 2807.8265349199996,
     "tokens": {
-      "input": 703638,
-      "output": 2109822,
-      "cache_create": 119093583,
-      "cache_read": 2193065089,
-      "total": 2314972132
+      "input": 708657,
+      "output": 2176160,
+      "cache_create": 121768735,
+      "cache_read": 2247889830,
+      "total": 2372543382
     },
     "hours": {
-      "active_minutes": 11578,
-      "span_minutes": 66770,
-      "idle_minutes": 55199
+      "active_minutes": 11865,
+      "span_minutes": 67144,
+      "idle_minutes": 55287
     },
-    "sessions": 598,
+    "sessions": 649,
     "cost_delta": null,
     "days": [
       {
@@ -1193,7 +1273,9 @@
             "cache_read": 73454323,
             "total": 75913912
           }
-        }
+        },
+        "message_count": 6492,
+        "tool_call_count": 201
       },
       {
         "date": "2026-02-21",
@@ -1230,7 +1312,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 5760,
+        "tool_call_count": 1633
       },
       {
         "date": "2026-02-22",
@@ -1267,7 +1351,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 4477,
+        "tool_call_count": 1275
       },
       {
         "date": "2026-02-23",
@@ -1304,7 +1390,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 1774,
+        "tool_call_count": 467
       },
       {
         "date": "2026-02-24",
@@ -1349,7 +1437,9 @@
             "cache_read": 24042227,
             "total": 25257737
           }
-        }
+        },
+        "message_count": 1441,
+        "tool_call_count": 416
       },
       {
         "date": "2026-02-25",
@@ -1394,7 +1484,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 3842,
+        "tool_call_count": 1135
       },
       {
         "date": "2026-02-26",
@@ -1439,7 +1531,9 @@
             "cache_read": 55850236,
             "total": 58383931
           }
-        }
+        },
+        "message_count": 4764,
+        "tool_call_count": 1292
       },
       {
         "date": "2026-02-27",
@@ -1476,7 +1570,9 @@
             "cache_read": 86814254,
             "total": 90362435
           }
-        }
+        },
+        "message_count": 13520,
+        "tool_call_count": 2564
       },
       {
         "date": "2026-02-28",
@@ -1513,7 +1609,9 @@
             "cache_read": 60340561,
             "total": 65232886
           }
-        }
+        },
+        "message_count": 12435,
+        "tool_call_count": 2181
       },
       {
         "date": "2026-03-01",
@@ -1558,7 +1656,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28692,
+        "tool_call_count": 3765
       },
       {
         "date": "2026-03-02",
@@ -1595,7 +1695,9 @@
             "cache_read": 6443403,
             "total": 6788613
           }
-        }
+        },
+        "message_count": 1298,
+        "tool_call_count": 200
       },
       {
         "date": "2026-03-03",
@@ -1640,7 +1742,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 11353,
+        "tool_call_count": 1651
       },
       {
         "date": "2026-03-04",
@@ -1693,7 +1797,9 @@
             "cache_read": 198186,
             "total": 693375
           }
-        }
+        },
+        "message_count": 7615,
+        "tool_call_count": 784
       },
       {
         "date": "2026-03-05",
@@ -1722,7 +1828,9 @@
             "cache_read": 50492864,
             "total": 54408609
           }
-        }
+        },
+        "message_count": 3625,
+        "tool_call_count": 536
       },
       {
         "date": "2026-03-06",
@@ -1775,7 +1883,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 24657,
+        "tool_call_count": 3185
       },
       {
         "date": "2026-03-07",
@@ -1804,7 +1914,9 @@
             "cache_read": 81088315,
             "total": 87827596
           }
-        }
+        },
+        "message_count": 12799,
+        "tool_call_count": 1230
       },
       {
         "date": "2026-03-08",
@@ -1841,62 +1953,74 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28429,
+        "tool_call_count": 2188
       },
       {
         "date": "2026-03-09",
-        "cost": 16.43019885,
+        "cost": 43.91956815,
         "tokens": {
-          "input": 4739,
-          "output": 37777,
-          "cache_create": 2312193,
-          "cache_read": 23928677,
-          "total": 26283386
+          "input": 9758,
+          "output": 104115,
+          "cache_create": 4987345,
+          "cache_read": 78753418,
+          "total": 83854636
         },
         "hours": {
-          "active_minutes": 145,
-          "span_minutes": 1499,
-          "idle_minutes": 1354
+          "active_minutes": 432,
+          "span_minutes": 1873,
+          "idle_minutes": 1442
         },
-        "sessions": 48,
+        "sessions": 99,
         "models": [
           "sonnet-4-5-20250929",
+          "<synthetic>",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1910,
-            "output": 1185,
-            "cache_create": 438300,
-            "cache_read": 4914103,
-            "total": 5355498
+            "input": 6096,
+            "output": 3299,
+            "cache_create": 1666748,
+            "cache_read": 18734366,
+            "total": 20410509
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 2829,
-            "output": 36592,
-            "cache_create": 1873893,
-            "cache_read": 19014574,
-            "total": 20927888
+            "input": 3662,
+            "output": 100816,
+            "cache_create": 3320597,
+            "cache_read": 60019052,
+            "total": 63444127
           }
-        }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
       }
     ]
   },
   "all_time": {
-    "cost": 2780.3371656199997,
+    "cost": 2807.8265349199996,
     "tokens": {
-      "input": 703638,
-      "output": 2109822,
-      "cache_create": 119093583,
-      "cache_read": 2193065089,
-      "total": 2314972132
+      "input": 708657,
+      "output": 2176160,
+      "cache_create": 121768735,
+      "cache_read": 2247889830,
+      "total": 2372543382
     },
     "hours": {
-      "active_minutes": 11578,
-      "span_minutes": 66770,
-      "idle_minutes": 55199
+      "active_minutes": 11865,
+      "span_minutes": 67144,
+      "idle_minutes": 55287
     },
-    "sessions": 598,
+    "sessions": 649,
     "cost_delta": null,
     "days": [
       {
@@ -1934,7 +2058,9 @@
             "cache_read": 73454323,
             "total": 75913912
           }
-        }
+        },
+        "message_count": 6492,
+        "tool_call_count": 201
       },
       {
         "date": "2026-02-21",
@@ -1971,7 +2097,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 5760,
+        "tool_call_count": 1633
       },
       {
         "date": "2026-02-22",
@@ -2008,7 +2136,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 4477,
+        "tool_call_count": 1275
       },
       {
         "date": "2026-02-23",
@@ -2045,7 +2175,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 1774,
+        "tool_call_count": 467
       },
       {
         "date": "2026-02-24",
@@ -2090,7 +2222,9 @@
             "cache_read": 24042227,
             "total": 25257737
           }
-        }
+        },
+        "message_count": 1441,
+        "tool_call_count": 416
       },
       {
         "date": "2026-02-25",
@@ -2135,7 +2269,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 3842,
+        "tool_call_count": 1135
       },
       {
         "date": "2026-02-26",
@@ -2180,7 +2316,9 @@
             "cache_read": 55850236,
             "total": 58383931
           }
-        }
+        },
+        "message_count": 4764,
+        "tool_call_count": 1292
       },
       {
         "date": "2026-02-27",
@@ -2217,7 +2355,9 @@
             "cache_read": 86814254,
             "total": 90362435
           }
-        }
+        },
+        "message_count": 13520,
+        "tool_call_count": 2564
       },
       {
         "date": "2026-02-28",
@@ -2254,7 +2394,9 @@
             "cache_read": 60340561,
             "total": 65232886
           }
-        }
+        },
+        "message_count": 12435,
+        "tool_call_count": 2181
       },
       {
         "date": "2026-03-01",
@@ -2299,7 +2441,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28692,
+        "tool_call_count": 3765
       },
       {
         "date": "2026-03-02",
@@ -2336,7 +2480,9 @@
             "cache_read": 6443403,
             "total": 6788613
           }
-        }
+        },
+        "message_count": 1298,
+        "tool_call_count": 200
       },
       {
         "date": "2026-03-03",
@@ -2381,7 +2527,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 11353,
+        "tool_call_count": 1651
       },
       {
         "date": "2026-03-04",
@@ -2434,7 +2582,9 @@
             "cache_read": 198186,
             "total": 693375
           }
-        }
+        },
+        "message_count": 7615,
+        "tool_call_count": 784
       },
       {
         "date": "2026-03-05",
@@ -2463,7 +2613,9 @@
             "cache_read": 50492864,
             "total": 54408609
           }
-        }
+        },
+        "message_count": 3625,
+        "tool_call_count": 536
       },
       {
         "date": "2026-03-06",
@@ -2516,7 +2668,9 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 24657,
+        "tool_call_count": 3185
       },
       {
         "date": "2026-03-07",
@@ -2545,7 +2699,9 @@
             "cache_read": 81088315,
             "total": 87827596
           }
-        }
+        },
+        "message_count": 12799,
+        "tool_call_count": 1230
       },
       {
         "date": "2026-03-08",
@@ -2582,54 +2738,66 @@
             "cache_read": 0,
             "total": 0
           }
-        }
+        },
+        "message_count": 28429,
+        "tool_call_count": 2188
       },
       {
         "date": "2026-03-09",
-        "cost": 16.43019885,
+        "cost": 43.91956815,
         "tokens": {
-          "input": 4739,
-          "output": 37777,
-          "cache_create": 2312193,
-          "cache_read": 23928677,
-          "total": 26283386
+          "input": 9758,
+          "output": 104115,
+          "cache_create": 4987345,
+          "cache_read": 78753418,
+          "total": 83854636
         },
         "hours": {
-          "active_minutes": 145,
-          "span_minutes": 1499,
-          "idle_minutes": 1354
+          "active_minutes": 432,
+          "span_minutes": 1873,
+          "idle_minutes": 1442
         },
-        "sessions": 48,
+        "sessions": 99,
         "models": [
           "sonnet-4-5-20250929",
+          "<synthetic>",
           "sonnet-4-6"
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 1910,
-            "output": 1185,
-            "cache_create": 438300,
-            "cache_read": 4914103,
-            "total": 5355498
+            "input": 6096,
+            "output": 3299,
+            "cache_create": 1666748,
+            "cache_read": 18734366,
+            "total": 20410509
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 2829,
-            "output": 36592,
-            "cache_create": 1873893,
-            "cache_read": 19014574,
-            "total": 20927888
+            "input": 3662,
+            "output": 100816,
+            "cache_create": 3320597,
+            "cache_read": 60019052,
+            "total": 63444127
           }
-        }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
       }
     ]
   },
   "projects": [
     {
       "name": "claude/workspace",
-      "cost": 1506.55,
-      "active_hours": 150.4,
-      "sessions": 316,
-      "pct": 54.2,
+      "cost": 1525.24,
+      "active_hours": 153.3,
+      "sessions": 322,
+      "pct": 54.3,
       "last_active": "2026-03-09"
     },
     {
@@ -2637,7 +2805,7 @@
       "cost": 401.92,
       "active_hours": 11.1,
       "sessions": 2,
-      "pct": 14.5,
+      "pct": 14.3,
       "last_active": "2026-02-22"
     },
     {
@@ -2645,7 +2813,7 @@
       "cost": 161.43,
       "active_hours": 5.3,
       "sessions": 3,
-      "pct": 5.8,
+      "pct": 5.7,
       "last_active": "2026-02-25"
     },
     {
@@ -2653,7 +2821,7 @@
       "cost": 160.22,
       "active_hours": 2.5,
       "sessions": 1,
-      "pct": 5.8,
+      "pct": 5.7,
       "last_active": "2026-02-21"
     },
     {
@@ -2661,7 +2829,7 @@
       "cost": 76.51,
       "active_hours": 3.1,
       "sessions": 5,
-      "pct": 2.8,
+      "pct": 2.7,
       "last_active": "2026-03-03"
     },
     {
@@ -2741,7 +2909,7 @@
       "cost": 15.36,
       "active_hours": 0.7,
       "sessions": 5,
-      "pct": 0.6,
+      "pct": 0.5,
       "last_active": "2026-02-21"
     },
     {
@@ -2757,7 +2925,7 @@
       "cost": 12.53,
       "active_hours": 0.6,
       "sessions": 1,
-      "pct": 0.5,
+      "pct": 0.4,
       "last_active": "2026-02-22"
     },
     {
@@ -2767,6 +2935,14 @@
       "sessions": 1,
       "pct": 0.4,
       "last_active": "2026-02-21"
+    },
+    {
+      "name": "/Users/palkovicsakos//claude/mem/observe",
+      "cost": 11.94,
+      "active_hours": 2.5,
+      "sessions": 84,
+      "pct": 0.4,
+      "last_active": "2026-03-09"
     },
     {
       "name": "Agentic/Workflows/ai/landscape/tracker",
@@ -2829,16 +3005,8 @@
       "cost": 4.19,
       "active_hours": 0.7,
       "sessions": 1,
-      "pct": 0.2,
-      "last_active": "2026-02-25"
-    },
-    {
-      "name": "/Users/palkovicsakos//claude/mem/observe",
-      "cost": 3.14,
-      "active_hours": 0.6,
-      "sessions": 39,
       "pct": 0.1,
-      "last_active": "2026-03-09"
+      "last_active": "2026-02-25"
     },
     {
       "name": "Agentic/Workflows/ai/website/build/test/",
@@ -2891,31 +3059,22 @@
   ],
   "model_breakdown": {
     "claude-sonnet-4-6": {
-      "input": 384088,
-      "output": 1598710,
-      "cache_create": 82226293,
-      "cache_read": 1287205846,
-      "total": 1371414937,
-      "cost": 719.64,
-      "pct": 59.2
+      "input": 384921,
+      "output": 1662934,
+      "cache_create": 83672997,
+      "cache_read": 1328210324,
+      "total": 1413931176,
+      "cost": 738.34,
+      "pct": 59.6
     },
     "claude-sonnet-4-5-20250929": {
-      "input": 1910,
-      "output": 1185,
-      "cache_create": 438300,
-      "cache_read": 4914103,
-      "total": 5355498,
-      "cost": 3.14,
-      "pct": 0.2
-    },
-    "claude-opus-4-6": {
-      "input": 317480,
-      "output": 509875,
-      "cache_create": 35403831,
-      "cache_read": 899737166,
-      "total": 935968352,
-      "cost": 2056.43,
-      "pct": 40.4
+      "input": 6096,
+      "output": 3299,
+      "cache_create": 1666748,
+      "cache_read": 18734366,
+      "total": 20410509,
+      "cost": 11.94,
+      "pct": 0.9
     },
     "<synthetic>": {
       "input": 0,
@@ -2925,6 +3084,15 @@
       "total": 0,
       "cost": 0,
       "pct": 0
+    },
+    "claude-opus-4-6": {
+      "input": 317480,
+      "output": 509875,
+      "cache_create": 35403831,
+      "cache_read": 899737166,
+      "total": 935968352,
+      "cost": 2056.43,
+      "pct": 39.4
     },
     "claude-haiku-4-5-20251001": {
       "input": 160,
@@ -2937,14 +3105,42 @@
     }
   },
   "usage": {
-    "session_tokens": 24136742,
-    "session_pct": 7,
-    "week_tokens": 26283386,
-    "week_pct": 2,
-    "week_sonnet_tokens": 26283386,
-    "week_sonnet_pct": 2,
+    "session_tokens": 81707992,
+    "session_pct": 25,
+    "week_tokens": 83854636,
+    "week_pct": 8,
+    "week_sonnet_tokens": 83854636,
+    "week_sonnet_pct": 8,
     "week_reset": "Mar 16, 08:00 AM GMT+1",
     "peak_week_tokens": 1056779273,
-    "peak_day_tokens": 331323211
+    "peak_day_tokens": 331323211,
+    "total_messages": 172981,
+    "total_sessions_cache": 548,
+    "hour_counts": {
+      "0": 15,
+      "1": 13,
+      "2": 14,
+      "3": 9,
+      "4": 8,
+      "5": 25,
+      "6": 13,
+      "7": 7,
+      "8": 15,
+      "9": 27,
+      "10": 64,
+      "11": 123,
+      "12": 20,
+      "13": 34,
+      "14": 22,
+      "15": 40,
+      "16": 8,
+      "17": 14,
+      "18": 18,
+      "19": 21,
+      "20": 7,
+      "21": 13,
+      "22": 13,
+      "23": 5
+    }
   }
 }

@@ -297,7 +297,13 @@ function main() {
     m.cost = Math.round(m.cost * 100) / 100
   }
 
-  // ── Usage — historical peak comparison ────────────────────────────────────
+  // ── Usage — read from ~/.claude/stats-cache.json (real /usage data) ─────────
+  const statsCachePath = path.join(CLAUDE_DIR, 'stats-cache.json')
+  let statsCache = null
+  if (fs.existsSync(statsCachePath)) {
+    try { statsCache = JSON.parse(fs.readFileSync(statsCachePath, 'utf8')) } catch (_) {}
+  }
+
   const fiveHoursAgo = Date.now() - 5 * 60 * 60 * 1000
   const mondayThisWeek = getWeekStart(today)
   const weekReset = (() => {
@@ -325,11 +331,38 @@ function main() {
   const peakDayTokens = Math.max(...allDays.map(d => d.tokens.total), 1)
 
   const sessionSessions = sessions.filter(s => s.last_timestamp && s.last_timestamp > fiveHoursAgo)
-  const weekSessions = sessions.filter(s => s.date >= mondayThisWeek)
 
   const sessionTokens = sessionSessions.reduce((sum, s) => sum + s.tokens.total, 0)
   const thisWeekAll = (weeklySessionTokenMap[mondayThisWeek] || { all: 0 }).all
   const thisWeekSonnet = (weeklySessionTokenMap[mondayThisWeek] || { sonnet: 0 }).sonnet
+
+  // ── Enrich with stats-cache.json data from ~/.claude (real /usage data) ──────
+  // stats-cache.json is the same source as `claude /usage` — it tracks actual usage
+  let cacheEnrichedDays = null
+  let cacheTotalMessages = null
+  let cacheTotalSessions = null
+  let cacheHourCounts = null
+  if (statsCache) {
+    // Build a date→tokensByModel map from dailyModelTokens
+    const cacheTokensByDate = {}
+    for (const entry of (statsCache.dailyModelTokens || [])) {
+      cacheTokensByDate[entry.date] = entry.tokensByModel || {}
+    }
+    // Build a date→activity map
+    const cacheActivityByDate = {}
+    for (const entry of (statsCache.dailyActivity || [])) {
+      cacheActivityByDate[entry.date] = entry
+    }
+    // Enrich allDays with message counts from cache
+    cacheEnrichedDays = allDays.map(d => ({
+      ...d,
+      message_count: (cacheActivityByDate[d.date] || {}).messageCount || 0,
+      tool_call_count: (cacheActivityByDate[d.date] || {}).toolCallCount || 0,
+    }))
+    cacheTotalMessages = statsCache.totalMessages || null
+    cacheTotalSessions = statsCache.totalSessions || null
+    cacheHourCounts = statsCache.hourCounts || null
+  }
 
   const usage = {
     session_tokens: sessionTokens,
@@ -341,7 +374,18 @@ function main() {
     week_reset: weekReset,
     peak_week_tokens: peakWeekTokens,
     peak_day_tokens: peakDayTokens,
+    // Real stats from ~/.claude/stats-cache.json (/usage source)
+    total_messages: cacheTotalMessages,
+    total_sessions_cache: cacheTotalSessions,
+    hour_counts: cacheHourCounts,
   }
+
+  // Use cache-enriched days if available (adds message_count, tool_call_count)
+  const enrichedAllDays = cacheEnrichedDays || allDays
+  const enrichedDailyDays = enrichedAllDays.filter(d => d.date >= sevenDaysAgo)
+  const enrichedWeeklyDays = enrichedAllDays.filter(d => d.date >= fourWeeksAgo)
+  const enrichedMonthlyDays = enrichedAllDays.filter(d => d.date >= sixMonthsAgo)
+  const enrichedTodayDays = enrichedAllDays.filter(d => d.date === today)
 
   const stats = {
     generated_at: new Date().toISOString(),
@@ -349,12 +393,14 @@ function main() {
       first_session: allDays[0]?.date || today,
       last_session: allDays[allDays.length - 1]?.date || today,
       total_projects: new Set(sessions.map(s => s.project)).size,
+      total_messages: cacheTotalMessages,
+      total_sessions: cacheTotalSessions,
     },
-    today: buildPeriod(todayDays),
-    daily: buildPeriod(dailyDays),
-    weekly: buildPeriod(weeklyDays),
-    monthly: buildPeriod(monthlyDays),
-    all_time: buildPeriod(allDays),
+    today: buildPeriod(enrichedTodayDays),
+    daily: buildPeriod(enrichedDailyDays),
+    weekly: buildPeriod(enrichedWeeklyDays),
+    monthly: buildPeriod(enrichedMonthlyDays),
+    all_time: buildPeriod(enrichedAllDays),
     projects,
     model_breakdown: modelBreakdown,
     usage,

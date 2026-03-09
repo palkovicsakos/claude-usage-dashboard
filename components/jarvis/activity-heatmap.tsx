@@ -83,86 +83,93 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
   const GAP = 2
   const DOW_LABELS = t.dowLabels
 
+  const gridWidth = weeks * (CELL + GAP)
+
   return (
     <div>
-      {/* Month labels */}
-      <div className="flex gap-px mb-1 ml-8" style={{ gap: GAP }}>
-        {Array.from({ length: weeks }, (_, w) => {
-          const label = monthLabels.find(m => m.week === w)
-          return (
-            <div key={w} style={{ width: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', flexShrink: 0 }}>
-              {label ? label.label : ''}
+      {/* Scrollable heatmap container */}
+      <div style={{ overflowX: 'auto', overflowY: 'hidden', paddingBottom: 4, WebkitOverflowScrolling: 'touch' }}>
+        <div style={{ minWidth: gridWidth + 32, display: 'inline-block' }}>
+          {/* Month labels */}
+          <div className="flex mb-1 ml-8" style={{ gap: GAP }}>
+            {Array.from({ length: weeks }, (_, w) => {
+              const label = monthLabels.find(m => m.week === w)
+              return (
+                <div key={w} style={{ width: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', flexShrink: 0 }}>
+                  {label ? label.label : ''}
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Grid */}
+          <div className="flex" style={{ gap: GAP }}>
+            <div className="flex flex-col mr-1" style={{ gap: GAP }}>
+              {DOW_LABELS.map((label, i) => (
+                <div key={i} style={{ width: 24, height: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', lineHeight: `${CELL}px` }}>
+                  {label}
+                </div>
+              ))}
             </div>
-          )
-        })}
+
+            {Array.from({ length: weeks }, (_, w) => {
+              const weekCells = cells.filter(c => c.week === w)
+              return (
+                <div key={w} className="flex flex-col" style={{ gap: GAP }}>
+                  {Array.from({ length: 7 }, (_, dow) => {
+                    const cell = weekCells.find(c => c.dow === dow)
+                    if (!cell) return <div key={dow} style={{ width: CELL, height: CELL }} />
+                    return (
+                      <div
+                        key={dow}
+                        title={cell.cost > 0 ? `${cell.date}: $${cell.cost.toFixed(2)}` : cell.date}
+                        style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(cell.cost), cursor: cell.cost > 0 ? 'pointer' : 'default', transition: 'opacity 0.15s' }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '0.75' }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '1' }}
+                      />
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Legend */}
+          <div className="flex items-center gap-2 mt-2 ml-8">
+            <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.less}</span>
+            {[0, 0.2, 0.45, 0.7, 1].map((v, i) => (
+              <div key={i} style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(v * maxCost * 0.99 + 0.01) }} />
+            ))}
+            <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.more}</span>
+          </div>
+        </div>
       </div>
 
-      {/* Grid */}
-      <div className="flex gap-px" style={{ gap: GAP }}>
-        <div className="flex flex-col mr-1" style={{ gap: GAP }}>
-          {DOW_LABELS.map((label, i) => (
-            <div key={i} style={{ width: 24, height: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', lineHeight: `${CELL}px` }}>
-              {label}
-            </div>
-          ))}
-        </div>
-
-        {Array.from({ length: weeks }, (_, w) => {
-          const weekCells = cells.filter(c => c.week === w)
-          return (
-            <div key={w} className="flex flex-col" style={{ gap: GAP }}>
-              {Array.from({ length: 7 }, (_, dow) => {
-                const cell = weekCells.find(c => c.dow === dow)
-                if (!cell) return <div key={dow} style={{ width: CELL, height: CELL }} />
-                return (
-                  <div
-                    key={dow}
-                    title={cell.cost > 0 ? `${cell.date}: $${cell.cost.toFixed(2)}` : cell.date}
-                    style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(cell.cost), cursor: cell.cost > 0 ? 'pointer' : 'default', transition: 'opacity 0.15s' }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '0.75' }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '1' }}
-                  />
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
-
-      {/* Legend */}
-      <div className="flex items-center gap-2 mt-2 ml-8">
-        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.less}</span>
-        {[0, 0.2, 0.45, 0.7, 1].map((v, i) => (
-          <div key={i} style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(v * maxCost * 0.99 + 0.01) }} />
-        ))}
-        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.more}</span>
-      </div>
-
-      {/* Stats */}
-      <div className="mt-4 pt-4 grid grid-cols-2 gap-x-8 gap-y-2" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      {/* Stats — responsive 2-col on mobile, 3-col on desktop */}
+      <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.favoriteModel}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{favoriteModel ? favoriteModel.replace('claude-', '') : '—'}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.favoriteModel}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{favoriteModel ? favoriteModel.replace('claude-', '') : '—'}</div>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.totalTokensStat}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{formatTokensShort(totalTokens)}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.totalTokensStat}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{formatTokensShort(totalTokens)}</div>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.sessionsLabel}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{totalSessions}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.sessionsLabel}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{totalSessions}</div>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.longestStreak}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{longestStreak} {t.days}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.activeDays}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{activeDays}/{totalDays}</div>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.activeDays}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{activeDays}/{totalDays}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.longestStreak}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{longestStreak} {t.days}</div>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.currentStreak}: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{currentStreak} {t.days}</span>
+          <div className="text-xs font-mono mb-0.5" style={{ color: '#4A5568' }}>{t.currentStreak}</div>
+          <div className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{currentStreak} {t.days}</div>
         </div>
       </div>
     </div>

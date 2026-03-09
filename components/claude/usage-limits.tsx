@@ -30,6 +30,12 @@ function UsageBar({ label, pct, tokens, peak, subtitle, color }: { label: string
 export function UsageLimitsDisplay({ usage, lang = 'en' }: UsageLimitsProps) {
   const t = T[lang]
 
+  function formatNum(n: number): string {
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M'
+    if (n >= 1_000) return Math.round(n / 1_000) + 'K'
+    return String(n)
+  }
+
   function barColor(pct: number): string {
     if (pct >= 80) return '#A84F31'
     if (pct >= 50) return '#C96442'
@@ -41,6 +47,25 @@ export function UsageLimitsDisplay({ usage, lang = 'en' }: UsageLimitsProps) {
       <UsageBar label={t.sessionLabel} pct={usage.session_pct} tokens={usage.session_tokens} peak={usage.peak_day_tokens} subtitle={t.sessionSub} color={barColor(usage.session_pct)} />
       <UsageBar label={t.weekAllLabel} pct={usage.week_pct} tokens={usage.week_tokens} peak={usage.peak_week_tokens} subtitle={`${t.resets} ${usage.week_reset}`} color={barColor(usage.week_pct)} />
       <UsageBar label={t.weekSonnetLabel} pct={usage.week_sonnet_pct} tokens={usage.week_sonnet_tokens} peak={usage.peak_week_tokens} subtitle={`${t.resets} ${usage.week_reset}`} color={barColor(usage.week_sonnet_pct)} />
+
+      {/* Stats from /usage cache */}
+      {(usage.total_messages != null || usage.total_sessions_cache != null) && (
+        <div className="mt-4 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: '1px solid #EDE9E4' }}>
+          {usage.total_messages != null && (
+            <div>
+              <div className="text-xs mb-0.5" style={{ color: '#B0A9A1', fontFamily: 'inherit' }}>Total messages</div>
+              <div className="text-sm font-semibold" style={{ color: '#C96442', fontFamily: 'inherit' }}>{formatNum(usage.total_messages)}</div>
+            </div>
+          )}
+          {usage.total_sessions_cache != null && (
+            <div>
+              <div className="text-xs mb-0.5" style={{ color: '#B0A9A1', fontFamily: 'inherit' }}>Total sessions</div>
+              <div className="text-sm font-semibold" style={{ color: '#1A1714', fontFamily: 'inherit' }}>{formatNum(usage.total_sessions_cache)}</div>
+            </div>
+          )}
+        </div>
+      )}
+
       <div className="mt-3 pt-3 text-xs" style={{ color: '#B0A9A1', borderTop: '1px solid #EDE9E4', fontFamily: 'inherit' }}>
         {t.usageFooter}
       </div>
