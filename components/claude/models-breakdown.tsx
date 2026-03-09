@@ -3,10 +3,12 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import type { DayStats, ModelTokens } from '@/lib/types'
 import { formatShortDate, formatTokens } from '@/lib/utils-stats'
+import { T, type Lang } from '@/lib/i18n'
 
 interface ModelsBreakdownProps {
   days: DayStats[]
   modelBreakdown: Record<string, ModelTokens>
+  lang?: Lang
 }
 
 const MODEL_COLORS: Record<string, string> = {
@@ -24,14 +26,13 @@ function shortModelName(model: string): string {
   return model.replace('claude-', '').replace(/-\d{8}$/, '').replace('-20250929', '')
 }
 
-export function ModelsBreakdown({ days, modelBreakdown }: ModelsBreakdownProps) {
+export function ModelsBreakdown({ days, modelBreakdown, lang = 'en' }: ModelsBreakdownProps) {
+  const t = T[lang]
   const models = Object.keys(modelBreakdown).filter(m => m !== '<synthetic>' && modelBreakdown[m].total > 0)
 
   const data = days.map((d) => {
     const row: Record<string, number | string> = { date: formatShortDate(d.date) }
-    for (const model of models) {
-      row[shortModelName(model)] = d.model_tokens?.[model]?.total ?? 0
-    }
+    for (const model of models) row[shortModelName(model)] = d.model_tokens?.[model]?.total ?? 0
     return row
   })
 
@@ -54,7 +55,6 @@ export function ModelsBreakdown({ days, modelBreakdown }: ModelsBreakdownProps) 
         </LineChart>
       </ResponsiveContainer>
 
-      {/* Per-model stats */}
       <div className="mt-4 grid gap-2" style={{ gridTemplateColumns: `repeat(${Math.min(models.length, 3)}, 1fr)` }}>
         {models.map((model) => {
           const mb = modelBreakdown[model]
@@ -63,17 +63,13 @@ export function ModelsBreakdown({ days, modelBreakdown }: ModelsBreakdownProps) 
             <div key={model} className="rounded-lg p-3" style={{ background: '#FAF9F6', border: '1px solid #EDE9E4' }}>
               <div className="flex items-center gap-1.5 mb-1.5">
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: getModelColor(model), flexShrink: 0 }} />
-                <span className="text-xs font-medium truncate" style={{ color: '#1A1714', fontFamily: 'inherit' }}>
-                  {shortModelName(model)}
-                </span>
+                <span className="text-xs font-medium truncate" style={{ color: '#1A1714', fontFamily: 'inherit' }}>{shortModelName(model)}</span>
               </div>
               <div className="text-xs" style={{ color: '#7C7369', fontFamily: 'inherit' }}>
-                {formatTokens(mb.input + mb.output)} I/O · {pct}%
+                {t.inLabel}/{t.outLabel}: {formatTokens(mb.input + mb.output)} · {pct}%
               </div>
               {mb.cost && (
-                <div className="text-xs font-semibold mt-0.5" style={{ color: '#C96442' }}>
-                  ${mb.cost.toFixed(2)}
-                </div>
+                <div className="text-xs font-semibold mt-0.5" style={{ color: '#C96442' }}>${mb.cost.toFixed(2)}</div>
               )}
             </div>
           )

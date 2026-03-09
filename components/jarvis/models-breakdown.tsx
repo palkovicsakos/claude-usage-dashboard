@@ -1,21 +1,14 @@
 'use client'
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import type { DayStats, ModelTokens } from '@/lib/types'
 import { formatShortDate, formatTokens } from '@/lib/utils-stats'
+import { T, type Lang } from '@/lib/i18n'
 
 interface ModelsBreakdownProps {
   days: DayStats[]
   modelBreakdown: Record<string, ModelTokens>
+  lang?: Lang
 }
 
 const MODEL_COLORS: Record<string, string> = {
@@ -29,10 +22,7 @@ function getModelColor(model: string): string {
 }
 
 function shortModelName(model: string): string {
-  return model
-    .replace('claude-', '')
-    .replace('-20251001', '')
-    .replace('-20240620', '')
+  return model.replace('claude-', '').replace('-20251001', '').replace('-20240620', '').replace('-20250929', '')
 }
 
 function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: { name: string; value: number; color: string }[]; label?: string }) {
@@ -57,67 +47,40 @@ function CustomLegend({ payload }: { payload?: { value: string; color: string }[
       {payload.map((p) => (
         <div key={p.value} className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-          <span className="text-xs" style={{ color: '#4A5568', fontFamily: 'monospace' }}>
-            {shortModelName(p.value)}
-          </span>
+          <span className="text-xs" style={{ color: '#4A5568', fontFamily: 'monospace' }}>{shortModelName(p.value)}</span>
         </div>
       ))}
     </div>
   )
 }
 
-export function ModelsBreakdown({ days, modelBreakdown }: ModelsBreakdownProps) {
-  const models = Object.keys(modelBreakdown).sort((a, b) =>
-    (modelBreakdown[b].total || 0) - (modelBreakdown[a].total || 0)
-  )
+export function ModelsBreakdown({ days, modelBreakdown, lang = 'en' }: ModelsBreakdownProps) {
+  const t = T[lang]
+  const models = Object.keys(modelBreakdown).filter(m => m !== '<synthetic>').sort((a, b) => (modelBreakdown[b].total || 0) - (modelBreakdown[a].total || 0))
 
-  const chartData = days
-    .filter(d => d.tokens.total > 0)
-    .map(d => {
-      const point: Record<string, number | string> = { date: formatShortDate(d.date) }
-      for (const model of models) {
-        point[model] = d.model_tokens?.[model]?.total || 0
-      }
-      return point
-    })
+  const chartData = days.filter(d => d.tokens.total > 0).map(d => {
+    const point: Record<string, number | string> = { date: formatShortDate(d.date) }
+    for (const model of models) point[model] = d.model_tokens?.[model]?.total || 0
+    return point
+  })
 
   const totalAllModels = Object.values(modelBreakdown).reduce((s, m) => s + m.total, 0)
 
   return (
     <div>
-      {/* Line chart */}
       <ResponsiveContainer width="100%" height={180}>
         <LineChart data={chartData} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
-          <XAxis
-            dataKey="date"
-            tick={{ fill: '#4A5568', fontSize: 10, fontFamily: 'monospace' }}
-            axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
-            tickLine={false}
-          />
-          <YAxis
-            tick={{ fill: '#4A5568', fontSize: 10, fontFamily: 'monospace' }}
-            axisLine={false}
-            tickLine={false}
-            tickFormatter={(v) => formatTokens(v)}
-          />
+          <XAxis dataKey="date" tick={{ fill: '#4A5568', fontSize: 10, fontFamily: 'monospace' }} axisLine={{ stroke: 'rgba(255,255,255,0.06)' }} tickLine={false} />
+          <YAxis tick={{ fill: '#4A5568', fontSize: 10, fontFamily: 'monospace' }} axisLine={false} tickLine={false} tickFormatter={(v) => formatTokens(v)} />
           <Tooltip content={<CustomTooltip />} />
           <Legend content={<CustomLegend />} />
           {models.map(model => (
-            <Line
-              key={model}
-              type="monotone"
-              dataKey={model}
-              stroke={getModelColor(model)}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 3, fill: getModelColor(model) }}
-            />
+            <Line key={model} type="monotone" dataKey={model} stroke={getModelColor(model)} strokeWidth={2} dot={false} activeDot={{ r: 3, fill: getModelColor(model) }} />
           ))}
         </LineChart>
       </ResponsiveContainer>
 
-      {/* Per-model stats grid */}
       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         {models.map(model => {
           const m = modelBreakdown[model]
@@ -131,7 +94,7 @@ export function ModelsBreakdown({ days, modelBreakdown }: ModelsBreakdownProps) 
                 </span>
               </div>
               <div className="text-xs font-mono ml-4" style={{ color: '#4A5568' }}>
-                In: {formatTokens(m.input)} · Out: {formatTokens(m.output)}
+                {t.inLabel}: {formatTokens(m.input)} · {t.outLabel}: {formatTokens(m.output)}
               </div>
             </div>
           )

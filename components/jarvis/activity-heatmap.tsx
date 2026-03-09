@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import type { DayStats } from '@/lib/types'
+import { T, type Lang } from '@/lib/i18n'
 
 interface ActivityHeatmapProps {
   days: DayStats[]
@@ -11,24 +12,12 @@ interface ActivityHeatmapProps {
   totalTokens: number
   longestStreak: number
   currentStreak: number
+  lang?: Lang
 }
 
-function getISOWeek(dateStr: string): number {
-  const d = new Date(dateStr + 'T00:00:00')
-  const jan4 = new Date(d.getFullYear(), 0, 4)
-  const startOfWeek1 = new Date(jan4)
-  startOfWeek1.setDate(jan4.getDate() - ((jan4.getDay() + 6) % 7))
-  const diff = d.getTime() - startOfWeek1.getTime()
-  return Math.floor(diff / (7 * 24 * 60 * 60 * 1000)) + 1
-}
-
-function getMonthLabel(dateStr: string): string {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', { month: 'short' })
-}
-
-function getDayOfWeek(dateStr: string): number {
-  const d = new Date(dateStr + 'T00:00:00')
-  return (d.getDay() + 6) % 7 // 0=Mon, 6=Sun
+function getMonthLabel(dateStr: string, lang: Lang): string {
+  const locale = lang === 'hu' ? 'hu-HU' : 'en-US'
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString(locale, { month: 'short' })
 }
 
 function formatTokensShort(n: number): string {
@@ -38,19 +27,16 @@ function formatTokensShort(n: number): string {
   return String(n)
 }
 
-export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens, longestStreak, currentStreak }: ActivityHeatmapProps) {
-  const { cells, weeks, maxCost, monthLabels, activeDays } = useMemo(() => {
-    // Build a map of date → cost
-    const dateMap: Record<string, number> = {}
-    for (const d of days) {
-      dateMap[d.date] = (dateMap[d.date] || 0) + d.cost
-    }
+export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens, longestStreak, currentStreak, lang = 'en' }: ActivityHeatmapProps) {
+  const t = T[lang]
 
-    // Build 52-week grid ending today
+  const { cells, weeks, maxCost, monthLabels, activeDays } = useMemo(() => {
+    const dateMap: Record<string, number> = {}
+    for (const d of days) dateMap[d.date] = (dateMap[d.date] || 0) + d.cost
+
     const today = new Date()
     today.setHours(0, 0, 0, 0)
-    const todayDow = (today.getDay() + 6) % 7 // Mon=0
-    // Start from 52 weeks ago, beginning of that Monday
+    const todayDow = (today.getDay() + 6) % 7
     const startDate = new Date(today)
     startDate.setDate(today.getDate() - 52 * 7 - todayDow)
 
@@ -69,21 +55,19 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
     const maxCost = Math.max(...cells.map(c => c.cost), 0.01)
     const totalWeeks = week + 1
 
-    // Month labels: find first cell of each month
     const seen = new Set<string>()
     const monthLabels: { week: number; label: string }[] = []
     for (const cell of cells) {
       const month = cell.date.substring(0, 7)
       if (!seen.has(month)) {
         seen.add(month)
-        monthLabels.push({ week: cell.week, label: getMonthLabel(cell.date) })
+        monthLabels.push({ week: cell.week, label: getMonthLabel(cell.date, lang) })
       }
     }
 
     const activeDays = cells.filter(c => c.cost > 0).length
-
     return { cells, weeks: totalWeeks, maxCost, monthLabels, activeDays }
-  }, [days])
+  }, [days, lang])
 
   function getCellColor(cost: number): string {
     if (cost === 0) return 'rgba(0,212,255,0.04)'
@@ -97,11 +81,7 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
 
   const CELL = 12
   const GAP = 2
-  const DOW_LABELS = ['Mon', '', 'Wed', '', 'Fri', '', '']
-
-  // Compute streaks
-  const sortedDates = days.map(d => d.date).sort()
-  const dateSet = new Set(sortedDates)
+  const DOW_LABELS = t.dowLabels
 
   return (
     <div>
@@ -117,42 +97,28 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
         })}
       </div>
 
-      {/* Grid: 7 rows (Mon–Sun) × N weeks */}
+      {/* Grid */}
       <div className="flex gap-px" style={{ gap: GAP }}>
-        {/* Day labels */}
         <div className="flex flex-col mr-1" style={{ gap: GAP }}>
           {DOW_LABELS.map((label, i) => (
-            <div
-              key={i}
-              style={{ width: 24, height: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', lineHeight: `${CELL}px` }}
-            >
+            <div key={i} style={{ width: 24, height: CELL, fontSize: 9, color: '#4A5568', fontFamily: 'monospace', lineHeight: `${CELL}px` }}>
               {label}
             </div>
           ))}
         </div>
 
-        {/* Week columns */}
         {Array.from({ length: weeks }, (_, w) => {
           const weekCells = cells.filter(c => c.week === w)
           return (
             <div key={w} className="flex flex-col" style={{ gap: GAP }}>
               {Array.from({ length: 7 }, (_, dow) => {
                 const cell = weekCells.find(c => c.dow === dow)
-                if (!cell) {
-                  return <div key={dow} style={{ width: CELL, height: CELL }} />
-                }
+                if (!cell) return <div key={dow} style={{ width: CELL, height: CELL }} />
                 return (
                   <div
                     key={dow}
                     title={cell.cost > 0 ? `${cell.date}: $${cell.cost.toFixed(2)}` : cell.date}
-                    style={{
-                      width: CELL,
-                      height: CELL,
-                      borderRadius: 2,
-                      background: getCellColor(cell.cost),
-                      cursor: cell.cost > 0 ? 'pointer' : 'default',
-                      transition: 'opacity 0.15s',
-                    }}
+                    style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(cell.cost), cursor: cell.cost > 0 ? 'pointer' : 'default', transition: 'opacity 0.15s' }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '0.75' }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.opacity = '1' }}
                   />
@@ -165,44 +131,38 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
 
       {/* Legend */}
       <div className="flex items-center gap-2 mt-2 ml-8">
-        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>Less</span>
+        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.less}</span>
         {[0, 0.2, 0.45, 0.7, 1].map((v, i) => (
           <div key={i} style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(v * maxCost * 0.99 + 0.01) }} />
         ))}
-        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>More</span>
+        <span style={{ fontSize: 9, color: '#4A5568', fontFamily: 'monospace' }}>{t.more}</span>
       </div>
 
       {/* Stats */}
       <div className="mt-4 pt-4 grid grid-cols-2 gap-x-8 gap-y-2" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Favorite model: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>
-            {favoriteModel ? favoriteModel.replace('claude-', '') : '—'}
-          </span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.favoriteModel}: </span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{favoriteModel ? favoriteModel.replace('claude-', '') : '—'}</span>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Total tokens: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>
-            {formatTokensShort(totalTokens)}
-          </span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.totalTokensStat}: </span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{formatTokensShort(totalTokens)}</span>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Sessions: </span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.sessionsLabel}: </span>
           <span className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{totalSessions}</span>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Longest streak: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{longestStreak} days</span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.longestStreak}: </span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{longestStreak} {t.days}</span>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Active days: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>
-            {activeDays}/{totalDays}
-          </span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.activeDays}: </span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#E8EDF5' }}>{activeDays}/{totalDays}</span>
         </div>
         <div>
-          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>Current streak: </span>
-          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{currentStreak} days</span>
+          <span className="text-xs font-mono" style={{ color: '#4A5568' }}>{t.currentStreak}: </span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#00D4FF' }}>{currentStreak} {t.days}</span>
         </div>
       </div>
     </div>

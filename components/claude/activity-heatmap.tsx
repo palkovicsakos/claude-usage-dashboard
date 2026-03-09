@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import type { DayStats } from '@/lib/types'
+import { T, type Lang } from '@/lib/i18n'
 
 interface ActivityHeatmapProps {
   days: DayStats[]
@@ -9,18 +10,20 @@ interface ActivityHeatmapProps {
   totalDays: number
   favoriteModel: string
   totalTokens: number
+  lang?: Lang
 }
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const DAY_LABELS = ['Mon', '', 'Wed', '', 'Fri', '', '']
 const CELL = 11
 const GAP = 2
 
-function getWeekIndex(date: Date, refSunday: Date): number {
-  return Math.floor((date.getTime() - refSunday.getTime()) / (7 * 24 * 60 * 60 * 1000))
+function getMonthLabel(dateStr: string, lang: Lang): string {
+  const locale = lang === 'hu' ? 'hu-HU' : 'en-US'
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString(locale, { month: 'short' })
 }
 
-export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens }: ActivityHeatmapProps) {
+export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel, totalTokens, lang = 'en' }: ActivityHeatmapProps) {
+  const t = T[lang]
+
   const { grid, monthLabels, longestStreak, currentStreak } = useMemo(() => {
     const WEEKS = 52
     const today = new Date()
@@ -31,7 +34,6 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
 
     const costByDate: Record<string, number> = {}
     for (const d of days) costByDate[d.date] = d.cost
-    const maxCost = Math.max(...Object.values(costByDate), 0.01)
 
     const grid: { cost: number; date: string }[][] = Array.from({ length: 7 }, () => Array(WEEKS).fill({ cost: 0, date: '' }))
     for (let w = 0; w < WEEKS; w++) {
@@ -44,36 +46,30 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
       }
     }
 
-    // Month labels
     const monthLabels: { label: string; col: number }[] = []
     let lastMonth = -1
     for (let w = 0; w < WEEKS; w++) {
       const d = new Date(startSunday)
       d.setDate(startSunday.getDate() + w * 7)
       if (d.getMonth() !== lastMonth) {
-        monthLabels.push({ label: MONTHS[d.getMonth()], col: w })
+        monthLabels.push({ label: getMonthLabel(d.toISOString().slice(0, 10), lang), col: w })
         lastMonth = d.getMonth()
       }
     }
 
-    // Streaks
     const sortedDates = days.map((d) => d.date).sort()
-    let longest = 0, current = 0, streak = 0
-    const todayStr = today.toISOString().slice(0, 10)
+    let longest = 0, streak = 0
     for (let i = 0; i < sortedDates.length; i++) {
       if (i === 0) { streak = 1; continue }
       const prev = new Date(sortedDates[i - 1])
       const curr = new Date(sortedDates[i])
-      const diff = (curr.getTime() - prev.getTime()) / 86400000
-      streak = diff === 1 ? streak + 1 : 1
+      streak = (curr.getTime() - prev.getTime()) / 86400000 === 1 ? streak + 1 : 1
       if (streak > longest) longest = streak
     }
-    if (sortedDates.length && sortedDates[sortedDates.length - 1] >= new Date(Date.now() - 86400000).toISOString().slice(0, 10)) {
-      current = streak
-    }
+    const current = sortedDates.length && sortedDates[sortedDates.length - 1] >= new Date(Date.now() - 86400000).toISOString().slice(0, 10) ? streak : 0
 
     return { grid, monthLabels, longestStreak: longest, currentStreak: current }
-  }, [days])
+  }, [days, lang])
 
   function getCellColor(cost: number): string {
     if (cost === 0) return '#F5F0EB'
@@ -98,18 +94,15 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
     <div>
       <div style={{ overflowX: 'auto', paddingBottom: 4 }}>
         <div style={{ display: 'flex', gap: 0, alignItems: 'flex-start', minWidth: totalWidth + 28 }}>
-          {/* Day labels */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: GAP, paddingTop: 18, marginRight: 6 }}>
-            {DAY_LABELS.map((label, i) => (
+            {t.dowLabels.map((label, i) => (
               <div key={i} style={{ height: CELL, display: 'flex', alignItems: 'center', fontSize: 9, color: '#B0A9A1', fontFamily: 'inherit', whiteSpace: 'nowrap', lineHeight: 1 }}>
                 {label}
               </div>
             ))}
           </div>
 
-          {/* Grid */}
           <div style={{ flex: 1 }}>
-            {/* Month labels */}
             <div style={{ display: 'flex', gap: 0, marginBottom: 4, height: 14 }}>
               {monthLabels.map(({ label, col }) => (
                 <div key={`${label}-${col}`} style={{ position: 'absolute', marginLeft: col * (CELL + GAP) + 34, fontSize: 9, color: '#B0A9A1', fontFamily: 'inherit', lineHeight: 1 }}>
@@ -118,7 +111,6 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
               ))}
             </div>
 
-            {/* Cells */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: GAP }}>
               {grid.map((row, dow) => (
                 <div key={dow} style={{ display: 'flex', gap: GAP }}>
@@ -126,13 +118,7 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
                     <div
                       key={w}
                       title={cell.date ? `${cell.date}: $${cell.cost.toFixed(2)}` : ''}
-                      style={{
-                        width: CELL, height: CELL, borderRadius: 2,
-                        background: getCellColor(cell.cost),
-                        flexShrink: 0,
-                        cursor: cell.date ? 'default' : 'default',
-                        transition: 'opacity 0.1s',
-                      }}
+                      style={{ width: CELL, height: CELL, borderRadius: 2, background: getCellColor(cell.cost), flexShrink: 0, transition: 'opacity 0.1s' }}
                     />
                   ))}
                 </div>
@@ -142,13 +128,12 @@ export function ActivityHeatmap({ days, totalSessions, totalDays, favoriteModel,
         </div>
       </div>
 
-      {/* Stats row */}
       <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3" style={{ borderTop: '1px solid #EDE9E4' }}>
         {[
-          { label: 'Favorite model', value: favoriteModel ? favoriteModel.replace('claude-', '') : '—' },
-          { label: 'Total tokens', value: formatTokensShort(totalTokens) },
-          { label: 'Active days', value: `${totalDays}` },
-          { label: 'Longest streak', value: `${longestStreak} days` },
+          { label: t.favoriteModel, value: favoriteModel ? favoriteModel.replace('claude-', '') : '—' },
+          { label: t.totalTokensStat, value: formatTokensShort(totalTokens) },
+          { label: t.activeDays, value: `${totalDays}` },
+          { label: t.longestStreak, value: `${longestStreak} ${t.days}` },
         ].map(({ label, value }) => (
           <div key={label}>
             <div className="text-xs" style={{ color: '#B0A9A1', marginBottom: 2, fontFamily: 'inherit' }}>{label}</div>

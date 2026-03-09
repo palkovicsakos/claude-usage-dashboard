@@ -5,6 +5,7 @@ import { Lora, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import Link from 'next/link'
 import type { StatsData, PeriodStats, DayStats } from '@/lib/types'
 import { formatCost, formatTokens, formatMinutes } from '@/lib/utils-stats'
+import { T, type Lang } from '@/lib/i18n'
 import { MetricCard } from '@/components/claude/metric-card'
 import { CostChart } from '@/components/claude/cost-chart'
 import { TokenChart } from '@/components/claude/token-chart'
@@ -23,7 +24,6 @@ const jetbrainsMono = JetBrains_Mono({ weight: ['400', '500', '600', '700'], sub
 type Period = 'today' | 'daily' | 'weekly' | 'monthly' | 'all_time' | 'custom'
 
 const PRESET_PERIODS: Exclude<Period, 'custom'>[] = ['today', 'daily', 'weekly', 'monthly', 'all_time']
-const PERIOD_LABELS: Record<Exclude<Period, 'custom'>, string> = { today: 'Today', daily: '7 days', weekly: '4 weeks', monthly: '6 months', all_time: 'All time' }
 
 function buildPeriodFromDays(days: DayStats[]): PeriodStats {
   return days.reduce(
@@ -51,6 +51,10 @@ export default function ClaudePage() {
   const [customEnd, setCustomEnd] = useState('')
   const [refreshing, setRefreshing] = useState(false)
   const [refreshMsg, setRefreshMsg] = useState('')
+  const [lang, setLang] = useState<Lang>('en')
+
+  const t = T[lang]
+  const PERIOD_LABELS: Record<Exclude<Period, 'custom'>, string> = { today: t.today, daily: t.daily, weekly: t.weekly, monthly: t.monthly, all_time: t.allTime }
 
   async function loadStats() {
     const res = await fetch('/api/stats', { cache: 'no-store' })
@@ -88,7 +92,7 @@ export default function ClaudePage() {
         style={{ background: '#FAF9F6', fontFamily: 'var(--font-plus-jakarta), sans-serif' }}>
         <div className="text-center">
           <div className="text-3xl mb-3" style={{ color: '#C96442' }}>⬡</div>
-          <div className="text-sm" style={{ color: '#B0A9A1' }}>Loading…</div>
+          <div className="text-sm" style={{ color: '#B0A9A1' }}>{t.loading}</div>
         </div>
       </div>
     )
@@ -121,9 +125,9 @@ export default function ClaudePage() {
             </div>
             <div>
               <h1 className="text-xl font-bold leading-tight" style={{ fontFamily: 'var(--font-lora), Georgia, serif', color: '#1A1714', letterSpacing: '-0.01em' }}>
-                Claude Stats
+                {t.claudeTitle}
               </h1>
-              <p className="text-xs" style={{ color: '#B0A9A1' }}>Usage Intelligence · Anthropic Claude Max</p>
+              <p className="text-xs" style={{ color: '#B0A9A1' }}>{t.usageIntelligence} · {t.subtitle}</p>
             </div>
           </div>
 
@@ -142,18 +146,23 @@ export default function ClaudePage() {
               onMouseEnter={(e) => { if (!refreshing) { e.currentTarget.style.borderColor = 'rgba(201,100,66,0.4)'; e.currentTarget.style.color = '#C96442' } }}
               onMouseLeave={(e) => { if (!refreshing) { e.currentTarget.style.borderColor = '#EDE9E4'; e.currentTarget.style.color = '#7C7369' } }}
             >
-              {refreshing ? '↻ Syncing…' : refreshMsg ? '✓ Updated' : '↻ Refresh'}
+              {refreshing ? t.refreshing : refreshMsg ? t.refreshed : t.refresh}
             </button>
-            {[{ href: '/jarvis', label: 'Jarvis' }, { href: '/meridian', label: 'Meridian' }].map(({ href, label }) => (
-              <Link key={href} href={href}
-                className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200"
-                style={{ background: 'rgba(0,0,0,0.04)', color: '#7C7369', border: '1px solid rgba(0,0,0,0.07)', textDecoration: 'none' }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = '#1A1714'; e.currentTarget.style.color = '#FAF9F6'; e.currentTarget.style.borderColor = '#1A1714' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.04)'; e.currentTarget.style.color = '#7C7369'; e.currentTarget.style.borderColor = 'rgba(0,0,0,0.07)' }}
-              >
-                {label}
-              </Link>
-            ))}
+            <button
+              onClick={() => setLang(l => l === 'en' ? 'hu' : 'en')}
+              className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200"
+              style={{ background: 'rgba(201,100,66,0.08)', color: '#C96442', border: '1px solid rgba(201,100,66,0.25)', cursor: 'pointer' }}
+            >
+              {lang === 'en' ? 'HU' : 'EN'}
+            </button>
+            <Link href="/jarvis"
+              className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200"
+              style={{ background: 'rgba(0,0,0,0.04)', color: '#7C7369', border: '1px solid rgba(0,0,0,0.07)', textDecoration: 'none' }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#1A1714'; e.currentTarget.style.color = '#FAF9F6'; e.currentTarget.style.borderColor = '#1A1714' }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.04)'; e.currentTarget.style.color = '#7C7369'; e.currentTarget.style.borderColor = 'rgba(0,0,0,0.07)' }}
+            >
+              ⇄ {t.jarvis.toUpperCase()}
+            </Link>
           </div>
         </div>
 
@@ -174,35 +183,35 @@ export default function ClaudePage() {
             className="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200"
             style={{ background: period === 'custom' ? '#C96442' : 'transparent', color: period === 'custom' ? '#FFFFFF' : '#7C7369', border: `1px solid ${period === 'custom' ? '#C96442' : '#EDE9E4'}` }}
           >
-            Custom
+            {t.custom}
           </button>
           {period === 'custom' && (
             <div className="flex items-center gap-2 ml-2">
               <input type="date" value={customStart} onChange={(e) => setCustomStart(e.target.value)}
                 className="text-xs px-2 py-1 rounded-lg" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', color: '#1A1714', fontFamily: 'inherit' }} />
-              <span className="text-xs" style={{ color: '#B0A9A1' }}>→</span>
+              <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.dateArrow}</span>
               <input type="date" value={customEnd} onChange={(e) => setCustomEnd(e.target.value)}
                 className="text-xs px-2 py-1 rounded-lg" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', color: '#1A1714', fontFamily: 'inherit' }} />
             </div>
           )}
           <span className="ml-auto text-xs hidden sm:inline" style={{ color: '#B0A9A1' }}>
-            {stats.meta.first_session} → {stats.meta.last_session} · {stats.meta.total_projects} projects
+            {stats.meta.first_session} {t.dateArrow} {stats.meta.last_session} · {stats.meta.total_projects} {t.projects}
           </span>
         </div>
 
         {/* ── Metric cards ── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <MetricCard title="Total Cost" value={formatCost(data.cost)} subtitle="this period" delta={data.cost_delta} />
-          <MetricCard title="Active Hours" value={formatMinutes(data.hours.active_minutes)} subtitle={`span ${formatMinutes(data.hours.span_minutes)}`} />
-          <MetricCard title="Sessions" value={String(data.sessions)} subtitle={`${stats.meta.total_projects} projects`} />
-          <MetricCard title="Total Tokens" value={formatTokens(data.tokens.total)} subtitle={`${Math.round((data.tokens.cache_read / (data.tokens.total || 1)) * 100)}% cache read`} />
+          <MetricCard title={t.totalCost} value={formatCost(data.cost)} subtitle={t.thisPeriod} delta={data.cost_delta} />
+          <MetricCard title={t.activeHours} value={formatMinutes(data.hours.active_minutes)} subtitle={`${t.span} ${formatMinutes(data.hours.span_minutes)}`} />
+          <MetricCard title={t.sessions} value={String(data.sessions)} subtitle={`${stats.meta.total_projects} ${t.projects}`} />
+          <MetricCard title={t.totalTokens} value={formatTokens(data.tokens.total)} subtitle={`${Math.round((data.tokens.cache_read / (data.tokens.total || 1)) * 100)}% ${t.cacheRead}`} />
         </div>
 
         {/* ── Row 1: Cost + Tokens ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {[
-            { title: 'Cost over time', sub: 'USD / period', chart: <CostChart days={data.days} /> },
-            { title: 'Token breakdown', sub: 'stacked', chart: <TokenChart days={data.days} /> },
+            { title: t.costOverTime, sub: t.usdPeriod, chart: <CostChart days={data.days} /> },
+            { title: t.tokenBreakdown, sub: t.stacked, chart: <TokenChart days={data.days} /> },
           ].map(({ title, sub, chart }) => (
             <div key={title} className="rounded-2xl p-5" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
               <div className="flex items-baseline justify-between mb-4">
@@ -217,8 +226,8 @@ export default function ClaudePage() {
         {/* ── Row 2: Active Hours + Sessions ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {[
-            { title: 'Active hours', sub: 'per day', chart: <HoursChart days={data.days} /> },
-            { title: 'Sessions', sub: 'per day', chart: <SessionsChart days={data.days} /> },
+            { title: t.activeHoursChart, sub: t.perDay, chart: <HoursChart days={data.days} /> },
+            { title: t.sessionsChart, sub: t.perDay, chart: <SessionsChart days={data.days} /> },
           ].map(({ title, sub, chart }) => (
             <div key={title} className="rounded-2xl p-5" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
               <div className="flex items-baseline justify-between mb-4">
@@ -233,27 +242,27 @@ export default function ClaudePage() {
         {/* ── Activity Heatmap ── */}
         <div className="rounded-2xl p-5 mb-4" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
           <div className="flex items-baseline justify-between mb-4">
-            <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>Activity</h2>
-            <span className="text-xs" style={{ color: '#B0A9A1' }}>52 weeks · cost intensity</span>
+            <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.activity}</h2>
+            <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.weeksIntensity}</span>
           </div>
-          <ActivityHeatmap days={stats.all_time.days} totalSessions={stats.all_time.sessions} totalDays={activeDaysAllTime} favoriteModel={favoriteModel} totalTokens={totalTokensAllTime} />
+          <ActivityHeatmap days={stats.all_time.days} totalSessions={stats.all_time.sessions} totalDays={activeDaysAllTime} favoriteModel={favoriteModel} totalTokens={totalTokensAllTime} lang={lang} />
         </div>
 
         {/* ── Row 3: Working Hours + Projects ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="rounded-2xl p-5" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
             <div className="flex items-baseline justify-between mb-5">
-              <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>Working hours</h2>
-              <span className="text-xs" style={{ color: '#B0A9A1' }}>active · span · idle</span>
+              <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.workingHours}</h2>
+              <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.activeSpanIdle}</span>
             </div>
-            <HoursDisplay hours={data.hours} />
+            <HoursDisplay hours={data.hours} lang={lang} />
           </div>
           <div className="rounded-2xl overflow-hidden" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
             <div className="px-5 py-4 flex items-baseline justify-between" style={{ borderBottom: '1px solid #EDE9E4' }}>
-              <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>Projects</h2>
-              <span className="text-xs" style={{ color: '#B0A9A1' }}>{stats.projects.length} total</span>
+              <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.projectsSection}</h2>
+              <span className="text-xs" style={{ color: '#B0A9A1' }}>{stats.projects.length} {t.total}</span>
             </div>
-            <ProjectTable projects={stats.projects} />
+            <ProjectTable projects={stats.projects} lang={lang} />
           </div>
         </div>
 
@@ -262,17 +271,17 @@ export default function ClaudePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             <div className="rounded-2xl p-5" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
               <div className="flex items-baseline justify-between mb-4">
-                <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>Models</h2>
-                <span className="text-xs" style={{ color: '#B0A9A1' }}>token distribution</span>
+                <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.modelsSection}</h2>
+                <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.tokenDist}</span>
               </div>
-              <ModelsBreakdown days={data.days} modelBreakdown={stats.model_breakdown} />
+              <ModelsBreakdown days={data.days} modelBreakdown={stats.model_breakdown} lang={lang} />
             </div>
             <div className="rounded-2xl p-5" style={{ background: '#FFFFFF', border: '1px solid #EDE9E4', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03)' }}>
               <div className="flex items-baseline justify-between mb-4">
-                <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>Usage</h2>
-                <span className="text-xs" style={{ color: '#B0A9A1' }}>vs peak</span>
+                <h2 className="text-base font-semibold" style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}>{t.usageSection}</h2>
+                <span className="text-xs" style={{ color: '#B0A9A1' }}>{t.vsPeak}</span>
               </div>
-              <UsageLimitsDisplay usage={stats.usage} />
+              <UsageLimitsDisplay usage={stats.usage} lang={lang} />
             </div>
           </div>
         )}
@@ -280,10 +289,10 @@ export default function ClaudePage() {
         {/* ── Footer ── */}
         <div className="flex items-center justify-between pt-5" style={{ borderTop: '1px solid #EDE9E4' }}>
           <p className="text-xs italic" style={{ color: '#B0A9A1', fontFamily: 'var(--font-lora), Georgia, serif' }}>
-            Generated by claude-stats · Updated daily at 06:00
+            {t.footer}
           </p>
           <p className="text-xs hidden sm:block" style={{ color: '#C4B5A0' }}>
-            {stats.meta.first_session} → {stats.meta.last_session}
+            {stats.meta.first_session} {t.dateArrow} {stats.meta.last_session}
           </p>
         </div>
       </div>
