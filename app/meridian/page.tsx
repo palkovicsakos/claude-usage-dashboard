@@ -18,7 +18,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
-const typedStats = stats as StatsData
+const typedStats = stats as unknown as StatsData
 
 type PeriodKey = 'daily' | 'weekly' | 'monthly' | 'all_time'
 

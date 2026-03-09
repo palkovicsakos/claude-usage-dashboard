@@ -1,13 +1,19 @@
 'use client'
 
+import { useState } from 'react'
 import type { ProjectStats } from '@/lib/types'
 import { formatCost } from '@/lib/utils-stats'
+
+const VISIBLE_COUNT = 10
 
 interface ProjectTableProps {
   projects: ProjectStats[]
 }
 
 export function ProjectTable({ projects }: ProjectTableProps) {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? projects : projects.slice(0, VISIBLE_COUNT)
+  const hasMore = projects.length > VISIBLE_COUNT
   const maxPct = Math.max(...projects.map((p) => p.pct))
 
   return (
@@ -30,7 +36,7 @@ export function ProjectTable({ projects }: ProjectTableProps) {
       </div>
 
       {/* Rows */}
-      {projects.map((project, i) => (
+      {visible.map((project, i) => (
         <div
           key={project.name}
           className="grid items-center py-2 px-1 rounded-sm transition-colors duration-150 cursor-default"
@@ -109,6 +115,31 @@ export function ProjectTable({ projects }: ProjectTableProps) {
           </div>
         </div>
       ))}
+      {/* Show more / less toggle */}
+      {hasMore && (
+        <button
+          onClick={() => setShowAll(v => !v)}
+          className="mt-2 w-full py-2 text-xs font-mono tracking-widest transition-colors duration-150"
+          style={{
+            color: '#4A5568',
+            background: 'transparent',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 2,
+            fontFamily: 'monospace',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = '#00D4FF'
+            ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(0,212,255,0.2)'
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = '#4A5568'
+            ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.06)'
+          }}
+        >
+          {showAll ? `▲ SHOW LESS` : `▼ SHOW ${projects.length - VISIBLE_COUNT} MORE`}
+        </button>
+      )}
     </div>
   )
 }

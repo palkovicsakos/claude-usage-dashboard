@@ -1,89 +1,83 @@
 {
-  "generated_at": "2026-03-08T10:25:45.651Z",
+  "generated_at": "2026-03-09T13:15:23.904Z",
   "meta": {
     "first_session": "2026-02-20",
-    "last_session": "2026-03-08",
-    "total_projects": 32
+    "last_session": "2026-03-09",
+    "total_projects": 33
   },
   "today": {
-    "cost": 73.90254555000004,
+    "cost": 12.9374904,
     "tokens": {
-      "input": 2760,
-      "output": 143929,
-      "cache_create": 10960239,
-      "cache_read": 102114781,
-      "total": 113221709
+      "input": 3648,
+      "output": 29706,
+      "cache_create": 1994482,
+      "cache_read": 16672163,
+      "total": 18699999
     },
     "hours": {
-      "active_minutes": 898,
-      "span_minutes": 1192,
-      "idle_minutes": 294
+      "active_minutes": 108,
+      "span_minutes": 1446,
+      "idle_minutes": 1338
     },
-    "sessions": 102,
+    "sessions": 41,
     "cost_delta": null,
     "days": [
       {
-        "date": "2026-03-08",
-        "cost": 73.90254555000004,
+        "date": "2026-03-09",
+        "cost": 12.9374904,
         "tokens": {
-          "input": 2760,
-          "output": 143929,
-          "cache_create": 10960239,
-          "cache_read": 102114781,
-          "total": 113221709
+          "input": 3648,
+          "output": 29706,
+          "cache_create": 1994482,
+          "cache_read": 16672163,
+          "total": 18699999
         },
         "hours": {
-          "active_minutes": 898,
-          "span_minutes": 1192,
-          "idle_minutes": 294
+          "active_minutes": 108,
+          "span_minutes": 1446,
+          "idle_minutes": 1338
         },
-        "sessions": 102,
+        "sessions": 41,
         "models": [
-          "sonnet-4-6",
-          "<synthetic>"
-        ]
+          "sonnet-4-5-20250929",
+          "sonnet-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 1410,
+            "output": 873,
+            "cache_create": 293016,
+            "cache_read": 2997214,
+            "total": 3292513
+          },
+          "claude-sonnet-4-6": {
+            "input": 2238,
+            "output": 28833,
+            "cache_create": 1701466,
+            "cache_read": 13674949,
+            "total": 15407486
+          }
+        }
       }
     ]
   },
   "daily": {
-    "cost": 931.0853331199999,
+    "cost": 721.7553307699999,
     "tokens": {
-      "input": 385008,
-      "output": 1403401,
-      "cache_create": 66795559,
-      "cache_read": 1005648652,
-      "total": 1074232620
+      "input": 231579,
+      "output": 1095358,
+      "cache_create": 63181030,
+      "cache_read": 780331540,
+      "total": 844839507
     },
     "hours": {
-      "active_minutes": 6433,
-      "span_minutes": 37837,
-      "idle_minutes": 31397
+      "active_minutes": 5724,
+      "span_minutes": 27239,
+      "idle_minutes": 21513
     },
-    "sessions": 310,
+    "sessions": 437,
     "cost_delta": null,
     "days": [
-      {
-        "date": "2026-03-01",
-        "cost": 278.57815425,
-        "tokens": {
-          "input": 181763,
-          "output": 418155,
-          "cache_create": 14331623,
-          "cache_read": 316391670,
-          "total": 331323211
-        },
-        "hours": {
-          "active_minutes": 1578,
-          "span_minutes": 14012,
-          "idle_minutes": 12432
-        },
-        "sessions": 38,
-        "models": [
-          "opus-4-6",
-          "sonnet-4-6",
-          "<synthetic>"
-        ]
-      },
       {
         "date": "2026-03-02",
         "cost": 36.02286764999999,
@@ -103,7 +97,23 @@
         "models": [
           "opus-4-6",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 32422,
+            "output": 11727,
+            "cache_create": 794561,
+            "cache_read": 10948560,
+            "total": 11787270
+          },
+          "claude-sonnet-4-6": {
+            "input": 7801,
+            "output": 10173,
+            "cache_create": 327236,
+            "cache_read": 6443403,
+            "total": 6788613
+          }
+        }
       },
       {
         "date": "2026-03-03",
@@ -125,7 +135,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 7673,
+            "output": 78441,
+            "cache_create": 4070281,
+            "cache_read": 59281261,
+            "total": 63437656
+          },
+          "claude-opus-4-6": {
+            "input": 45360,
+            "output": 123780,
+            "cache_create": 5160946,
+            "cache_read": 63023022,
+            "total": 68353108
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-04",
@@ -148,7 +181,37 @@
           "<synthetic>",
           "opus-4-6",
           "haiku-4-5-20251001"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 9659,
+            "output": 94505,
+            "cache_create": 5173132,
+            "cache_read": 65883597,
+            "total": 71160893
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 24,
+            "output": 628,
+            "cache_create": 66578,
+            "cache_read": 733689,
+            "total": 800919
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 48,
+            "output": 19,
+            "cache_create": 495122,
+            "cache_read": 198186,
+            "total": 693375
+          }
+        }
       },
       {
         "date": "2026-03-05",
@@ -168,7 +231,16 @@
         "sessions": 16,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 2520,
+            "output": 70963,
+            "cache_create": 3842262,
+            "cache_read": 50492864,
+            "total": 54408609
+          }
+        }
       },
       {
         "date": "2026-03-06",
@@ -191,7 +263,37 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-haiku-4-5-20251001": {
+            "input": 112,
+            "output": 33,
+            "cache_create": 530037,
+            "cache_read": 1009788,
+            "total": 1539970
+          },
+          "claude-sonnet-4-6": {
+            "input": 60734,
+            "output": 302420,
+            "cache_create": 13014353,
+            "cache_read": 229008293,
+            "total": 242385800
+          },
+          "claude-opus-4-6": {
+            "input": 6080,
+            "output": 59981,
+            "cache_create": 1406607,
+            "cache_read": 19031223,
+            "total": 20503891
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-07",
@@ -211,46 +313,108 @@
         "sessions": 27,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 28052,
+            "output": 88647,
+            "cache_create": 6622582,
+            "cache_read": 81088315,
+            "total": 87827596
+          }
+        }
       },
       {
         "date": "2026-03-08",
-        "cost": 73.90254555000004,
+        "cost": 130.21320704999997,
         "tokens": {
-          "input": 2760,
-          "output": 143929,
-          "cache_create": 10960239,
-          "cache_read": 102114781,
-          "total": 113221709
+          "input": 27446,
+          "output": 224335,
+          "cache_create": 19682851,
+          "cache_read": 176517176,
+          "total": 196451808
         },
         "hours": {
-          "active_minutes": 898,
-          "span_minutes": 1192,
-          "idle_minutes": 294
+          "active_minutes": 1659,
+          "span_minutes": 3160,
+          "idle_minutes": 1504
         },
-        "sessions": 102,
+        "sessions": 226,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 27446,
+            "output": 224335,
+            "cache_create": 19682851,
+            "cache_read": 176517176,
+            "total": 196451808
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
+      },
+      {
+        "date": "2026-03-09",
+        "cost": 12.9374904,
+        "tokens": {
+          "input": 3648,
+          "output": 29706,
+          "cache_create": 1994482,
+          "cache_read": 16672163,
+          "total": 18699999
+        },
+        "hours": {
+          "active_minutes": 108,
+          "span_minutes": 1446,
+          "idle_minutes": 1338
+        },
+        "sessions": 41,
+        "models": [
+          "sonnet-4-5-20250929",
+          "sonnet-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 1410,
+            "output": 873,
+            "cache_create": 293016,
+            "cache_read": 2997214,
+            "total": 3292513
+          },
+          "claude-sonnet-4-6": {
+            "input": 2238,
+            "output": 28833,
+            "cache_create": 1701466,
+            "cache_read": 13674949,
+            "total": 15407486
+          }
+        }
       }
     ]
   },
   "weekly": {
-    "cost": 2707.5963052699994,
+    "cost": 2776.8444571699997,
     "tokens": {
-      "input": 674213,
-      "output": 1991639,
-      "cache_create": 108058778,
-      "cache_read": 2094734017,
-      "total": 2205458647
+      "input": 702547,
+      "output": 2101751,
+      "cache_create": 118775872,
+      "cache_read": 2185808575,
+      "total": 2307388745
     },
     "hours": {
-      "active_minutes": 10672,
-      "span_minutes": 63303,
-      "idle_minutes": 52635
+      "active_minutes": 11541,
+      "span_minutes": 66717,
+      "idle_minutes": 55183
     },
-    "sessions": 426,
+    "sessions": 591,
     "cost_delta": null,
     "days": [
       {
@@ -272,7 +436,23 @@
         "models": [
           "<synthetic>",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 4477,
+            "output": 6815,
+            "cache_create": 2448297,
+            "cache_read": 73454323,
+            "total": 75913912
+          }
+        }
       },
       {
         "date": "2026-02-21",
@@ -293,7 +473,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 36696,
+            "output": 20345,
+            "cache_create": 4970496,
+            "cache_read": 175231209,
+            "total": 180258746
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-22",
@@ -314,7 +510,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 24565,
+            "output": 17228,
+            "cache_create": 2250533,
+            "cache_read": 147304981,
+            "total": 149597307
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-23",
@@ -335,7 +547,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 569,
+            "output": 5212,
+            "cache_create": 1460999,
+            "cache_read": 47580568,
+            "total": 49047348
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-24",
@@ -357,7 +585,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 6065,
+            "output": 2357,
+            "cache_create": 1616314,
+            "cache_read": 27748395,
+            "total": 29373131
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 1345,
+            "output": 1904,
+            "cache_create": 1212261,
+            "cache_read": 24042227,
+            "total": 25257737
+          }
+        }
       },
       {
         "date": "2026-02-25",
@@ -379,7 +630,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 3923,
+            "output": 6666,
+            "cache_create": 2558785,
+            "cache_read": 68939281,
+            "total": 71508655
+          },
+          "claude-opus-4-6": {
+            "input": 2651,
+            "output": 6077,
+            "cache_create": 1806993,
+            "cache_read": 65887807,
+            "total": 67703528
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-26",
@@ -401,7 +675,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 9507,
+            "output": 10820,
+            "cache_create": 2259896,
+            "cache_read": 61074244,
+            "total": 63354467
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 3123,
+            "output": 74333,
+            "cache_create": 2456239,
+            "cache_read": 55850236,
+            "total": 58383931
+          }
+        }
       },
       {
         "date": "2026-02-27",
@@ -422,7 +719,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 61118,
+            "output": 149127,
+            "cache_create": 4611353,
+            "cache_read": 93750672,
+            "total": 98572270
+          },
+          "claude-opus-4-6": {
+            "input": 67965,
+            "output": 68470,
+            "cache_create": 3411746,
+            "cache_read": 86814254,
+            "total": 90362435
+          }
+        }
       },
       {
         "date": "2026-02-28",
@@ -443,7 +756,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 38758,
+            "output": 128096,
+            "cache_create": 5426213,
+            "cache_read": 101066607,
+            "total": 106659674
+          },
+          "claude-opus-4-6": {
+            "input": 28443,
+            "output": 90788,
+            "cache_create": 4773094,
+            "cache_read": 60340561,
+            "total": 65232886
+          }
+        }
       },
       {
         "date": "2026-03-01",
@@ -465,7 +794,30 @@
           "opus-4-6",
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 52656,
+            "output": 85647,
+            "cache_create": 2976771,
+            "cache_read": 60564330,
+            "total": 63679404
+          },
+          "claude-sonnet-4-6": {
+            "input": 129107,
+            "output": 332508,
+            "cache_create": 11354852,
+            "cache_read": 255827340,
+            "total": 267643807
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-02",
@@ -486,7 +838,23 @@
         "models": [
           "opus-4-6",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 32422,
+            "output": 11727,
+            "cache_create": 794561,
+            "cache_read": 10948560,
+            "total": 11787270
+          },
+          "claude-sonnet-4-6": {
+            "input": 7801,
+            "output": 10173,
+            "cache_create": 327236,
+            "cache_read": 6443403,
+            "total": 6788613
+          }
+        }
       },
       {
         "date": "2026-03-03",
@@ -508,7 +876,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 7673,
+            "output": 78441,
+            "cache_create": 4070281,
+            "cache_read": 59281261,
+            "total": 63437656
+          },
+          "claude-opus-4-6": {
+            "input": 45360,
+            "output": 123780,
+            "cache_create": 5160946,
+            "cache_read": 63023022,
+            "total": 68353108
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-04",
@@ -531,7 +922,37 @@
           "<synthetic>",
           "opus-4-6",
           "haiku-4-5-20251001"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 9659,
+            "output": 94505,
+            "cache_create": 5173132,
+            "cache_read": 65883597,
+            "total": 71160893
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 24,
+            "output": 628,
+            "cache_create": 66578,
+            "cache_read": 733689,
+            "total": 800919
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 48,
+            "output": 19,
+            "cache_create": 495122,
+            "cache_read": 198186,
+            "total": 693375
+          }
+        }
       },
       {
         "date": "2026-03-05",
@@ -551,7 +972,16 @@
         "sessions": 16,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 2520,
+            "output": 70963,
+            "cache_create": 3842262,
+            "cache_read": 50492864,
+            "total": 54408609
+          }
+        }
       },
       {
         "date": "2026-03-06",
@@ -574,7 +1004,37 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-haiku-4-5-20251001": {
+            "input": 112,
+            "output": 33,
+            "cache_create": 530037,
+            "cache_read": 1009788,
+            "total": 1539970
+          },
+          "claude-sonnet-4-6": {
+            "input": 60734,
+            "output": 302420,
+            "cache_create": 13014353,
+            "cache_read": 229008293,
+            "total": 242385800
+          },
+          "claude-opus-4-6": {
+            "input": 6080,
+            "output": 59981,
+            "cache_create": 1406607,
+            "cache_read": 19031223,
+            "total": 20503891
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-07",
@@ -594,46 +1054,108 @@
         "sessions": 27,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 28052,
+            "output": 88647,
+            "cache_create": 6622582,
+            "cache_read": 81088315,
+            "total": 87827596
+          }
+        }
       },
       {
         "date": "2026-03-08",
-        "cost": 73.90254555000004,
+        "cost": 130.21320704999997,
         "tokens": {
-          "input": 2760,
-          "output": 143929,
-          "cache_create": 10960239,
-          "cache_read": 102114781,
-          "total": 113221709
+          "input": 27446,
+          "output": 224335,
+          "cache_create": 19682851,
+          "cache_read": 176517176,
+          "total": 196451808
         },
         "hours": {
-          "active_minutes": 898,
-          "span_minutes": 1192,
-          "idle_minutes": 294
+          "active_minutes": 1659,
+          "span_minutes": 3160,
+          "idle_minutes": 1504
         },
-        "sessions": 102,
+        "sessions": 226,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 27446,
+            "output": 224335,
+            "cache_create": 19682851,
+            "cache_read": 176517176,
+            "total": 196451808
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
+      },
+      {
+        "date": "2026-03-09",
+        "cost": 12.9374904,
+        "tokens": {
+          "input": 3648,
+          "output": 29706,
+          "cache_create": 1994482,
+          "cache_read": 16672163,
+          "total": 18699999
+        },
+        "hours": {
+          "active_minutes": 108,
+          "span_minutes": 1446,
+          "idle_minutes": 1338
+        },
+        "sessions": 41,
+        "models": [
+          "sonnet-4-5-20250929",
+          "sonnet-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 1410,
+            "output": 873,
+            "cache_create": 293016,
+            "cache_read": 2997214,
+            "total": 3292513
+          },
+          "claude-sonnet-4-6": {
+            "input": 2238,
+            "output": 28833,
+            "cache_create": 1701466,
+            "cache_read": 13674949,
+            "total": 15407486
+          }
+        }
       }
     ]
   },
   "monthly": {
-    "cost": 2707.5963052699994,
+    "cost": 2776.8444571699997,
     "tokens": {
-      "input": 674213,
-      "output": 1991639,
-      "cache_create": 108058778,
-      "cache_read": 2094734017,
-      "total": 2205458647
+      "input": 702547,
+      "output": 2101751,
+      "cache_create": 118775872,
+      "cache_read": 2185808575,
+      "total": 2307388745
     },
     "hours": {
-      "active_minutes": 10672,
-      "span_minutes": 63303,
-      "idle_minutes": 52635
+      "active_minutes": 11541,
+      "span_minutes": 66717,
+      "idle_minutes": 55183
     },
-    "sessions": 426,
+    "sessions": 591,
     "cost_delta": null,
     "days": [
       {
@@ -655,7 +1177,23 @@
         "models": [
           "<synthetic>",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 4477,
+            "output": 6815,
+            "cache_create": 2448297,
+            "cache_read": 73454323,
+            "total": 75913912
+          }
+        }
       },
       {
         "date": "2026-02-21",
@@ -676,7 +1214,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 36696,
+            "output": 20345,
+            "cache_create": 4970496,
+            "cache_read": 175231209,
+            "total": 180258746
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-22",
@@ -697,7 +1251,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 24565,
+            "output": 17228,
+            "cache_create": 2250533,
+            "cache_read": 147304981,
+            "total": 149597307
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-23",
@@ -718,7 +1288,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 569,
+            "output": 5212,
+            "cache_create": 1460999,
+            "cache_read": 47580568,
+            "total": 49047348
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-24",
@@ -740,7 +1326,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 6065,
+            "output": 2357,
+            "cache_create": 1616314,
+            "cache_read": 27748395,
+            "total": 29373131
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 1345,
+            "output": 1904,
+            "cache_create": 1212261,
+            "cache_read": 24042227,
+            "total": 25257737
+          }
+        }
       },
       {
         "date": "2026-02-25",
@@ -762,7 +1371,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 3923,
+            "output": 6666,
+            "cache_create": 2558785,
+            "cache_read": 68939281,
+            "total": 71508655
+          },
+          "claude-opus-4-6": {
+            "input": 2651,
+            "output": 6077,
+            "cache_create": 1806993,
+            "cache_read": 65887807,
+            "total": 67703528
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-26",
@@ -784,7 +1416,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 9507,
+            "output": 10820,
+            "cache_create": 2259896,
+            "cache_read": 61074244,
+            "total": 63354467
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 3123,
+            "output": 74333,
+            "cache_create": 2456239,
+            "cache_read": 55850236,
+            "total": 58383931
+          }
+        }
       },
       {
         "date": "2026-02-27",
@@ -805,7 +1460,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 61118,
+            "output": 149127,
+            "cache_create": 4611353,
+            "cache_read": 93750672,
+            "total": 98572270
+          },
+          "claude-opus-4-6": {
+            "input": 67965,
+            "output": 68470,
+            "cache_create": 3411746,
+            "cache_read": 86814254,
+            "total": 90362435
+          }
+        }
       },
       {
         "date": "2026-02-28",
@@ -826,7 +1497,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 38758,
+            "output": 128096,
+            "cache_create": 5426213,
+            "cache_read": 101066607,
+            "total": 106659674
+          },
+          "claude-opus-4-6": {
+            "input": 28443,
+            "output": 90788,
+            "cache_create": 4773094,
+            "cache_read": 60340561,
+            "total": 65232886
+          }
+        }
       },
       {
         "date": "2026-03-01",
@@ -848,7 +1535,30 @@
           "opus-4-6",
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 52656,
+            "output": 85647,
+            "cache_create": 2976771,
+            "cache_read": 60564330,
+            "total": 63679404
+          },
+          "claude-sonnet-4-6": {
+            "input": 129107,
+            "output": 332508,
+            "cache_create": 11354852,
+            "cache_read": 255827340,
+            "total": 267643807
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-02",
@@ -869,7 +1579,23 @@
         "models": [
           "opus-4-6",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 32422,
+            "output": 11727,
+            "cache_create": 794561,
+            "cache_read": 10948560,
+            "total": 11787270
+          },
+          "claude-sonnet-4-6": {
+            "input": 7801,
+            "output": 10173,
+            "cache_create": 327236,
+            "cache_read": 6443403,
+            "total": 6788613
+          }
+        }
       },
       {
         "date": "2026-03-03",
@@ -891,7 +1617,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 7673,
+            "output": 78441,
+            "cache_create": 4070281,
+            "cache_read": 59281261,
+            "total": 63437656
+          },
+          "claude-opus-4-6": {
+            "input": 45360,
+            "output": 123780,
+            "cache_create": 5160946,
+            "cache_read": 63023022,
+            "total": 68353108
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-04",
@@ -914,7 +1663,37 @@
           "<synthetic>",
           "opus-4-6",
           "haiku-4-5-20251001"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 9659,
+            "output": 94505,
+            "cache_create": 5173132,
+            "cache_read": 65883597,
+            "total": 71160893
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 24,
+            "output": 628,
+            "cache_create": 66578,
+            "cache_read": 733689,
+            "total": 800919
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 48,
+            "output": 19,
+            "cache_create": 495122,
+            "cache_read": 198186,
+            "total": 693375
+          }
+        }
       },
       {
         "date": "2026-03-05",
@@ -934,7 +1713,16 @@
         "sessions": 16,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 2520,
+            "output": 70963,
+            "cache_create": 3842262,
+            "cache_read": 50492864,
+            "total": 54408609
+          }
+        }
       },
       {
         "date": "2026-03-06",
@@ -957,7 +1745,37 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-haiku-4-5-20251001": {
+            "input": 112,
+            "output": 33,
+            "cache_create": 530037,
+            "cache_read": 1009788,
+            "total": 1539970
+          },
+          "claude-sonnet-4-6": {
+            "input": 60734,
+            "output": 302420,
+            "cache_create": 13014353,
+            "cache_read": 229008293,
+            "total": 242385800
+          },
+          "claude-opus-4-6": {
+            "input": 6080,
+            "output": 59981,
+            "cache_create": 1406607,
+            "cache_read": 19031223,
+            "total": 20503891
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-07",
@@ -977,46 +1795,108 @@
         "sessions": 27,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 28052,
+            "output": 88647,
+            "cache_create": 6622582,
+            "cache_read": 81088315,
+            "total": 87827596
+          }
+        }
       },
       {
         "date": "2026-03-08",
-        "cost": 73.90254555000004,
+        "cost": 130.21320704999997,
         "tokens": {
-          "input": 2760,
-          "output": 143929,
-          "cache_create": 10960239,
-          "cache_read": 102114781,
-          "total": 113221709
+          "input": 27446,
+          "output": 224335,
+          "cache_create": 19682851,
+          "cache_read": 176517176,
+          "total": 196451808
         },
         "hours": {
-          "active_minutes": 898,
-          "span_minutes": 1192,
-          "idle_minutes": 294
+          "active_minutes": 1659,
+          "span_minutes": 3160,
+          "idle_minutes": 1504
         },
-        "sessions": 102,
+        "sessions": 226,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 27446,
+            "output": 224335,
+            "cache_create": 19682851,
+            "cache_read": 176517176,
+            "total": 196451808
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
+      },
+      {
+        "date": "2026-03-09",
+        "cost": 12.9374904,
+        "tokens": {
+          "input": 3648,
+          "output": 29706,
+          "cache_create": 1994482,
+          "cache_read": 16672163,
+          "total": 18699999
+        },
+        "hours": {
+          "active_minutes": 108,
+          "span_minutes": 1446,
+          "idle_minutes": 1338
+        },
+        "sessions": 41,
+        "models": [
+          "sonnet-4-5-20250929",
+          "sonnet-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 1410,
+            "output": 873,
+            "cache_create": 293016,
+            "cache_read": 2997214,
+            "total": 3292513
+          },
+          "claude-sonnet-4-6": {
+            "input": 2238,
+            "output": 28833,
+            "cache_create": 1701466,
+            "cache_read": 13674949,
+            "total": 15407486
+          }
+        }
       }
     ]
   },
   "all_time": {
-    "cost": 2707.5963052699994,
+    "cost": 2776.8444571699997,
     "tokens": {
-      "input": 674213,
-      "output": 1991639,
-      "cache_create": 108058778,
-      "cache_read": 2094734017,
-      "total": 2205458647
+      "input": 702547,
+      "output": 2101751,
+      "cache_create": 118775872,
+      "cache_read": 2185808575,
+      "total": 2307388745
     },
     "hours": {
-      "active_minutes": 10672,
-      "span_minutes": 63303,
-      "idle_minutes": 52635
+      "active_minutes": 11541,
+      "span_minutes": 66717,
+      "idle_minutes": 55183
     },
-    "sessions": 426,
+    "sessions": 591,
     "cost_delta": null,
     "days": [
       {
@@ -1038,7 +1918,23 @@
         "models": [
           "<synthetic>",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 4477,
+            "output": 6815,
+            "cache_create": 2448297,
+            "cache_read": 73454323,
+            "total": 75913912
+          }
+        }
       },
       {
         "date": "2026-02-21",
@@ -1059,7 +1955,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 36696,
+            "output": 20345,
+            "cache_create": 4970496,
+            "cache_read": 175231209,
+            "total": 180258746
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-22",
@@ -1080,7 +1992,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 24565,
+            "output": 17228,
+            "cache_create": 2250533,
+            "cache_read": 147304981,
+            "total": 149597307
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-23",
@@ -1101,7 +2029,23 @@
         "models": [
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 569,
+            "output": 5212,
+            "cache_create": 1460999,
+            "cache_read": 47580568,
+            "total": 49047348
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-24",
@@ -1123,7 +2067,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 6065,
+            "output": 2357,
+            "cache_create": 1616314,
+            "cache_read": 27748395,
+            "total": 29373131
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 1345,
+            "output": 1904,
+            "cache_create": 1212261,
+            "cache_read": 24042227,
+            "total": 25257737
+          }
+        }
       },
       {
         "date": "2026-02-25",
@@ -1145,7 +2112,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 3923,
+            "output": 6666,
+            "cache_create": 2558785,
+            "cache_read": 68939281,
+            "total": 71508655
+          },
+          "claude-opus-4-6": {
+            "input": 2651,
+            "output": 6077,
+            "cache_create": 1806993,
+            "cache_read": 65887807,
+            "total": 67703528
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-02-26",
@@ -1167,7 +2157,30 @@
           "opus-4-6",
           "<synthetic>",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 9507,
+            "output": 10820,
+            "cache_create": 2259896,
+            "cache_read": 61074244,
+            "total": 63354467
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 3123,
+            "output": 74333,
+            "cache_create": 2456239,
+            "cache_read": 55850236,
+            "total": 58383931
+          }
+        }
       },
       {
         "date": "2026-02-27",
@@ -1188,7 +2201,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 61118,
+            "output": 149127,
+            "cache_create": 4611353,
+            "cache_read": 93750672,
+            "total": 98572270
+          },
+          "claude-opus-4-6": {
+            "input": 67965,
+            "output": 68470,
+            "cache_create": 3411746,
+            "cache_read": 86814254,
+            "total": 90362435
+          }
+        }
       },
       {
         "date": "2026-02-28",
@@ -1209,7 +2238,23 @@
         "models": [
           "sonnet-4-6",
           "opus-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 38758,
+            "output": 128096,
+            "cache_create": 5426213,
+            "cache_read": 101066607,
+            "total": 106659674
+          },
+          "claude-opus-4-6": {
+            "input": 28443,
+            "output": 90788,
+            "cache_create": 4773094,
+            "cache_read": 60340561,
+            "total": 65232886
+          }
+        }
       },
       {
         "date": "2026-03-01",
@@ -1231,7 +2276,30 @@
           "opus-4-6",
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 52656,
+            "output": 85647,
+            "cache_create": 2976771,
+            "cache_read": 60564330,
+            "total": 63679404
+          },
+          "claude-sonnet-4-6": {
+            "input": 129107,
+            "output": 332508,
+            "cache_create": 11354852,
+            "cache_read": 255827340,
+            "total": 267643807
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-02",
@@ -1252,7 +2320,23 @@
         "models": [
           "opus-4-6",
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-opus-4-6": {
+            "input": 32422,
+            "output": 11727,
+            "cache_create": 794561,
+            "cache_read": 10948560,
+            "total": 11787270
+          },
+          "claude-sonnet-4-6": {
+            "input": 7801,
+            "output": 10173,
+            "cache_create": 327236,
+            "cache_read": 6443403,
+            "total": 6788613
+          }
+        }
       },
       {
         "date": "2026-03-03",
@@ -1274,7 +2358,30 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 7673,
+            "output": 78441,
+            "cache_create": 4070281,
+            "cache_read": 59281261,
+            "total": 63437656
+          },
+          "claude-opus-4-6": {
+            "input": 45360,
+            "output": 123780,
+            "cache_create": 5160946,
+            "cache_read": 63023022,
+            "total": 68353108
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-04",
@@ -1297,7 +2404,37 @@
           "<synthetic>",
           "opus-4-6",
           "haiku-4-5-20251001"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 9659,
+            "output": 94505,
+            "cache_create": 5173132,
+            "cache_read": 65883597,
+            "total": 71160893
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 24,
+            "output": 628,
+            "cache_create": 66578,
+            "cache_read": 733689,
+            "total": 800919
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 48,
+            "output": 19,
+            "cache_create": 495122,
+            "cache_read": 198186,
+            "total": 693375
+          }
+        }
       },
       {
         "date": "2026-03-05",
@@ -1317,7 +2454,16 @@
         "sessions": 16,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 2520,
+            "output": 70963,
+            "cache_create": 3842262,
+            "cache_read": 50492864,
+            "total": 54408609
+          }
+        }
       },
       {
         "date": "2026-03-06",
@@ -1340,7 +2486,37 @@
           "sonnet-4-6",
           "opus-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-haiku-4-5-20251001": {
+            "input": 112,
+            "output": 33,
+            "cache_create": 530037,
+            "cache_read": 1009788,
+            "total": 1539970
+          },
+          "claude-sonnet-4-6": {
+            "input": 60734,
+            "output": 302420,
+            "cache_create": 13014353,
+            "cache_read": 229008293,
+            "total": 242385800
+          },
+          "claude-opus-4-6": {
+            "input": 6080,
+            "output": 59981,
+            "cache_create": 1406607,
+            "cache_read": 19031223,
+            "total": 20503891
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
       },
       {
         "date": "2026-03-07",
@@ -1360,46 +2536,108 @@
         "sessions": 27,
         "models": [
           "sonnet-4-6"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 28052,
+            "output": 88647,
+            "cache_create": 6622582,
+            "cache_read": 81088315,
+            "total": 87827596
+          }
+        }
       },
       {
         "date": "2026-03-08",
-        "cost": 73.90254555000004,
+        "cost": 130.21320704999997,
         "tokens": {
-          "input": 2760,
-          "output": 143929,
-          "cache_create": 10960239,
-          "cache_read": 102114781,
-          "total": 113221709
+          "input": 27446,
+          "output": 224335,
+          "cache_create": 19682851,
+          "cache_read": 176517176,
+          "total": 196451808
         },
         "hours": {
-          "active_minutes": 898,
-          "span_minutes": 1192,
-          "idle_minutes": 294
+          "active_minutes": 1659,
+          "span_minutes": 3160,
+          "idle_minutes": 1504
         },
-        "sessions": 102,
+        "sessions": 226,
         "models": [
           "sonnet-4-6",
           "<synthetic>"
-        ]
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-6": {
+            "input": 27446,
+            "output": 224335,
+            "cache_create": 19682851,
+            "cache_read": 176517176,
+            "total": 196451808
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          }
+        }
+      },
+      {
+        "date": "2026-03-09",
+        "cost": 12.9374904,
+        "tokens": {
+          "input": 3648,
+          "output": 29706,
+          "cache_create": 1994482,
+          "cache_read": 16672163,
+          "total": 18699999
+        },
+        "hours": {
+          "active_minutes": 108,
+          "span_minutes": 1446,
+          "idle_minutes": 1338
+        },
+        "sessions": 41,
+        "models": [
+          "sonnet-4-5-20250929",
+          "sonnet-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 1410,
+            "output": 873,
+            "cache_create": 293016,
+            "cache_read": 2997214,
+            "total": 3292513
+          },
+          "claude-sonnet-4-6": {
+            "input": 2238,
+            "output": 28833,
+            "cache_create": 1701466,
+            "cache_read": 13674949,
+            "total": 15407486
+          }
+        }
       }
     ]
   },
   "projects": [
     {
       "name": "claude/workspace",
-      "cost": 1444.07,
-      "active_hours": 137.4,
-      "sessions": 291,
-      "pct": 53.3,
-      "last_active": "2026-03-08"
+      "cost": 1504.18,
+      "active_hours": 150,
+      "sessions": 315,
+      "pct": 54.2,
+      "last_active": "2026-03-09"
     },
     {
       "name": "Agentic/Workflows/aiaudit/call/database",
       "cost": 401.92,
       "active_hours": 11.1,
       "sessions": 2,
-      "pct": 14.8,
+      "pct": 14.5,
       "last_active": "2026-02-22"
     },
     {
@@ -1407,7 +2645,7 @@
       "cost": 161.43,
       "active_hours": 5.3,
       "sessions": 3,
-      "pct": 6,
+      "pct": 5.8,
       "last_active": "2026-02-25"
     },
     {
@@ -1415,7 +2653,7 @@
       "cost": 160.22,
       "active_hours": 2.5,
       "sessions": 1,
-      "pct": 5.9,
+      "pct": 5.8,
       "last_active": "2026-02-21"
     },
     {
@@ -1431,7 +2669,7 @@
       "cost": 67.01,
       "active_hours": 1.6,
       "sessions": 1,
-      "pct": 2.5,
+      "pct": 2.4,
       "last_active": "2026-02-21"
     },
     {
@@ -1439,7 +2677,7 @@
       "cost": 56.28,
       "active_hours": 1.3,
       "sessions": 1,
-      "pct": 2.1,
+      "pct": 2,
       "last_active": "2026-02-23"
     },
     {
@@ -1447,7 +2685,7 @@
       "cost": 42.89,
       "active_hours": 1.4,
       "sessions": 2,
-      "pct": 1.6,
+      "pct": 1.5,
       "last_active": "2026-02-23"
     },
     {
@@ -1455,7 +2693,7 @@
       "cost": 39.61,
       "active_hours": 0.9,
       "sessions": 1,
-      "pct": 1.5,
+      "pct": 1.4,
       "last_active": "2026-02-26"
     },
     {
@@ -1471,7 +2709,7 @@
       "cost": 34.27,
       "active_hours": 0.9,
       "sessions": 1,
-      "pct": 1.3,
+      "pct": 1.2,
       "last_active": "2026-02-21"
     },
     {
@@ -1505,6 +2743,14 @@
       "sessions": 5,
       "pct": 0.6,
       "last_active": "2026-02-21"
+    },
+    {
+      "name": "claude/workspace/1/Projects/context/os/p",
+      "cost": 12.73,
+      "active_hours": 2.3,
+      "sessions": 176,
+      "pct": 0.5,
+      "last_active": "2026-03-08"
     },
     {
       "name": "Agentic/Workflows/aifelmeres/2025/versio",
@@ -1563,14 +2809,6 @@
       "last_active": "2026-02-21"
     },
     {
-      "name": "claude/workspace/1/Projects/context/os/p",
-      "cost": 6.31,
-      "active_hours": 1,
-      "sessions": 74,
-      "pct": 0.2,
-      "last_active": "2026-03-08"
-    },
-    {
       "name": "Agentic/Workflows//archive/aifelmeres/20",
       "cost": 5.32,
       "active_hours": 0.4,
@@ -1595,6 +2833,14 @@
       "last_active": "2026-02-25"
     },
     {
+      "name": "/Users/palkovicsakos//claude/mem/observe",
+      "cost": 2.02,
+      "active_hours": 0.4,
+      "sessions": 33,
+      "pct": 0.1,
+      "last_active": "2026-03-09"
+    },
+    {
       "name": "Agentic/Workflows/ai/website/build/test/",
       "cost": 0.96,
       "active_hours": 0,
@@ -1603,18 +2849,18 @@
       "last_active": "2026-02-25"
     },
     {
+      "name": "/Users/palkovicsakos",
+      "cost": 0.93,
+      "active_hours": 0.2,
+      "sessions": 6,
+      "pct": 0,
+      "last_active": "2026-03-08"
+    },
+    {
       "name": "claude/workspace/1/Projects/jarvis/os",
       "cost": 0.65,
       "active_hours": 0,
       "sessions": 8,
-      "pct": 0,
-      "last_active": "2026-03-05"
-    },
-    {
-      "name": "/Users/palkovicsakos",
-      "cost": 0.53,
-      "active_hours": 0,
-      "sessions": 4,
       "pct": 0,
       "last_active": "2026-03-05"
     },
@@ -1627,20 +2873,81 @@
       "last_active": "2026-03-08"
     },
     {
+      "name": "/private/tmp",
+      "cost": 0.36,
+      "active_hours": 0.1,
+      "sessions": 8,
+      "pct": 0,
+      "last_active": "2026-03-08"
+    },
+    {
       "name": "/Users/palkovicsakos//claude",
       "cost": 0.07,
       "active_hours": 0,
       "sessions": 1,
       "pct": 0,
       "last_active": "2026-02-27"
-    },
-    {
-      "name": "/private/tmp",
-      "cost": 0.06,
-      "active_hours": 0,
-      "sessions": 4,
-      "pct": 0,
-      "last_active": "2026-03-08"
     }
-  ]
+  ],
+  "model_breakdown": {
+    "claude-sonnet-4-6": {
+      "input": 383497,
+      "output": 1590951,
+      "cache_create": 82053866,
+      "cache_read": 1281866221,
+      "total": 1365894535,
+      "cost": 717.28,
+      "pct": 59.2
+    },
+    "claude-sonnet-4-5-20250929": {
+      "input": 1410,
+      "output": 873,
+      "cache_create": 293016,
+      "cache_read": 2997214,
+      "total": 3292513,
+      "cost": 2.02,
+      "pct": 0.1
+    },
+    "claude-opus-4-6": {
+      "input": 317480,
+      "output": 509875,
+      "cache_create": 35403831,
+      "cache_read": 899737166,
+      "total": 935968352,
+      "cost": 2056.43,
+      "pct": 40.6
+    },
+    "<synthetic>": {
+      "input": 0,
+      "output": 0,
+      "cache_create": 0,
+      "cache_read": 0,
+      "total": 0,
+      "cost": 0,
+      "pct": 0
+    },
+    "claude-haiku-4-5-20251001": {
+      "input": 160,
+      "output": 52,
+      "cache_create": 1025159,
+      "cache_read": 1207974,
+      "total": 2233345,
+      "cost": 1.12,
+      "pct": 0.1
+    }
+  },
+  "usage": {
+    "session_tokens": 16553355,
+    "session_pct": 100,
+    "week_tokens": 215151807,
+    "week_pct": 100,
+    "week_sonnet_tokens": 215151807,
+    "week_sonnet_pct": 100,
+    "week_reset": "Mar 16, 08:00 AM GMT+1",
+    "limits": {
+      "session_tokens": 500000,
+      "week_all_tokens": 3000000,
+      "week_sonnet_tokens": 2000000
+    }
+  }
 }

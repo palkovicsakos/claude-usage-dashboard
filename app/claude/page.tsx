@@ -40,7 +40,7 @@ const PERIODS: { key: Period; label: string }[] = [
   { key: 'all_time', label: 'All Time' },
 ]
 
-const stats = statsData as StatsData
+const stats = statsData as unknown as StatsData
 
 export default function ClaudePage() {
   const [period, setPeriod] = useState<Period>('daily')

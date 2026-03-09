@@ -12,6 +12,16 @@ export interface HoursBreakdown {
   idle_minutes: number
 }
 
+export interface ModelTokens {
+  input: number
+  output: number
+  cache_create: number
+  cache_read: number
+  total: number
+  pct?: number
+  cost?: number
+}
+
 export interface DayStats {
   date: string // YYYY-MM-DD
   cost: number
@@ -19,6 +29,7 @@ export interface DayStats {
   hours: HoursBreakdown
   sessions: number
   models: string[]
+  model_tokens?: Record<string, ModelTokens>
 }
 
 export interface ProjectStats {
@@ -39,6 +50,21 @@ export interface PeriodStats {
   days: DayStats[]
 }
 
+export interface UsageLimits {
+  session_tokens: number
+  session_pct: number
+  week_tokens: number
+  week_pct: number
+  week_sonnet_tokens: number
+  week_sonnet_pct: number
+  week_reset: string
+  limits: {
+    session_tokens: number
+    week_all_tokens: number
+    week_sonnet_tokens: number
+  }
+}
+
 export interface StatsData {
   generated_at: string
   today: PeriodStats   // current day
@@ -47,6 +73,8 @@ export interface StatsData {
   monthly: PeriodStats // last 6 months by month
   all_time: PeriodStats
   projects: ProjectStats[]
+  model_breakdown: Record<string, ModelTokens>
+  usage: UsageLimits
   meta: {
     first_session: string
     last_session: string

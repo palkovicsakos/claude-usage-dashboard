@@ -17,6 +17,13 @@ const PROJECTS_DIR = path.join(CLAUDE_DIR, 'projects')
 const OUT_FILE = path.join(__dirname, '..', 'data', 'stats.json')
 const IDLE_THRESHOLD_MS = 5 * 60 * 1000 // 5 minutes
 
+// ── Plan limits for /usage section ───────────────────────────────────────────
+const PLAN_LIMITS = {
+  session_tokens: 500_000,        // per 5h rolling window (approx Claude Max)
+  week_all_tokens: 3_000_000,     // per week, all models
+  week_sonnet_tokens: 2_000_000,  // per week, Sonnet only
+}
+
 // ── Model pricing (USD per million tokens) ──────────────────────────────────
 const MODEL_PRICING = {
   'claude-opus-4-6':    { input: 15,   output: 75,   cache_write: 18.75, cache_read: 1.5  },
@@ -67,6 +74,7 @@ function parseAllSessions() {
       let sessionCost = 0
       let sessionTokens = { input: 0, output: 0, cache_create: 0, cache_read: 0, total: 0 }
       let sessionModels = new Set()
+      let sessionModelTokens = {}  // { model: { input, output, cache_create, cache_read } }
       let timestamps = []
       const seenMsgIds = new Set()
 
@@ -87,7 +95,16 @@ function parseAllSessions() {
             sessionTokens.cache_create += usage.cache_creation_input_tokens || 0
             sessionTokens.cache_read += usage.cache_read_input_tokens || 0
 
-            if (model) sessionModels.add(model.replace('claude-', ''))
+            if (model) {
+              sessionModels.add(model.replace('claude-', ''))
+              if (!sessionModelTokens[model]) {
+                sessionModelTokens[model] = { input: 0, output: 0, cache_create: 0, cache_read: 0 }
+              }
+              sessionModelTokens[model].input += usage.input_tokens || 0
+              sessionModelTokens[model].output += usage.output_tokens || 0
+              sessionModelTokens[model].cache_create += usage.cache_creation_input_tokens || 0
+              sessionModelTokens[model].cache_read += usage.cache_read_input_tokens || 0
+            }
           }
 
           if (entry.timestamp) {
@@ -115,6 +132,7 @@ function parseAllSessions() {
         sessions.push({
           project: proj,
           date,
+          last_timestamp: timestamps[timestamps.length - 1],
           cost: sessionCost,
           tokens: sessionTokens,
           hours: {
@@ -123,6 +141,7 @@ function parseAllSessions() {
             idle_minutes: Math.round(idleMs / 60000),
           },
           models: [...sessionModels],
+          model_tokens: sessionModelTokens,
           file,
         })
       }
@@ -145,6 +164,7 @@ function aggregateByDate(sessions) {
         hours: { active_minutes: 0, span_minutes: 0, idle_minutes: 0 },
         sessions: 0,
         models: new Set(),
+        model_tokens: {},
       }
     }
     const d = byDate[s.date]
@@ -159,6 +179,15 @@ function aggregateByDate(sessions) {
     d.hours.idle_minutes += s.hours.idle_minutes
     d.sessions += 1
     s.models.forEach(m => d.models.add(m))
+    // merge per-model tokens
+    for (const [model, mt] of Object.entries(s.model_tokens || {})) {
+      if (!d.model_tokens[model]) d.model_tokens[model] = { input: 0, output: 0, cache_create: 0, cache_read: 0, total: 0 }
+      d.model_tokens[model].input += mt.input
+      d.model_tokens[model].output += mt.output
+      d.model_tokens[model].cache_create += mt.cache_create
+      d.model_tokens[model].cache_read += mt.cache_read
+      d.model_tokens[model].total += mt.input + mt.output + mt.cache_create + mt.cache_read
+    }
   }
 
   return Object.values(byDate)
@@ -246,6 +275,66 @@ function main() {
   // Today
   const todayDays = allDays.filter(d => d.date === today)
 
+  // ── Model breakdown (all-time) ─────────────────────────────────────────────
+  const modelBreakdown = {}
+  for (const s of sessions) {
+    for (const [model, mt] of Object.entries(s.model_tokens || {})) {
+      if (!modelBreakdown[model]) modelBreakdown[model] = { input: 0, output: 0, cache_create: 0, cache_read: 0, total: 0, cost: 0 }
+      modelBreakdown[model].input += mt.input
+      modelBreakdown[model].output += mt.output
+      modelBreakdown[model].cache_create += mt.cache_create
+      modelBreakdown[model].cache_read += mt.cache_read
+      modelBreakdown[model].total += mt.input + mt.output + mt.cache_create + mt.cache_read
+      modelBreakdown[model].cost += calcCost({ input_tokens: mt.input, output_tokens: mt.output, cache_creation_input_tokens: mt.cache_create, cache_read_input_tokens: mt.cache_read }, model)
+    }
+  }
+  // Compute percentage of total
+  const totalTokensAll = Object.values(modelBreakdown).reduce((s, m) => s + m.total, 0)
+  for (const m of Object.values(modelBreakdown)) {
+    m.pct = totalTokensAll > 0 ? Math.round((m.total / totalTokensAll) * 1000) / 10 : 0
+    m.cost = Math.round(m.cost * 100) / 100
+  }
+
+  // ── Usage limits ──────────────────────────────────────────────────────────
+  const fiveHoursAgo = Date.now() - 5 * 60 * 60 * 1000
+  const mondayThisWeek = (() => {
+    const d = new Date()
+    const day = d.getDay() // 0=Sun
+    const diff = (day === 0 ? -6 : 1 - day)
+    d.setDate(d.getDate() + diff)
+    d.setHours(0, 0, 0, 0)
+    return d.toISOString().split('T')[0]
+  })()
+  const weekReset = (() => {
+    const d = new Date()
+    const day = d.getDay()
+    const daysUntilMonday = day === 0 ? 1 : 8 - day
+    d.setDate(d.getDate() + daysUntilMonday)
+    d.setHours(8, 0, 0, 0)
+    return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
+  })()
+
+  const sessionSessions = sessions.filter(s => s.last_timestamp && s.last_timestamp > fiveHoursAgo)
+  const weekSessions = sessions.filter(s => s.date >= mondayThisWeek)
+
+  const sessionTokens = sessionSessions.reduce((sum, s) => sum + s.tokens.total, 0)
+  const weekTokens = weekSessions.reduce((sum, s) => sum + s.tokens.total, 0)
+  const weekSonnetTokens = weekSessions.reduce((sum, s) => {
+    const mt = Object.entries(s.model_tokens || {}).find(([k]) => k.includes('sonnet'))
+    return sum + (mt ? mt[1].input + mt[1].output + mt[1].cache_create + mt[1].cache_read : 0)
+  }, 0)
+
+  const usage = {
+    session_tokens: sessionTokens,
+    session_pct: Math.min(Math.round((sessionTokens / PLAN_LIMITS.session_tokens) * 100), 100),
+    week_tokens: weekTokens,
+    week_pct: Math.min(Math.round((weekTokens / PLAN_LIMITS.week_all_tokens) * 100), 100),
+    week_sonnet_tokens: weekSonnetTokens,
+    week_sonnet_pct: Math.min(Math.round((weekSonnetTokens / PLAN_LIMITS.week_sonnet_tokens) * 100), 100),
+    week_reset: weekReset,
+    limits: PLAN_LIMITS,
+  }
+
   const stats = {
     generated_at: new Date().toISOString(),
     meta: {
@@ -259,6 +348,8 @@ function main() {
     monthly: buildPeriod(monthlyDays),
     all_time: buildPeriod(allDays),
     projects,
+    model_breakdown: modelBreakdown,
+    usage,
   }
 
   if (isDry) {
