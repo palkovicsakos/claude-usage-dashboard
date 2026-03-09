@@ -21,7 +21,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   return (
     <div
       className="rounded-sm px-3 py-2 text-xs font-mono"
-      style={{ background: '#0D0D14', border: '1px solid rgba(245,158,11,0.33)' }}
+      style={{ background: '#0D0D14', border: '1px solid rgba(0,212,255,0.33)' }}
     >
       <div style={{ color: '#4A5568', marginBottom: 4 }}>{label}</div>
       {payload.map((p) => (
@@ -49,8 +49,8 @@ export function SessionsChart({ days }: SessionsChartProps) {
       <BarChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
         <defs>
           <linearGradient id="sessionsGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#D97706" stopOpacity={0.9} />
-            <stop offset="100%" stopColor="#D97706" stopOpacity={0.3} />
+            <stop offset="0%" stopColor="#7928CA" stopOpacity={0.9} />
+            <stop offset="100%" stopColor="#7928CA" stopOpacity={0.3} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />

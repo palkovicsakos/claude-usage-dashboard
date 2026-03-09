@@ -45,7 +45,7 @@ export function ProjectTable({ projects }: ProjectTableProps) {
             borderBottom: '1px solid rgba(255,255,255,0.04)',
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.background = 'rgba(245, 158, 11, 0.04)'
+            (e.currentTarget as HTMLDivElement).style.background = 'rgba(0, 212, 255, 0.04)'
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLDivElement).style.background = 'transparent'
@@ -56,8 +56,8 @@ export function ProjectTable({ projects }: ProjectTableProps) {
             <span
               className="w-1 h-1 rounded-full flex-shrink-0"
               style={{
-                background: i < 3 ? '#F59E0B' : i < 6 ? '#D97706' : '#4A5568',
-                boxShadow: i < 3 ? '0 0 6px rgba(245,158,11,0.6)' : 'none',
+                background: i < 3 ? '#00D4FF' : i < 6 ? '#7928CA' : '#4A5568',
+                boxShadow: i < 3 ? '0 0 6px rgba(0,212,255,0.6)' : 'none',
               }}
             />
             <span
@@ -71,7 +71,7 @@ export function ProjectTable({ projects }: ProjectTableProps) {
           {/* Cost */}
           <span
             className="text-xs font-mono text-right font-semibold"
-            style={{ color: '#F59E0B' }}
+            style={{ color: '#00D4FF' }}
           >
             {formatCost(project.cost)}
           </span>
@@ -96,13 +96,13 @@ export function ProjectTable({ projects }: ProjectTableProps) {
           <div className="flex items-center gap-2 justify-end">
             <div
               className="rounded-full overflow-hidden"
-              style={{ width: 52, height: 4, background: 'rgba(245,158,11,0.08)' }}
+              style={{ width: 52, height: 4, background: 'rgba(0,212,255,0.08)' }}
             >
               <div
                 className="h-full rounded-full"
                 style={{
                   width: `${(project.pct / maxPct) * 100}%`,
-                  background: i < 3 ? '#F59E0B' : i < 6 ? '#D97706' : '#4A5568',
+                  background: i < 3 ? '#00D4FF' : i < 6 ? '#7928CA' : '#4A5568',
                 }}
               />
             </div>
@@ -129,8 +129,8 @@ export function ProjectTable({ projects }: ProjectTableProps) {
             cursor: 'pointer',
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.color = '#F59E0B'
-            ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(245,158,11,0.2)'
+            (e.currentTarget as HTMLButtonElement).style.color = '#00D4FF'
+            ;(e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(0,212,255,0.2)'
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLButtonElement).style.color = '#4A5568'

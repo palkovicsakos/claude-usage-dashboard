@@ -76,7 +76,15 @@ export default function MeridianPage() {
               className="text-xs font-medium transition-colors"
               style={{ color: dark ? '#94A3B8' : '#64748B' }}
             >
-              Jarvis variant
+              Jarvis
+            </Link>
+            <Separator orientation="vertical" className="h-4" />
+            <Link
+              href="/claude"
+              className="text-xs font-medium transition-colors"
+              style={{ color: dark ? '#94A3B8' : '#64748B' }}
+            >
+              Claude
             </Link>
             <Separator orientation="vertical" className="h-4" />
             <button

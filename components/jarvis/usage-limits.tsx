@@ -59,9 +59,9 @@ function UsageBar({
 
 export function UsageLimitsDisplay({ usage }: UsageLimitsProps) {
   function barColor(pct: number): string {
-    if (pct >= 90) return '#F59E0B'
-    if (pct >= 60) return '#D97706'
-    return '#8B6B15'
+    if (pct >= 90) return '#00D4FF'
+    if (pct >= 60) return '#7928CA'
+    return '#4A0E8F'
   }
 
   return (
