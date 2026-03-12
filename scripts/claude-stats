@@ -9,12 +9,13 @@ cd "$PROJECT_DIR"
 # Generate fresh stats
 node scripts/generate-stats.js
 
-# Commit and push if stats changed
+# Deploy if stats changed
 if ! git diff --quiet data/stats.json 2>/dev/null; then
   git add data/stats.json
   git commit -m "chore: refresh stats.json ($(date +%b\ %d))"
   git push origin main
-  echo "Stats refreshed and pushed at $(date)"
+  npx vercel --prod --yes
+  echo "Stats refreshed and deployed at $(date)"
 else
   echo "No changes in stats.json at $(date)"
 fi
