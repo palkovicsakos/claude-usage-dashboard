@@ -1,58 +1,50 @@
 {
-  "generated_at": "2026-03-09T15:11:28.842Z",
+  "generated_at": "2026-03-12T15:48:24.663Z",
   "meta": {
     "first_session": "2026-02-20",
-    "last_session": "2026-03-09",
+    "last_session": "2026-03-12",
     "total_projects": 33,
     "total_messages": 172981,
     "total_sessions": 548
   },
   "today": {
-    "cost": 43.91956815,
+    "cost": 5.31661575,
     "tokens": {
-      "input": 9758,
-      "output": 104115,
-      "cache_create": 4987345,
-      "cache_read": 78753418,
-      "total": 83854636
+      "input": 528,
+      "output": 2146,
+      "cache_create": 241401,
+      "cache_read": 414318,
+      "total": 658393
     },
     "hours": {
-      "active_minutes": 432,
-      "span_minutes": 1873,
-      "idle_minutes": 1442
+      "active_minutes": 24,
+      "span_minutes": 24,
+      "idle_minutes": 0
     },
-    "sessions": 99,
+    "sessions": 33,
     "cost_delta": null,
     "days": [
       {
-        "date": "2026-03-09",
-        "cost": 43.91956815,
+        "date": "2026-03-12",
+        "cost": 5.31661575,
         "tokens": {
-          "input": 9758,
-          "output": 104115,
-          "cache_create": 4987345,
-          "cache_read": 78753418,
-          "total": 83854636
+          "input": 528,
+          "output": 2146,
+          "cache_create": 241401,
+          "cache_read": 414318,
+          "total": 658393
         },
         "hours": {
-          "active_minutes": 432,
-          "span_minutes": 1873,
-          "idle_minutes": 1442
+          "active_minutes": 24,
+          "span_minutes": 24,
+          "idle_minutes": 0
         },
-        "sessions": 99,
+        "sessions": 33,
         "models": [
-          "sonnet-4-5-20250929",
           "<synthetic>",
-          "sonnet-4-6"
+          "opus-4-6"
         ],
         "model_tokens": {
-          "claude-sonnet-4-5-20250929": {
-            "input": 6096,
-            "output": 3299,
-            "cache_create": 1666748,
-            "cache_read": 18734366,
-            "total": 20410509
-          },
           "<synthetic>": {
             "input": 0,
             "output": 0,
@@ -60,12 +52,12 @@
             "cache_read": 0,
             "total": 0
           },
-          "claude-sonnet-4-6": {
-            "input": 3662,
-            "output": 100816,
-            "cache_create": 3320597,
-            "cache_read": 60019052,
-            "total": 63444127
+          "claude-opus-4-6": {
+            "input": 528,
+            "output": 2146,
+            "cache_create": 241401,
+            "cache_read": 414318,
+            "total": 658393
           }
         },
         "message_count": 0,
@@ -74,163 +66,22 @@
     ]
   },
   "daily": {
-    "cost": 752.7374085199999,
+    "cost": 1059.6442505199998,
     "tokens": {
-      "input": 237689,
-      "output": 1169767,
-      "cache_create": 66173893,
-      "cache_read": 842412795,
-      "total": 909994144
+      "input": 216255,
+      "output": 1123649,
+      "cache_create": 81351958,
+      "cache_read": 1070342771,
+      "total": 1153034633
     },
     "hours": {
-      "active_minutes": 6048,
-      "span_minutes": 27666,
-      "idle_minutes": 21617
+      "active_minutes": 7441,
+      "span_minutes": 29043,
+      "idle_minutes": 21601
     },
-    "sessions": 495,
+    "sessions": 740,
     "cost_delta": null,
     "days": [
-      {
-        "date": "2026-03-02",
-        "cost": 36.02286764999999,
-        "tokens": {
-          "input": 40223,
-          "output": 21900,
-          "cache_create": 1121797,
-          "cache_read": 17391963,
-          "total": 18575883
-        },
-        "hours": {
-          "active_minutes": 91,
-          "span_minutes": 2301,
-          "idle_minutes": 2210
-        },
-        "sessions": 3,
-        "models": [
-          "opus-4-6",
-          "sonnet-4-6"
-        ],
-        "model_tokens": {
-          "claude-opus-4-6": {
-            "input": 32422,
-            "output": 11727,
-            "cache_create": 794561,
-            "cache_read": 10948560,
-            "total": 11787270
-          },
-          "claude-sonnet-4-6": {
-            "input": 7801,
-            "output": 10173,
-            "cache_create": 327236,
-            "cache_read": 6443403,
-            "total": 6788613
-          }
-        },
-        "message_count": 1298,
-        "tool_call_count": 200
-      },
-      {
-        "date": "2026-03-03",
-        "cost": 235.51373655000003,
-        "tokens": {
-          "input": 53033,
-          "output": 202221,
-          "cache_create": 9231227,
-          "cache_read": 122304283,
-          "total": 131790764
-        },
-        "hours": {
-          "active_minutes": 692,
-          "span_minutes": 4545,
-          "idle_minutes": 3852
-        },
-        "sessions": 24,
-        "models": [
-          "sonnet-4-6",
-          "opus-4-6",
-          "<synthetic>"
-        ],
-        "model_tokens": {
-          "claude-sonnet-4-6": {
-            "input": 7673,
-            "output": 78441,
-            "cache_create": 4070281,
-            "cache_read": 59281261,
-            "total": 63437656
-          },
-          "claude-opus-4-6": {
-            "input": 45360,
-            "output": 123780,
-            "cache_create": 5160946,
-            "cache_read": 63023022,
-            "total": 68353108
-          },
-          "<synthetic>": {
-            "input": 0,
-            "output": 0,
-            "cache_create": 0,
-            "cache_read": 0,
-            "total": 0
-          }
-        },
-        "message_count": 11353,
-        "tool_call_count": 1651
-      },
-      {
-        "date": "2026-03-04",
-        "cost": 43.51829838000002,
-        "tokens": {
-          "input": 9731,
-          "output": 95152,
-          "cache_create": 5734832,
-          "cache_read": 66815472,
-          "total": 72655187
-        },
-        "hours": {
-          "active_minutes": 559,
-          "span_minutes": 4679,
-          "idle_minutes": 4119
-        },
-        "sessions": 39,
-        "models": [
-          "sonnet-4-6",
-          "<synthetic>",
-          "opus-4-6",
-          "haiku-4-5-20251001"
-        ],
-        "model_tokens": {
-          "claude-sonnet-4-6": {
-            "input": 9659,
-            "output": 94505,
-            "cache_create": 5173132,
-            "cache_read": 65883597,
-            "total": 71160893
-          },
-          "<synthetic>": {
-            "input": 0,
-            "output": 0,
-            "cache_create": 0,
-            "cache_read": 0,
-            "total": 0
-          },
-          "claude-opus-4-6": {
-            "input": 24,
-            "output": 628,
-            "cache_create": 66578,
-            "cache_read": 733689,
-            "total": 800919
-          },
-          "claude-haiku-4-5-20251001": {
-            "input": 48,
-            "output": 19,
-            "cache_create": 495122,
-            "cache_read": 198186,
-            "total": 693375
-          }
-        },
-        "message_count": 7615,
-        "tool_call_count": 784
-      },
       {
         "date": "2026-03-05",
         "cost": 30.628346699999994,
@@ -389,20 +240,20 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 43.91956815,
+        "cost": 71.31127950000001,
         "tokens": {
-          "input": 9758,
-          "output": 104115,
-          "cache_create": 4987345,
-          "cache_read": 78753418,
-          "total": 83854636
+          "input": 14359,
+          "output": 141150,
+          "cache_create": 9333970,
+          "cache_read": 113828550,
+          "total": 123318029
         },
         "hours": {
-          "active_minutes": 432,
-          "span_minutes": 1873,
-          "idle_minutes": 1442
+          "active_minutes": 666,
+          "span_minutes": 2805,
+          "idle_minutes": 2138
         },
-        "sessions": 99,
+        "sessions": 127,
         "models": [
           "sonnet-4-5-20250929",
           "<synthetic>",
@@ -410,11 +261,11 @@
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 6096,
-            "output": 3299,
-            "cache_create": 1666748,
-            "cache_read": 18734366,
-            "total": 20410509
+            "input": 9521,
+            "output": 4036,
+            "cache_create": 3354527,
+            "cache_read": 35032718,
+            "total": 38400802
           },
           "<synthetic>": {
             "input": 0,
@@ -424,11 +275,160 @@
             "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 3662,
-            "output": 100816,
-            "cache_create": 3320597,
-            "cache_read": 60019052,
-            "total": 63444127
+            "input": 4838,
+            "output": 137114,
+            "cache_create": 5979443,
+            "cache_read": 78795832,
+            "total": 84917227
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-10",
+        "cost": 261.42264945000005,
+        "tokens": {
+          "input": 31313,
+          "output": 67140,
+          "cache_create": 15755777,
+          "cache_read": 233505607,
+          "total": 249359837
+        },
+        "hours": {
+          "active_minutes": 1425,
+          "span_minutes": 2435,
+          "idle_minutes": 1010
+        },
+        "sessions": 154,
+        "models": [
+          "sonnet-4-5-20250929",
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 18398,
+            "output": 5331,
+            "cache_create": 5079825,
+            "cache_read": 102488261,
+            "total": 107591815
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 9050,
+            "output": 2079,
+            "cache_create": 6282155,
+            "cache_read": 79643488,
+            "total": 85936772
+          },
+          "claude-opus-4-6": {
+            "input": 3865,
+            "output": 59730,
+            "cache_create": 4393797,
+            "cache_read": 51373858,
+            "total": 55831250
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-11",
+        "cost": 327.83076802999994,
+        "tokens": {
+          "input": 45111,
+          "output": 166834,
+          "cache_create": 10922118,
+          "cache_read": 165446637,
+          "total": 176580700
+        },
+        "hours": {
+          "active_minutes": 1052,
+          "span_minutes": 9511,
+          "idle_minutes": 8459
+        },
+        "sessions": 96,
+        "models": [
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6",
+          "haiku-4-5-20251001"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 12835,
+            "output": 553,
+            "cache_create": 1269673,
+            "cache_read": 18765442,
+            "total": 20048503
+          },
+          "claude-opus-4-6": {
+            "input": 20538,
+            "output": 165775,
+            "cache_create": 6997970,
+            "cache_read": 111999679,
+            "total": 119183962
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 11738,
+            "output": 506,
+            "cache_create": 2654475,
+            "cache_read": 34681516,
+            "total": 37348235
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-12",
+        "cost": 5.31661575,
+        "tokens": {
+          "input": 528,
+          "output": 2146,
+          "cache_create": 241401,
+          "cache_read": 414318,
+          "total": 658393
+        },
+        "hours": {
+          "active_minutes": 24,
+          "span_minutes": 24,
+          "idle_minutes": 0
+        },
+        "sessions": 33,
+        "models": [
+          "<synthetic>",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 528,
+            "output": 2146,
+            "cache_create": 241401,
+            "cache_read": 414318,
+            "total": 658393
           }
         },
         "message_count": 0,
@@ -437,20 +437,20 @@
     ]
   },
   "weekly": {
-    "cost": 2807.8265349199996,
+    "cost": 3429.7882794999996,
     "tokens": {
-      "input": 708657,
-      "output": 2176160,
-      "cache_create": 121768735,
-      "cache_read": 2247889830,
-      "total": 2372543382
+      "input": 790210,
+      "output": 2449315,
+      "cache_create": 153034656,
+      "cache_read": 2682331524,
+      "total": 2838605705
     },
     "hours": {
-      "active_minutes": 11865,
-      "span_minutes": 67144,
-      "idle_minutes": 55287
+      "active_minutes": 14600,
+      "span_minutes": 80046,
+      "idle_minutes": 65452
     },
-    "sessions": 649,
+    "sessions": 960,
     "cost_delta": null,
     "days": [
       {
@@ -1174,20 +1174,20 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 43.91956815,
+        "cost": 71.31127950000001,
         "tokens": {
-          "input": 9758,
-          "output": 104115,
-          "cache_create": 4987345,
-          "cache_read": 78753418,
-          "total": 83854636
+          "input": 14359,
+          "output": 141150,
+          "cache_create": 9333970,
+          "cache_read": 113828550,
+          "total": 123318029
         },
         "hours": {
-          "active_minutes": 432,
-          "span_minutes": 1873,
-          "idle_minutes": 1442
+          "active_minutes": 666,
+          "span_minutes": 2805,
+          "idle_minutes": 2138
         },
-        "sessions": 99,
+        "sessions": 127,
         "models": [
           "sonnet-4-5-20250929",
           "<synthetic>",
@@ -1195,11 +1195,11 @@
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 6096,
-            "output": 3299,
-            "cache_create": 1666748,
-            "cache_read": 18734366,
-            "total": 20410509
+            "input": 9521,
+            "output": 4036,
+            "cache_create": 3354527,
+            "cache_read": 35032718,
+            "total": 38400802
           },
           "<synthetic>": {
             "input": 0,
@@ -1209,11 +1209,160 @@
             "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 3662,
-            "output": 100816,
-            "cache_create": 3320597,
-            "cache_read": 60019052,
-            "total": 63444127
+            "input": 4838,
+            "output": 137114,
+            "cache_create": 5979443,
+            "cache_read": 78795832,
+            "total": 84917227
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-10",
+        "cost": 261.42264945000005,
+        "tokens": {
+          "input": 31313,
+          "output": 67140,
+          "cache_create": 15755777,
+          "cache_read": 233505607,
+          "total": 249359837
+        },
+        "hours": {
+          "active_minutes": 1425,
+          "span_minutes": 2435,
+          "idle_minutes": 1010
+        },
+        "sessions": 154,
+        "models": [
+          "sonnet-4-5-20250929",
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 18398,
+            "output": 5331,
+            "cache_create": 5079825,
+            "cache_read": 102488261,
+            "total": 107591815
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 9050,
+            "output": 2079,
+            "cache_create": 6282155,
+            "cache_read": 79643488,
+            "total": 85936772
+          },
+          "claude-opus-4-6": {
+            "input": 3865,
+            "output": 59730,
+            "cache_create": 4393797,
+            "cache_read": 51373858,
+            "total": 55831250
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-11",
+        "cost": 327.83076802999994,
+        "tokens": {
+          "input": 45111,
+          "output": 166834,
+          "cache_create": 10922118,
+          "cache_read": 165446637,
+          "total": 176580700
+        },
+        "hours": {
+          "active_minutes": 1052,
+          "span_minutes": 9511,
+          "idle_minutes": 8459
+        },
+        "sessions": 96,
+        "models": [
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6",
+          "haiku-4-5-20251001"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 12835,
+            "output": 553,
+            "cache_create": 1269673,
+            "cache_read": 18765442,
+            "total": 20048503
+          },
+          "claude-opus-4-6": {
+            "input": 20538,
+            "output": 165775,
+            "cache_create": 6997970,
+            "cache_read": 111999679,
+            "total": 119183962
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 11738,
+            "output": 506,
+            "cache_create": 2654475,
+            "cache_read": 34681516,
+            "total": 37348235
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-12",
+        "cost": 5.31661575,
+        "tokens": {
+          "input": 528,
+          "output": 2146,
+          "cache_create": 241401,
+          "cache_read": 414318,
+          "total": 658393
+        },
+        "hours": {
+          "active_minutes": 24,
+          "span_minutes": 24,
+          "idle_minutes": 0
+        },
+        "sessions": 33,
+        "models": [
+          "<synthetic>",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 528,
+            "output": 2146,
+            "cache_create": 241401,
+            "cache_read": 414318,
+            "total": 658393
           }
         },
         "message_count": 0,
@@ -1222,20 +1371,20 @@
     ]
   },
   "monthly": {
-    "cost": 2807.8265349199996,
+    "cost": 3429.7882794999996,
     "tokens": {
-      "input": 708657,
-      "output": 2176160,
-      "cache_create": 121768735,
-      "cache_read": 2247889830,
-      "total": 2372543382
+      "input": 790210,
+      "output": 2449315,
+      "cache_create": 153034656,
+      "cache_read": 2682331524,
+      "total": 2838605705
     },
     "hours": {
-      "active_minutes": 11865,
-      "span_minutes": 67144,
-      "idle_minutes": 55287
+      "active_minutes": 14600,
+      "span_minutes": 80046,
+      "idle_minutes": 65452
     },
-    "sessions": 649,
+    "sessions": 960,
     "cost_delta": null,
     "days": [
       {
@@ -1959,20 +2108,20 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 43.91956815,
+        "cost": 71.31127950000001,
         "tokens": {
-          "input": 9758,
-          "output": 104115,
-          "cache_create": 4987345,
-          "cache_read": 78753418,
-          "total": 83854636
+          "input": 14359,
+          "output": 141150,
+          "cache_create": 9333970,
+          "cache_read": 113828550,
+          "total": 123318029
         },
         "hours": {
-          "active_minutes": 432,
-          "span_minutes": 1873,
-          "idle_minutes": 1442
+          "active_minutes": 666,
+          "span_minutes": 2805,
+          "idle_minutes": 2138
         },
-        "sessions": 99,
+        "sessions": 127,
         "models": [
           "sonnet-4-5-20250929",
           "<synthetic>",
@@ -1980,11 +2129,11 @@
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 6096,
-            "output": 3299,
-            "cache_create": 1666748,
-            "cache_read": 18734366,
-            "total": 20410509
+            "input": 9521,
+            "output": 4036,
+            "cache_create": 3354527,
+            "cache_read": 35032718,
+            "total": 38400802
           },
           "<synthetic>": {
             "input": 0,
@@ -1994,11 +2143,160 @@
             "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 3662,
-            "output": 100816,
-            "cache_create": 3320597,
-            "cache_read": 60019052,
-            "total": 63444127
+            "input": 4838,
+            "output": 137114,
+            "cache_create": 5979443,
+            "cache_read": 78795832,
+            "total": 84917227
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-10",
+        "cost": 261.42264945000005,
+        "tokens": {
+          "input": 31313,
+          "output": 67140,
+          "cache_create": 15755777,
+          "cache_read": 233505607,
+          "total": 249359837
+        },
+        "hours": {
+          "active_minutes": 1425,
+          "span_minutes": 2435,
+          "idle_minutes": 1010
+        },
+        "sessions": 154,
+        "models": [
+          "sonnet-4-5-20250929",
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 18398,
+            "output": 5331,
+            "cache_create": 5079825,
+            "cache_read": 102488261,
+            "total": 107591815
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 9050,
+            "output": 2079,
+            "cache_create": 6282155,
+            "cache_read": 79643488,
+            "total": 85936772
+          },
+          "claude-opus-4-6": {
+            "input": 3865,
+            "output": 59730,
+            "cache_create": 4393797,
+            "cache_read": 51373858,
+            "total": 55831250
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-11",
+        "cost": 327.83076802999994,
+        "tokens": {
+          "input": 45111,
+          "output": 166834,
+          "cache_create": 10922118,
+          "cache_read": 165446637,
+          "total": 176580700
+        },
+        "hours": {
+          "active_minutes": 1052,
+          "span_minutes": 9511,
+          "idle_minutes": 8459
+        },
+        "sessions": 96,
+        "models": [
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6",
+          "haiku-4-5-20251001"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 12835,
+            "output": 553,
+            "cache_create": 1269673,
+            "cache_read": 18765442,
+            "total": 20048503
+          },
+          "claude-opus-4-6": {
+            "input": 20538,
+            "output": 165775,
+            "cache_create": 6997970,
+            "cache_read": 111999679,
+            "total": 119183962
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 11738,
+            "output": 506,
+            "cache_create": 2654475,
+            "cache_read": 34681516,
+            "total": 37348235
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-12",
+        "cost": 5.31661575,
+        "tokens": {
+          "input": 528,
+          "output": 2146,
+          "cache_create": 241401,
+          "cache_read": 414318,
+          "total": 658393
+        },
+        "hours": {
+          "active_minutes": 24,
+          "span_minutes": 24,
+          "idle_minutes": 0
+        },
+        "sessions": 33,
+        "models": [
+          "<synthetic>",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 528,
+            "output": 2146,
+            "cache_create": 241401,
+            "cache_read": 414318,
+            "total": 658393
           }
         },
         "message_count": 0,
@@ -2007,20 +2305,20 @@
     ]
   },
   "all_time": {
-    "cost": 2807.8265349199996,
+    "cost": 3429.7882794999996,
     "tokens": {
-      "input": 708657,
-      "output": 2176160,
-      "cache_create": 121768735,
-      "cache_read": 2247889830,
-      "total": 2372543382
+      "input": 790210,
+      "output": 2449315,
+      "cache_create": 153034656,
+      "cache_read": 2682331524,
+      "total": 2838605705
     },
     "hours": {
-      "active_minutes": 11865,
-      "span_minutes": 67144,
-      "idle_minutes": 55287
+      "active_minutes": 14600,
+      "span_minutes": 80046,
+      "idle_minutes": 65452
     },
-    "sessions": 649,
+    "sessions": 960,
     "cost_delta": null,
     "days": [
       {
@@ -2744,20 +3042,20 @@
       },
       {
         "date": "2026-03-09",
-        "cost": 43.91956815,
+        "cost": 71.31127950000001,
         "tokens": {
-          "input": 9758,
-          "output": 104115,
-          "cache_create": 4987345,
-          "cache_read": 78753418,
-          "total": 83854636
+          "input": 14359,
+          "output": 141150,
+          "cache_create": 9333970,
+          "cache_read": 113828550,
+          "total": 123318029
         },
         "hours": {
-          "active_minutes": 432,
-          "span_minutes": 1873,
-          "idle_minutes": 1442
+          "active_minutes": 666,
+          "span_minutes": 2805,
+          "idle_minutes": 2138
         },
-        "sessions": 99,
+        "sessions": 127,
         "models": [
           "sonnet-4-5-20250929",
           "<synthetic>",
@@ -2765,11 +3063,11 @@
         ],
         "model_tokens": {
           "claude-sonnet-4-5-20250929": {
-            "input": 6096,
-            "output": 3299,
-            "cache_create": 1666748,
-            "cache_read": 18734366,
-            "total": 20410509
+            "input": 9521,
+            "output": 4036,
+            "cache_create": 3354527,
+            "cache_read": 35032718,
+            "total": 38400802
           },
           "<synthetic>": {
             "input": 0,
@@ -2779,11 +3077,160 @@
             "total": 0
           },
           "claude-sonnet-4-6": {
-            "input": 3662,
-            "output": 100816,
-            "cache_create": 3320597,
-            "cache_read": 60019052,
-            "total": 63444127
+            "input": 4838,
+            "output": 137114,
+            "cache_create": 5979443,
+            "cache_read": 78795832,
+            "total": 84917227
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-10",
+        "cost": 261.42264945000005,
+        "tokens": {
+          "input": 31313,
+          "output": 67140,
+          "cache_create": 15755777,
+          "cache_read": 233505607,
+          "total": 249359837
+        },
+        "hours": {
+          "active_minutes": 1425,
+          "span_minutes": 2435,
+          "idle_minutes": 1010
+        },
+        "sessions": 154,
+        "models": [
+          "sonnet-4-5-20250929",
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "claude-sonnet-4-5-20250929": {
+            "input": 18398,
+            "output": 5331,
+            "cache_create": 5079825,
+            "cache_read": 102488261,
+            "total": 107591815
+          },
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 9050,
+            "output": 2079,
+            "cache_create": 6282155,
+            "cache_read": 79643488,
+            "total": 85936772
+          },
+          "claude-opus-4-6": {
+            "input": 3865,
+            "output": 59730,
+            "cache_create": 4393797,
+            "cache_read": 51373858,
+            "total": 55831250
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-11",
+        "cost": 327.83076802999994,
+        "tokens": {
+          "input": 45111,
+          "output": 166834,
+          "cache_create": 10922118,
+          "cache_read": 165446637,
+          "total": 176580700
+        },
+        "hours": {
+          "active_minutes": 1052,
+          "span_minutes": 9511,
+          "idle_minutes": 8459
+        },
+        "sessions": 96,
+        "models": [
+          "<synthetic>",
+          "sonnet-4-6",
+          "opus-4-6",
+          "haiku-4-5-20251001"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-sonnet-4-6": {
+            "input": 12835,
+            "output": 553,
+            "cache_create": 1269673,
+            "cache_read": 18765442,
+            "total": 20048503
+          },
+          "claude-opus-4-6": {
+            "input": 20538,
+            "output": 165775,
+            "cache_create": 6997970,
+            "cache_read": 111999679,
+            "total": 119183962
+          },
+          "claude-haiku-4-5-20251001": {
+            "input": 11738,
+            "output": 506,
+            "cache_create": 2654475,
+            "cache_read": 34681516,
+            "total": 37348235
+          }
+        },
+        "message_count": 0,
+        "tool_call_count": 0
+      },
+      {
+        "date": "2026-03-12",
+        "cost": 5.31661575,
+        "tokens": {
+          "input": 528,
+          "output": 2146,
+          "cache_create": 241401,
+          "cache_read": 414318,
+          "total": 658393
+        },
+        "hours": {
+          "active_minutes": 24,
+          "span_minutes": 24,
+          "idle_minutes": 0
+        },
+        "sessions": 33,
+        "models": [
+          "<synthetic>",
+          "opus-4-6"
+        ],
+        "model_tokens": {
+          "<synthetic>": {
+            "input": 0,
+            "output": 0,
+            "cache_create": 0,
+            "cache_read": 0,
+            "total": 0
+          },
+          "claude-opus-4-6": {
+            "input": 528,
+            "output": 2146,
+            "cache_create": 241401,
+            "cache_read": 414318,
+            "total": 658393
           }
         },
         "message_count": 0,
@@ -2794,18 +3241,18 @@
   "projects": [
     {
       "name": "claude/workspace",
-      "cost": 1525.24,
-      "active_hours": 153.3,
-      "sessions": 322,
-      "pct": 54.3,
-      "last_active": "2026-03-09"
+      "cost": 2085.87,
+      "active_hours": 190.5,
+      "sessions": 398,
+      "pct": 60.8,
+      "last_active": "2026-03-12"
     },
     {
       "name": "Agentic/Workflows/aiaudit/call/database",
       "cost": 401.92,
       "active_hours": 11.1,
       "sessions": 2,
-      "pct": 14.3,
+      "pct": 11.7,
       "last_active": "2026-02-22"
     },
     {
@@ -2813,7 +3260,7 @@
       "cost": 161.43,
       "active_hours": 5.3,
       "sessions": 3,
-      "pct": 5.7,
+      "pct": 4.7,
       "last_active": "2026-02-25"
     },
     {
@@ -2821,7 +3268,7 @@
       "cost": 160.22,
       "active_hours": 2.5,
       "sessions": 1,
-      "pct": 5.7,
+      "pct": 4.7,
       "last_active": "2026-02-21"
     },
     {
@@ -2829,15 +3276,23 @@
       "cost": 76.51,
       "active_hours": 3.1,
       "sessions": 5,
-      "pct": 2.7,
+      "pct": 2.2,
       "last_active": "2026-03-03"
+    },
+    {
+      "name": "/Users/palkovicsakos//claude/mem/observe",
+      "cost": 73.11,
+      "active_hours": 10.8,
+      "sessions": 315,
+      "pct": 2.1,
+      "last_active": "2026-03-12"
     },
     {
       "name": "Agentic/Workflows/ai/audit/app",
       "cost": 67.01,
       "active_hours": 1.6,
       "sessions": 1,
-      "pct": 2.4,
+      "pct": 2,
       "last_active": "2026-02-21"
     },
     {
@@ -2845,7 +3300,7 @@
       "cost": 56.28,
       "active_hours": 1.3,
       "sessions": 1,
-      "pct": 2,
+      "pct": 1.6,
       "last_active": "2026-02-23"
     },
     {
@@ -2853,7 +3308,7 @@
       "cost": 42.89,
       "active_hours": 1.4,
       "sessions": 2,
-      "pct": 1.5,
+      "pct": 1.3,
       "last_active": "2026-02-23"
     },
     {
@@ -2861,7 +3316,7 @@
       "cost": 39.61,
       "active_hours": 0.9,
       "sessions": 1,
-      "pct": 1.4,
+      "pct": 1.2,
       "last_active": "2026-02-26"
     },
     {
@@ -2869,7 +3324,7 @@
       "cost": 39.08,
       "active_hours": 1.7,
       "sessions": 1,
-      "pct": 1.4,
+      "pct": 1.1,
       "last_active": "2026-02-21"
     },
     {
@@ -2877,7 +3332,7 @@
       "cost": 34.27,
       "active_hours": 0.9,
       "sessions": 1,
-      "pct": 1.2,
+      "pct": 1,
       "last_active": "2026-02-21"
     },
     {
@@ -2885,7 +3340,7 @@
       "cost": 30.88,
       "active_hours": 1,
       "sessions": 2,
-      "pct": 1.1,
+      "pct": 0.9,
       "last_active": "2026-02-24"
     },
     {
@@ -2893,7 +3348,7 @@
       "cost": 24.69,
       "active_hours": 3.2,
       "sessions": 1,
-      "pct": 0.9,
+      "pct": 0.7,
       "last_active": "2026-02-25"
     },
     {
@@ -2901,7 +3356,7 @@
       "cost": 20.2,
       "active_hours": 0.9,
       "sessions": 1,
-      "pct": 0.7,
+      "pct": 0.6,
       "last_active": "2026-02-21"
     },
     {
@@ -2909,7 +3364,7 @@
       "cost": 15.36,
       "active_hours": 0.7,
       "sessions": 5,
-      "pct": 0.5,
+      "pct": 0.4,
       "last_active": "2026-02-21"
     },
     {
@@ -2917,7 +3372,7 @@
       "cost": 12.73,
       "active_hours": 2.3,
       "sessions": 176,
-      "pct": 0.5,
+      "pct": 0.4,
       "last_active": "2026-03-08"
     },
     {
@@ -2937,19 +3392,11 @@
       "last_active": "2026-02-21"
     },
     {
-      "name": "/Users/palkovicsakos//claude/mem/observe",
-      "cost": 11.94,
-      "active_hours": 2.5,
-      "sessions": 84,
-      "pct": 0.4,
-      "last_active": "2026-03-09"
-    },
-    {
       "name": "Agentic/Workflows/ai/landscape/tracker",
       "cost": 11.84,
       "active_hours": 0.1,
       "sessions": 1,
-      "pct": 0.4,
+      "pct": 0.3,
       "last_active": "2026-02-24"
     },
     {
@@ -2957,7 +3404,7 @@
       "cost": 10.53,
       "active_hours": 0.2,
       "sessions": 2,
-      "pct": 0.4,
+      "pct": 0.3,
       "last_active": "2026-02-22"
     },
     {
@@ -2973,7 +3420,7 @@
       "cost": 7.57,
       "active_hours": 0.1,
       "sessions": 1,
-      "pct": 0.3,
+      "pct": 0.2,
       "last_active": "2026-02-26"
     },
     {
@@ -2997,7 +3444,7 @@
       "cost": 4.28,
       "active_hours": 0.9,
       "sessions": 4,
-      "pct": 0.2,
+      "pct": 0.1,
       "last_active": "2026-02-25"
     },
     {
@@ -3028,9 +3475,9 @@
       "name": "claude/workspace/1/Projects/jarvis/os",
       "cost": 0.65,
       "active_hours": 0,
-      "sessions": 8,
+      "sessions": 9,
       "pct": 0,
-      "last_active": "2026-03-05"
+      "last_active": "2026-03-11"
     },
     {
       "name": "claude/workspace/1/Projects/swey/erp",
@@ -3042,11 +3489,11 @@
     },
     {
       "name": "/private/tmp",
-      "cost": 0.36,
+      "cost": 0.52,
       "active_hours": 0.1,
-      "sessions": 8,
+      "sessions": 11,
       "pct": 0,
-      "last_active": "2026-03-08"
+      "last_active": "2026-03-10"
     },
     {
       "name": "/Users/palkovicsakos//claude",
@@ -3059,22 +3506,22 @@
   ],
   "model_breakdown": {
     "claude-sonnet-4-6": {
-      "input": 384921,
-      "output": 1662934,
-      "cache_create": 83672997,
-      "cache_read": 1328210324,
-      "total": 1413931176,
-      "cost": 738.34,
-      "pct": 59.6
+      "input": 407982,
+      "output": 1701864,
+      "cache_create": 93883671,
+      "cache_read": 1445396034,
+      "total": 1541389551,
+      "cost": 812.43,
+      "pct": 54.3
     },
     "claude-sonnet-4-5-20250929": {
-      "input": 6096,
-      "output": 3299,
-      "cache_create": 1666748,
-      "cache_read": 18734366,
-      "total": 20410509,
-      "cost": 11.94,
-      "pct": 0.9
+      "input": 27919,
+      "output": 9367,
+      "cache_create": 8434352,
+      "cache_read": 137520979,
+      "total": 145992617,
+      "cost": 73.11,
+      "pct": 5.1
     },
     "<synthetic>": {
       "input": 0,
@@ -3086,31 +3533,31 @@
       "pct": 0
     },
     "claude-opus-4-6": {
-      "input": 317480,
-      "output": 509875,
-      "cache_create": 35403831,
-      "cache_read": 899737166,
-      "total": 935968352,
-      "cost": 2056.43,
-      "pct": 39.4
+      "input": 342411,
+      "output": 737526,
+      "cache_create": 47036999,
+      "cache_read": 1063525021,
+      "total": 1111641957,
+      "cost": 2537.68,
+      "pct": 39.2
     },
     "claude-haiku-4-5-20251001": {
-      "input": 160,
-      "output": 52,
-      "cache_create": 1025159,
-      "cache_read": 1207974,
-      "total": 2233345,
-      "cost": 1.12,
-      "pct": 0.1
+      "input": 11898,
+      "output": 558,
+      "cache_create": 3679634,
+      "cache_read": 35889490,
+      "total": 39581580,
+      "cost": 6.56,
+      "pct": 1.4
     }
   },
   "usage": {
-    "session_tokens": 81707992,
-    "session_pct": 25,
-    "week_tokens": 83854636,
-    "week_pct": 8,
-    "week_sonnet_tokens": 83854636,
-    "week_sonnet_pct": 8,
+    "session_tokens": 14421533,
+    "session_pct": 4,
+    "week_tokens": 549916959,
+    "week_pct": 52,
+    "week_sonnet_tokens": 336895119,
+    "week_sonnet_pct": 32,
     "week_reset": "Mar 16, 08:00 AM GMT+1",
     "peak_week_tokens": 1056779273,
     "peak_day_tokens": 331323211,
