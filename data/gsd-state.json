@@ -1,0 +1,1232 @@
+{
+  "generated_at": "2026-03-13T16:56:47.332Z",
+  "source_refreshed": "2026-03-13 16:43 UTC",
+  "project_count": 18,
+  "projects": [
+    {
+      "id": "workspace",
+      "name": "Workspace",
+      "milestone": "Workspace + Notion Declutter",
+      "phases_complete": 4,
+      "phases_total": 4,
+      "gsd_status": "COMPLETE",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Notion Quick Wins",
+          "status": "complete",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Micro-task Review",
+          "status": "complete",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Plans Tagging",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Memory Cleanup",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-06"
+        }
+      ]
+    },
+    {
+      "id": "ai-audit-pipeline",
+      "name": "ai-audit-pipeline",
+      "milestone": "AI Audit Consultation Pipeline",
+      "phases_complete": 13,
+      "phases_total": 17,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "Hungarian Copy Review",
+      "phases": [
+        {
+          "name": "CRM Foundation",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Workflow Orchestration",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Form + AI Readiness Score",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Demo Engine + Pre-Call Prep",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "Report Engine + Call Tools",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "Gamma Presentation",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "Communication Layer",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-09"
+        },
+        {
+          "name": "swey-web Integration",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "Email Automation",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "Generation Pipeline",
+          "status": "complete",
+          "plans_complete": 5,
+          "plans_total": 5,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Dispatch + Email Wiring",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Drive Folder + Attio",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Cleanup + Verification",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Hungarian Copy Review",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "VSL + Content",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "PRES-02 Visual Slots",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Interactive Funnel Playground",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "aimcp-saas",
+      "name": "aimcp-saas",
+      "milestone": "MiniCRM MCP SaaS",
+      "phases_complete": 3,
+      "phases_total": 8,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "2. Landing Page Polish",
+      "phases": [
+        {
+          "name": "Tool Verification",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "Remote Server",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "1. Marketing Launch",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "2. Landing Page Polish",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Deployment",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Billing",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Distribution",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "ChatGPT Action",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "aios-launch",
+      "name": "aios-launch",
+      "milestone": "AIOS Launch",
+      "phases_complete": 0,
+      "phases_total": 5,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": "Offer Design + Funnel",
+      "phases": [
+        {
+          "name": "Foundation Extraction",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Two-Industry Proof",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        },
+        {
+          "name": "Offer Design + Funnel",
+          "status": "active",
+          "plans_complete": 1,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Webinar Prep",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Launch Execution",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "claude-course-platform",
+      "name": "claude-course-platform",
+      "milestone": "Claude Course Platform",
+      "phases_complete": 1,
+      "phases_total": 4,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "\udfe1 1. External Services Setup",
+      "phases": [
+        {
+          "name": "\udfe1 1. External Services Setup",
+          "status": "active",
+          "plans_complete": 1,
+          "plans_total": 5,
+          "completed_date": null
+        },
+        {
+          "name": "Course Pipeline in swey-aios",
+          "status": "complete",
+          "plans_complete": 7,
+          "plans_total": 7,
+          "completed_date": "2026-03-09"
+        },
+        {
+          "name": "Scale Production",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 6,
+          "completed_date": null
+        },
+        {
+          "name": "\udfe1 4. Platform, Funnel, and Launch",
+          "status": "active",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "context-os-pipeline",
+      "name": "context-os-pipeline",
+      "milestone": "Context OS Pipeline",
+      "phases_complete": 6,
+      "phases_total": 7,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "⚪ 6. Google Drive Connector",
+      "phases": [
+        {
+          "name": "✅ 1. Source Connectors",
+          "status": "complete",
+          "plans_complete": 7,
+          "plans_total": 7,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "✅ 2. Extraction Engine",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "✅ 3. Context Writer",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "✅ 4. SWEY Internal Run",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "✅ 4.1. SWEY Full Run",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "✅ 5. Teachable Package",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "⚪ 6. Google Drive Connector",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "dev-infrastructure-10x",
+      "name": "dev-infrastructure-10x",
+      "milestone": "Unknown Milestone",
+      "phases_complete": 1,
+      "phases_total": 10,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "\udfe1 1. Autonomous Execution Verification",
+      "phases": [
+        {
+          "name": "\udfe1 1. Autonomous Execution Verification",
+          "status": "active",
+          "plans_complete": 0,
+          "plans_total": 1,
+          "completed_date": null
+        },
+        {
+          "name": "VPS + Dual Subscription",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Context Pipeline Completion",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "1. Convex Component Stack Upgrade",
+          "status": "complete",
+          "plans_complete": 8,
+          "plans_total": 8,
+          "completed_date": "2026-03-13"
+        },
+        {
+          "name": "2. Trigger.dev Long-Running Agent Runtime",
+          "status": "pending",
+          "plans_complete": 6,
+          "plans_total": 6,
+          "completed_date": "2026-03-13"
+        },
+        {
+          "name": "Knowledge Base Automation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "1. Convex Agent Infrastructure",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 8,
+          "completed_date": null
+        },
+        {
+          "name": "Self-Improving Loops",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Agent Skills + Guardrails",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "AIOS Foundation Extraction",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "email-inbox-ai",
+      "name": "email-inbox-ai",
+      "milestone": "Email Inbox AI",
+      "phases_complete": 0,
+      "phases_total": 4,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Inbox Triage",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Smart Drafting",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 1,
+          "completed_date": null
+        },
+        {
+          "name": "Tracking + Telegram",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 1,
+          "completed_date": null
+        },
+        {
+          "name": "AIOS Dashboard",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 1,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "jarvis-os",
+      "name": "jarvis-os",
+      "milestone": "Jarvis OS — Full Rewrite",
+      "phases_complete": 8,
+      "phases_total": 17,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "Cloud Migration Test",
+      "phases": [
+        {
+          "name": "Convex Foundation",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-03"
+        },
+        {
+          "name": "Dashboard Wiring",
+          "status": "complete",
+          "plans_complete": 6,
+          "plans_total": 6,
+          "completed_date": "2026-03-04"
+        },
+        {
+          "name": "Execution Engine",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-05"
+        },
+        {
+          "name": "1. Executor Dual-Account Routing",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Autonomous Agent",
+          "status": "complete",
+          "plans_complete": 5,
+          "plans_total": 5,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "CommandOS Telegram",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Cloud Migration Test",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Authentication",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Loop Monitoring + Bridge",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "\udfe1 9. Autonomous Execution",
+          "status": "active",
+          "plans_complete": 1,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "VPS Migration",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Multi-Agent Specialization",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Dashboard Enhancement",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Unified Command Center",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Agent Memory & Learning",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Email Intake Pipeline",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Enhanced Morning Intelligence Brief",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "quick-capture-system",
+      "name": "quick-capture-system",
+      "milestone": "Quick Capture System",
+      "phases_complete": 0,
+      "phases_total": 0,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": []
+    },
+    {
+      "id": "swey-aios",
+      "name": "swey-aios",
+      "milestone": "SWEY ERP",
+      "phases_complete": 15,
+      "phases_total": 30,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "Data OS Foundation",
+      "phases": [
+        {
+          "name": "Foundation",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "YouTube Migration",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Claude Skills",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Scorecard",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-07"
+        },
+        {
+          "name": "Content Studio",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "Challenge Scorecard Core",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "AI Coaching + CEO Morning View",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "Financial Integrations",
+          "status": "complete",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Competitive Intelligence Tables",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "CI Automation",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "Financial Integrations (gap closure)",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "AI Briefing + Dashboard Polish",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-10"
+        },
+        {
+          "name": "Clerk Authentication",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Real Competitor Data Import",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "AIOS Full UI Scaffold",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 4,
+          "completed_date": "2026-03-11"
+        },
+        {
+          "name": "Data OS Foundation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Data OS Connectors Wave 1",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Data OS Connectors Wave 2",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Data OS Automation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Automations Dashboard (Convex)",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Build Dashboard (Notion)",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "YouTube Transcript Skills",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Resend Webhooks (Smart Branching)",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Pipeline Viewer Dashboard",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Resend Contacts + Segments",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Beehiiv Sync",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Prospect Broadcast Capability",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Gamma Proposal Integration",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Fireflies Meeting Intelligence",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Slack Agent Team",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "swey-sales-engine",
+      "name": "swey-sales-engine",
+      "milestone": "SWEY Sales & Delivery Engine",
+      "phases_complete": 1,
+      "phases_total": 6,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "Methodology + Question Framework",
+      "phases": [
+        {
+          "name": "Methodology + Question Framework",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Free AI Readiness Score",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Discovery Audit + Sales Process",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        },
+        {
+          "name": "Proposals + Pricing",
+          "status": "complete",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Delivery Playbooks",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Tier 3 Deep Dive (DEFERRED)",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "swey-video-engine",
+      "name": "swey-video-engine",
+      "milestone": "SWEY Video Engine",
+      "phases_complete": 1,
+      "phases_total": 6,
+      "gsd_status": "IN_PROGRESS",
+      "current_phase": "\udfe1 2. Editor Agent",
+      "phases": [
+        {
+          "name": "Foundation + Whisper + Schema",
+          "status": "complete",
+          "plans_complete": 3,
+          "plans_total": 3,
+          "completed_date": "2026-03-08"
+        },
+        {
+          "name": "\udfe1 2. Editor Agent",
+          "status": "active",
+          "plans_complete": 2,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "FFmpeg Editing",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Remotion Graphics",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Compositing + End-to-End",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "CLI Polish + Script Integration",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "swey-web",
+      "name": "swey-web",
+      "milestone": "swey-web — CMS Admin Content Management",
+      "phases_complete": 5,
+      "phases_total": 5,
+      "gsd_status": "COMPLETE",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Convex Backend",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-04"
+        },
+        {
+          "name": "Data Migration",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-04"
+        },
+        {
+          "name": "Admin Content Panel",
+          "status": "complete",
+          "plans_complete": 4,
+          "plans_total": 4,
+          "completed_date": "2026-03-04"
+        },
+        {
+          "name": "Frontend Conversion",
+          "status": "complete",
+          "plans_complete": 5,
+          "plans_total": 5,
+          "completed_date": "2026-03-05"
+        },
+        {
+          "name": "Dead Code Cleanup",
+          "status": "complete",
+          "plans_complete": 1,
+          "plans_total": 1,
+          "completed_date": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "id": "swey-web-v5",
+      "name": "swey-web-v5",
+      "milestone": "SWEY Web — v5 Refresh",
+      "phases_complete": 0,
+      "phases_total": 14,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Production Deployment",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Skills Marketplace",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Use Case Library V2",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Jarvis Landing V2",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Jarvis V1 Copy Rewrite",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Jarvis Demo Showcase",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Demo Hub Merge Validation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "AI Tools Migration Validation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "AI Audit — AI Backend",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "AI Audit — Report View + PDF",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "AI Audit — Delivery + CRM",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "AI Audit — Polish",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "SEO Engine",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Remotion + 21st.dev Components",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "targetive-ai",
+      "name": "targetive-ai",
+      "milestone": "Targetive AI Launch",
+      "phases_complete": 0,
+      "phases_total": 8,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Pipeline Recovery",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Sales Materials",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Infrastructure Reactivation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Data Consolidation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 3,
+          "completed_date": null
+        },
+        {
+          "name": "Copywriting and Campaigns",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 2,
+          "completed_date": null
+        },
+        {
+          "name": "Delivery Operations and Enrichment",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        },
+        {
+          "name": "Web App Deployment",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        },
+        {
+          "name": "Agentic Scale",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 4,
+          "completed_date": null
+        }
+      ]
+    },
+    {
+      "id": "voice-pipeline",
+      "name": "voice-pipeline",
+      "milestone": "Voice Pipeline",
+      "phases_complete": 2,
+      "phases_total": 2,
+      "gsd_status": "COMPLETE",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Core Voice Note Pipeline",
+          "status": "complete",
+          "plans_complete": 5,
+          "plans_total": 5,
+          "completed_date": "2026-03-06"
+        },
+        {
+          "name": "Fireflies Integration",
+          "status": "complete",
+          "plans_complete": 2,
+          "plans_total": 2,
+          "completed_date": "2026-03-06"
+        }
+      ]
+    },
+    {
+      "id": "web-consolidation",
+      "name": "web-consolidation",
+      "milestone": "Web Consolidation",
+      "phases_complete": 0,
+      "phases_total": 0,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": []
+    }
+  ]
+}
