@@ -98,7 +98,7 @@ function PriorityBadge({ priority }: { priority: Priority }) {
     'N/A':  { background: 'rgba(55,65,81,0.2)', border: '1px solid rgba(55,65,81,0.3)', color: '#4A5568' },
   }
   return (
-    <span style={{ ...styles[priority], fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', padding: '2px 7px', borderRadius: 2, whiteSpace: 'nowrap' }}>
+    <span style={{ ...styles[priority], fontFamily: MONO, fontSize: 13, letterSpacing: '0.08em', padding: '2px 7px', borderRadius: 2, whiteSpace: 'nowrap' }}>
       {priority}
     </span>
   )
@@ -169,14 +169,14 @@ function ProjectCard({
       onClick={onSelect}
       style={{
         background: cardBg, border: cardBorder, borderRadius: 3,
-        padding: 13, cursor: 'pointer', transition: 'all 0.15s',
+        padding: 17, cursor: 'pointer', transition: 'all 0.15s',
         boxShadow: selected ? '0 0 14px rgba(0,212,255,0.07)' : 'none',
       }}
     >
       {/* Top row */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 5, gap: 8 }}>
         <span style={{
-          fontFamily: MONO, fontSize: 13, fontWeight: 700, color: isBlocked ? '#EF4444' : selected ? '#00D4FF' : '#D1D5DB',
+          fontFamily: MONO, fontSize: 17, fontWeight: 700, color: isBlocked ? '#EF4444' : selected ? '#00D4FF' : '#D1D5DB',
           lineHeight: 1.3,
         }}>
           {project.name}
@@ -185,12 +185,12 @@ function ProjectCard({
           <StatusDot stage={stage} />
           <PriorityBadge priority={priority} />
           {isBlocked && (
-            <span style={{ fontFamily: MONO, fontSize: 9, padding: '2px 6px', borderRadius: 2, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', color: '#EF4444', letterSpacing: '0.08em' }}>
+            <span style={{ fontFamily: MONO, fontSize: 12, padding: '2px 6px', borderRadius: 2, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', color: '#EF4444', letterSpacing: '0.08em' }}>
               BLOCKED
             </span>
           )}
           {onHold && !isBlocked && (
-            <span style={{ fontFamily: MONO, fontSize: 9, padding: '2px 6px', borderRadius: 2, background: 'rgba(107,114,128,0.1)', border: '1px solid rgba(107,114,128,0.2)', color: '#6B7280', letterSpacing: '0.08em' }}>
+            <span style={{ fontFamily: MONO, fontSize: 12, padding: '2px 6px', borderRadius: 2, background: 'rgba(107,114,128,0.1)', border: '1px solid rgba(107,114,128,0.2)', color: '#6B7280', letterSpacing: '0.08em' }}>
               ON HOLD
             </span>
           )}
@@ -198,7 +198,7 @@ function ProjectCard({
       </div>
 
       {/* Milestone */}
-      <div style={{ fontSize: 12, color: '#4A5568', marginBottom: 8, lineHeight: 1.3, fontFamily: ibmPlex.style.fontFamily }}>
+      <div style={{ fontSize: 16, color: '#4A5568', marginBottom: 8, lineHeight: 1.3, fontFamily: ibmPlex.style.fontFamily }}>
         {project.milestone}
       </div>
 
@@ -207,12 +207,13 @@ function ProjectCard({
 
       {/* Meta */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontFamily: MONO, fontSize: 11, color: '#4A5568' }}>
+        <span style={{ fontFamily: MONO, fontSize: 14, color: '#4A5568' }}>
           {project.phases_complete}/{project.phases_total} phases
         </span>
-        {deadline && (
-          <span style={{ fontFamily: MONO, fontSize: 11, color: '#6B7280' }}>{deadline}</span>
-        )}
+        <span style={{ fontFamily: MONO, fontSize: 13, color: deadline ? '#00D4FF' : '#2D3748', display: 'flex', alignItems: 'center', gap: 4 }}>
+          <span style={{ opacity: 0.7 }}>⏱</span>
+          {deadline || '—'}
+        </span>
       </div>
 
       {/* Quick note */}
@@ -227,8 +228,8 @@ function ProjectCard({
         onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,212,255,0.25)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.09)' }}
       >
-        <span style={{ fontSize: 12, color: '#4A5568' }}>✎</span>
-        <span style={{ fontSize: 12, color: '#4A5568', fontFamily: ibmPlex.style.fontFamily, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <span style={{ fontSize: 16, color: '#4A5568' }}>✎</span>
+        <span style={{ fontSize: 16, color: '#4A5568', fontFamily: ibmPlex.style.fontFamily, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {notes ? notes.substring(0, 40) + (notes.length > 40 ? '…' : '') : 'Add a note...'}
         </span>
       </div>
@@ -247,11 +248,11 @@ function ProjectCard({
             style={{
               width: '100%', minHeight: 56, background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(0,212,255,0.25)', borderRadius: 2, padding: '7px 9px',
-              fontSize: 12, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
+              fontSize: 16, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
               outline: 'none', resize: 'none',
             }}
           />
-          <div style={{ fontFamily: MONO, fontSize: 10, color: '#374151', marginTop: 4 }}>
+          <div style={{ fontFamily: MONO, fontSize: 13, color: '#374151', marginTop: 4 }}>
             ↵ save · esc close
           </div>
         </div>
@@ -282,10 +283,10 @@ function PipelineView({
         })
         const isBlocked = stage === 'Blocked'
         return (
-          <div key={stage} style={{ minWidth: 210, flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div key={stage} style={{ minWidth: 273, flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
             {/* Column header */}
             <div style={{
-              fontFamily: MONO, fontSize: 11, letterSpacing: '0.15em', color: isBlocked ? '#EF4444' : '#4A5568',
+              fontFamily: MONO, fontSize: 14, letterSpacing: '0.15em', color: isBlocked ? '#EF4444' : '#4A5568',
               textTransform: 'uppercase', padding: '7px 10px', display: 'flex', alignItems: 'center',
               justifyContent: 'space-between', borderBottom: `1px solid ${isBlocked ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.06)'}`,
             }}>
@@ -293,14 +294,14 @@ function PipelineView({
               <span style={{
                 background: isBlocked ? 'rgba(239,68,68,0.1)' : 'rgba(255,255,255,0.05)',
                 color: isBlocked ? '#EF4444' : '#4A5568',
-                padding: '1px 7px', borderRadius: 8, fontSize: 11,
+                padding: '1px 7px', borderRadius: 8, fontSize: 14,
               }}>
                 {colProjects.length}
               </span>
             </div>
 
             {colProjects.length === 0 ? (
-              <div style={{ padding: '14px 10px', fontFamily: MONO, fontSize: 10, color: '#1F2937', textAlign: 'center', letterSpacing: '0.1em' }}>
+              <div style={{ padding: '14px 10px', fontFamily: MONO, fontSize: 13, color: '#1F2937', textAlign: 'center', letterSpacing: '0.1em' }}>
                 EMPTY
               </div>
             ) : colProjects.map(p => (
@@ -337,7 +338,7 @@ function ListView({
       {/* Header */}
       <div style={{ display: 'flex', gap: 10, padding: '4px 12px', marginBottom: 3 }}>
         {[['Project', 2], ['Milestone', 3], ['Progress', 2], ['Stage', 1.5], ['Priority', 0.8]].map(([label, flex]) => (
-          <span key={label as string} style={{ flex: flex as number, fontFamily: MONO, fontSize: 10, letterSpacing: '0.12em', color: '#2D3748', textTransform: 'uppercase' }}>
+          <span key={label as string} style={{ flex: flex as number, fontFamily: MONO, fontSize: 13, letterSpacing: '0.12em', color: '#2D3748', textTransform: 'uppercase' }}>
             {label}
           </span>
         ))}
@@ -364,21 +365,124 @@ function ListView({
             onMouseEnter={e => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,212,255,0.2)' }}
             onMouseLeave={e => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.05)' }}
           >
-            <div style={{ flex: 2, fontFamily: MONO, fontSize: 12, fontWeight: 600, color: isSelected ? '#00D4FF' : isBlocked ? '#EF4444' : '#D1D5DB' }}>
+            <div style={{ flex: 2, fontFamily: MONO, fontSize: 16, fontWeight: 600, color: isSelected ? '#00D4FF' : isBlocked ? '#EF4444' : '#D1D5DB' }}>
               {p.name}
             </div>
-            <div style={{ flex: 3, fontSize: 12, color: '#6B7280', fontFamily: ibmPlex.style.fontFamily }}>
+            <div style={{ flex: 3, fontSize: 16, color: '#6B7280', fontFamily: ibmPlex.style.fontFamily }}>
               {p.milestone}
             </div>
             <div style={{ flex: 2 }}>
               <ProgressBar pct={pct} stage={stage} />
-              <span style={{ fontFamily: MONO, fontSize: 10, color: '#4A5568' }}>{p.phases_complete}/{p.phases_total}</span>
+              <span style={{ fontFamily: MONO, fontSize: 13, color: '#4A5568' }}>{p.phases_complete}/{p.phases_total}</span>
             </div>
-            <div style={{ flex: 1.5, fontFamily: MONO, fontSize: 11, color: isBlocked ? '#EF4444' : '#4A5568' }}>
+            <div style={{ flex: 1.5, fontFamily: MONO, fontSize: 14, color: isBlocked ? '#EF4444' : '#4A5568' }}>
               {stage}
             </div>
             <div style={{ flex: 0.8, textAlign: 'right' }}>
               <PriorityBadge priority={priority} />
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+// ── Timeline View ─────────────────────────────────────────────────────────
+
+function TimelineView({
+  projects, annotations, selected, onSelect,
+}: {
+  projects: GsdProject[]
+  annotations: Annotations
+  selected: string | null
+  onSelect: (id: string) => void
+}) {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  const rows = projects.map(p => {
+    const stage = getAnno(annotations, p.id, 'stage', gsdStatusToStage(p)) as Stage
+    const priority = getAnno(annotations, p.id, 'priority', 'N/A') as Priority
+    const deadline = getAnno(annotations, p.id, 'deadline', '') as string
+    const pct = getPct(p.phases_complete, p.phases_total)
+    const deadlineDate = deadline ? new Date(deadline + 'T00:00:00') : null
+    const daysLeft = deadlineDate ? Math.ceil((deadlineDate.getTime() - today.getTime()) / 86400000) : null
+    const isOverdue = daysLeft !== null && daysLeft < 0
+    const isBlocked = stage === 'Blocked'
+    return { p, stage, priority, deadline, pct, daysLeft, isOverdue, isBlocked }
+  }).sort((a, b) => {
+    if (a.deadline && b.deadline) return a.deadline.localeCompare(b.deadline)
+    if (a.deadline) return -1
+    if (b.deadline) return 1
+    return 0
+  })
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      {rows.map(({ p, stage, priority, deadline, pct, daysLeft, isOverdue, isBlocked }) => {
+        const isSelected = selected === p.id
+        const barColor = isBlocked ? '#EF4444'
+          : stage === 'Complete' ? '#10B981'
+          : isOverdue ? '#EF4444'
+          : stage === 'In Progress' ? '#00D4FF' : '#4A5568'
+
+        return (
+          <div
+            key={p.id}
+            onClick={() => onSelect(p.id)}
+            style={{
+              padding: '14px 16px', cursor: 'pointer', borderRadius: 3, transition: 'all 0.15s',
+              background: isSelected ? 'rgba(0,212,255,0.04)' : '#0D0D14',
+              border: isSelected ? '1px solid rgba(0,212,255,0.35)' : isBlocked ? '1px solid rgba(239,68,68,0.2)' : '1px solid rgba(255,255,255,0.06)',
+            }}
+            onMouseEnter={e => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,212,255,0.2)' }}
+            onMouseLeave={e => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.borderColor = isBlocked ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.06)' }}
+          >
+            {/* Top row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+              <StatusDot stage={stage} />
+              <span style={{ fontFamily: MONO, fontSize: 15, fontWeight: 700, color: isSelected ? '#00D4FF' : isBlocked ? '#EF4444' : '#D1D5DB', flex: 1 }}>
+                {p.name}
+              </span>
+              <PriorityBadge priority={priority} />
+              <span style={{
+                fontFamily: MONO, fontSize: 13,
+                color: isOverdue ? '#EF4444' : daysLeft !== null && daysLeft <= 7 ? '#FB923C' : deadline ? '#6B7280' : '#2D3748',
+                minWidth: 90, textAlign: 'right',
+              }}>
+                {daysLeft === null ? '—' : isOverdue ? `${Math.abs(daysLeft)}d overdue` : daysLeft === 0 ? 'due today' : `${daysLeft}d left`}
+              </span>
+            </div>
+
+            {/* Progress bar with percentage label */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ flex: 1, height: 6, background: 'rgba(255,255,255,0.06)', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{
+                  height: '100%', width: `${pct}%`, borderRadius: 3, transition: 'width 0.3s',
+                  background: isBlocked ? 'linear-gradient(90deg,#991B1B,#EF4444)'
+                    : stage === 'Complete' ? 'linear-gradient(90deg,#10B981,#34D399)'
+                    : `linear-gradient(90deg, ${barColor}80, ${barColor})`,
+                }} />
+              </div>
+              <span style={{ fontFamily: MONO, fontSize: 13, color: '#4A5568', minWidth: 44, textAlign: 'right' }}>
+                {pct}%
+              </span>
+              <span style={{ fontFamily: MONO, fontSize: 13, color: '#2D3748', minWidth: 80, textAlign: 'right' }}>
+                {p.phases_complete}/{p.phases_total} phases
+              </span>
+            </div>
+
+            {/* Milestone + deadline */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
+              <span style={{ fontSize: 14, color: '#374151', fontFamily: ibmPlex.style.fontFamily }}>
+                {p.milestone}
+              </span>
+              {deadline && (
+                <span style={{ fontFamily: MONO, fontSize: 13, color: isOverdue ? '#EF4444' : '#4A5568' }}>
+                  ⏱ {deadline}
+                </span>
+              )}
             </div>
           </div>
         )
@@ -397,14 +501,14 @@ function DetailPanel({
   onAnnotate: (id: string, key: keyof Annotation, value: unknown) => void
 }) {
   const sectionTitle = (label: string) => (
-    <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.15em', color: '#4A5568', textTransform: 'uppercase', marginBottom: 10 }}>
+    <div style={{ fontFamily: MONO, fontSize: 14, letterSpacing: '0.15em', color: '#4A5568', textTransform: 'uppercase', marginBottom: 10 }}>
       {label}
     </div>
   )
 
   if (!project) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#1F2937', fontFamily: MONO, fontSize: 12, letterSpacing: '0.1em', textAlign: 'center', lineHeight: 2.2 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#1F2937', fontFamily: MONO, fontSize: 16, letterSpacing: '0.1em', textAlign: 'center', lineHeight: 2.2 }}>
         ← SELECT A PROJECT<br />TO VIEW DETAILS
       </div>
     )
@@ -426,18 +530,18 @@ function DetailPanel({
     <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
       {/* Header */}
       <div style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: 16 }}>
-        <div style={{ fontFamily: MONO, fontSize: 16, fontWeight: 700, color: isBlocked ? '#EF4444' : '#E8EDF5', marginBottom: 4 }}>
+        <div style={{ fontFamily: MONO, fontSize: 21, fontWeight: 700, color: isBlocked ? '#EF4444' : '#E8EDF5', marginBottom: 4 }}>
           {project.name}
         </div>
-        <div style={{ fontSize: 13, color: '#6B7280', fontFamily: ibmPlex.style.fontFamily, marginBottom: 10 }}>
+        <div style={{ fontSize: 17, color: '#6B7280', fontFamily: ibmPlex.style.fontFamily, marginBottom: 10 }}>
           {project.milestone}
         </div>
         <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
-          <span style={{ fontFamily: MONO, fontSize: 10, padding: '3px 9px', borderRadius: 2, background: stageBg, border: `1px solid ${stageBorder}`, color: stageColor, letterSpacing: '0.08em' }}>
+          <span style={{ fontFamily: MONO, fontSize: 13, padding: '3px 9px', borderRadius: 2, background: stageBg, border: `1px solid ${stageBorder}`, color: stageColor, letterSpacing: '0.08em' }}>
             {stage}
           </span>
           <PriorityBadge priority={priority} />
-          {onHold && <span style={{ fontFamily: MONO, fontSize: 10, padding: '3px 9px', borderRadius: 2, background: 'rgba(107,114,128,0.1)', border: '1px solid rgba(107,114,128,0.2)', color: '#6B7280' }}>ON HOLD</span>}
+          {onHold && <span style={{ fontFamily: MONO, fontSize: 13, padding: '3px 9px', borderRadius: 2, background: 'rgba(107,114,128,0.1)', border: '1px solid rgba(107,114,128,0.2)', color: '#6B7280' }}>ON HOLD</span>}
         </div>
       </div>
 
@@ -446,7 +550,7 @@ function DetailPanel({
         <div style={{ height: 4, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden', marginBottom: 6 }}>
           <ProgressBar pct={pct} stage={stage} />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: MONO, fontSize: 11, color: '#4A5568' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: MONO, fontSize: 14, color: '#4A5568' }}>
           <span>{project.phases_complete} of {project.phases_total} phases</span>
           <span>{pct}%</span>
         </div>
@@ -464,7 +568,7 @@ function DetailPanel({
                 key={s}
                 onClick={() => onAnnotate(project.id, 'stage', s)}
                 style={{
-                  padding: '5px 10px', fontFamily: MONO, fontSize: 10, letterSpacing: '0.06em',
+                  padding: '5px 10px', fontFamily: MONO, fontSize: 13, letterSpacing: '0.06em',
                   borderRadius: 2, cursor: 'pointer', transition: 'all 0.15s',
                   background: isSel ? (isBlockedBtn ? 'rgba(239,68,68,0.12)' : 'rgba(0,212,255,0.08)') : 'transparent',
                   border: isSel ? `1px solid ${isBlockedBtn ? 'rgba(239,68,68,0.35)' : 'rgba(0,212,255,0.3)'}` : '1px solid rgba(255,255,255,0.07)',
@@ -505,14 +609,14 @@ function DetailPanel({
                   </div>
                   <div style={{ flex: 1, paddingBottom: 6 }}>
                     <div style={{
-                      fontFamily: MONO, fontSize: 11, color: labelColor, lineHeight: 1.4,
+                      fontFamily: MONO, fontSize: 14, color: labelColor, lineHeight: 1.4,
                       textDecoration: isDone ? 'line-through' : 'none',
                       fontWeight: isActive ? 700 : 400,
                     }}>
                       {phase.name}
                     </div>
                     {(isActive || isDone) && (
-                      <div style={{ fontSize: 11, color: '#4A5568', marginTop: 2, fontFamily: ibmPlex.style.fontFamily }}>
+                      <div style={{ fontSize: 14, color: '#4A5568', marginTop: 2, fontFamily: ibmPlex.style.fontFamily }}>
                         {isActive ? 'CURRENT' : phase.completed_date || 'Done'}
                       </div>
                     )}
@@ -541,7 +645,7 @@ function DetailPanel({
                 key={p}
                 onClick={() => onAnnotate(project.id, 'priority', p)}
                 style={{
-                  flex: 1, padding: '7px 4px', fontFamily: MONO, fontSize: 10, letterSpacing: '0.06em',
+                  flex: 1, padding: '7px 4px', fontFamily: MONO, fontSize: 13, letterSpacing: '0.06em',
                   textAlign: 'center', cursor: 'pointer', borderRadius: 2, transition: 'all 0.15s',
                   background: isSel ? colors[p].bg : 'transparent',
                   border: `1px solid ${isSel ? colors[p].border : 'rgba(255,255,255,0.07)'}`,
@@ -557,7 +661,7 @@ function DetailPanel({
 
       {/* On Hold toggle */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontFamily: MONO, fontSize: 11, color: '#4A5568', letterSpacing: '0.1em' }}>ON HOLD</span>
+        <span style={{ fontFamily: MONO, fontSize: 14, color: '#4A5568', letterSpacing: '0.1em' }}>ON HOLD</span>
         <div
           onClick={() => onAnnotate(project.id, 'onHold', !onHold)}
           style={{
@@ -575,14 +679,14 @@ function DetailPanel({
 
       {/* Deadline */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-        <label style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.12em', color: '#4A5568', textTransform: 'uppercase' }}>Deadline</label>
+        <label style={{ fontFamily: MONO, fontSize: 14, letterSpacing: '0.12em', color: '#4A5568', textTransform: 'uppercase' }}>Deadline</label>
         <input
           type="date"
           value={deadline}
           onChange={e => onAnnotate(project.id, 'deadline', e.target.value)}
           style={{
             background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 2,
-            padding: '8px 10px', fontSize: 13, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
+            padding: '8px 10px', fontSize: 17, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
             outline: 'none', width: '100%', colorScheme: 'dark',
           }}
         />
@@ -590,14 +694,14 @@ function DetailPanel({
 
       {/* Notes */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-        <label style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.12em', color: '#4A5568', textTransform: 'uppercase' }}>Notes</label>
+        <label style={{ fontFamily: MONO, fontSize: 14, letterSpacing: '0.12em', color: '#4A5568', textTransform: 'uppercase' }}>Notes</label>
         <textarea
           value={notes}
           onChange={e => onAnnotate(project.id, 'notes', e.target.value)}
           placeholder="Add notes, blockers, or context..."
           style={{
             background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 2,
-            padding: '8px 10px', fontSize: 13, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
+            padding: '8px 10px', fontSize: 17, color: '#D1D5DB', fontFamily: ibmPlex.style.fontFamily,
             outline: 'none', width: '100%', minHeight: 90, resize: 'vertical',
           }}
         />
@@ -612,7 +716,7 @@ export default function GsdPage() {
   const [data, setData] = useState<GsdData | null>(null)
   const [annotations, setAnnotations] = useState<Annotations>({})
   const [selected, setSelected] = useState<string | null>(null)
-  const [view, setView] = useState<'pipeline' | 'list'>('pipeline')
+  const [view, setView] = useState<'pipeline' | 'list' | 'timeline'>('pipeline')
   const [tab, setTab] = useState<'all' | 'in-progress' | 'blocked' | 'complete'>('all')
   const [refreshing, setRefreshing] = useState(false)
   const [refreshMsg, setRefreshMsg] = useState<string | null>(null)
@@ -662,7 +766,7 @@ export default function GsdPage() {
   }, [])
 
   const navLinkStyle: React.CSSProperties = {
-    padding: '5px 12px', fontFamily: MONO, fontSize: 11, letterSpacing: '0.1em',
+    padding: '5px 12px', fontFamily: MONO, fontSize: 14, letterSpacing: '0.1em',
     background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
     color: '#4A5568', borderRadius: 2, textDecoration: 'none', cursor: 'pointer', transition: 'all 0.15s',
   }
@@ -689,7 +793,7 @@ export default function GsdPage() {
 
   if (!data) {
     return (
-      <div className={`${spaceMono.variable} ${ibmPlex.variable}`} style={{ minHeight: '100vh', background: '#060608', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A5568', fontFamily: MONO, fontSize: 12 }}>
+      <div className={`${spaceMono.variable} ${ibmPlex.variable}`} style={{ minHeight: '100vh', background: '#060608', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A5568', fontFamily: MONO, fontSize: 16 }}>
         LOADING GSD STATE...
       </div>
     )
@@ -711,11 +815,11 @@ export default function GsdPage() {
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
       `}</style>
 
-      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '22px 28px' }}>
+      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '22px 36px' }}>
 
         {/* ── Header ── */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 0 }}>
-          <h1 style={{ fontFamily: MONO, fontSize: 16, fontWeight: 700, letterSpacing: '0.2em', color: '#E8EDF5' }}>
+          <h1 style={{ fontFamily: MONO, fontSize: 21, fontWeight: 700, letterSpacing: '0.2em', color: '#E8EDF5' }}>
             JARVIS
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -732,7 +836,7 @@ export default function GsdPage() {
             </button>
 
             {/* SYS badge */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '5px 12px', background: 'rgba(0,212,255,0.07)', border: '1px solid rgba(0,212,255,0.2)', color: '#00D4FF', fontFamily: MONO, fontSize: 11, letterSpacing: '0.1em', borderRadius: 2 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '5px 12px', background: 'rgba(0,212,255,0.07)', border: '1px solid rgba(0,212,255,0.2)', color: '#00D4FF', fontFamily: MONO, fontSize: 14, letterSpacing: '0.1em', borderRadius: 2 }}>
               <span style={{ width: 7, height: 7, background: '#00D4FF', borderRadius: '50%', boxShadow: '0 0 6px #00D4FF', display: 'inline-block', animation: 'pulse 2s infinite' }} />
               SYS ONLINE
             </div>
@@ -760,7 +864,7 @@ export default function GsdPage() {
                 key={key}
                 onClick={() => setTab(key)}
                 style={{
-                  padding: '6px 16px', fontFamily: MONO, fontSize: 11, letterSpacing: '0.12em',
+                  padding: '6px 16px', fontFamily: MONO, fontSize: 14, letterSpacing: '0.12em',
                   background: tab === key ? 'rgba(0,212,255,0.08)' : 'transparent',
                   border: tab === key ? '1px solid rgba(0,212,255,0.2)' : '1px solid transparent',
                   color: tab === key ? '#00D4FF' : '#4A5568',
@@ -775,22 +879,22 @@ export default function GsdPage() {
 
           {/* View toggle + meta */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontFamily: MONO, fontSize: 11, color: '#2D3748' }}>
+            <span style={{ fontFamily: MONO, fontSize: 14, color: '#2D3748' }}>
               {new Date(data.generated_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
             </span>
             <div style={{ display: 'flex', gap: 3 }}>
-              {(['pipeline', 'list'] as const).map(v => (
+              {(['pipeline', 'list', 'timeline'] as const).map(v => (
                 <button
                   key={v}
                   onClick={() => setView(v)}
                   style={{
-                    padding: '4px 10px', fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em',
+                    padding: '4px 10px', fontFamily: MONO, fontSize: 13, letterSpacing: '0.1em',
                     background: view === v ? 'rgba(255,255,255,0.06)' : 'transparent',
                     border: view === v ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.05)',
                     color: view === v ? '#D1D5DB' : '#4A5568', borderRadius: 2, cursor: 'pointer',
                   }}
                 >
-                  {v === 'pipeline' ? '⬛ PIPELINE' : '≡ LIST'}
+                  {v === 'pipeline' ? '⬛ PIPELINE' : v === 'list' ? '≡ LIST' : '▶ TIMELINE'}
                 </button>
               ))}
             </div>
@@ -811,8 +915,15 @@ export default function GsdPage() {
                 openNotes={openNotes}
                 setOpenNote={setOpenNote}
               />
-            ) : (
+            ) : view === 'list' ? (
               <ListView
+                projects={filteredProjects}
+                annotations={annotations}
+                selected={selected}
+                onSelect={handleSelect}
+              />
+            ) : (
+              <TimelineView
                 projects={filteredProjects}
                 annotations={annotations}
                 selected={selected}
@@ -823,7 +934,7 @@ export default function GsdPage() {
 
           {/* Detail panel */}
           <div style={{
-            width: 360, minWidth: 360, ...CARD_STYLE,
+            width: 468, minWidth: 468, ...CARD_STYLE,
             borderRadius: 3, padding: 20, overflowY: 'auto', maxHeight: 'calc(100vh - 160px)',
           }}>
             <DetailPanel
@@ -836,8 +947,8 @@ export default function GsdPage() {
 
         {/* ── Footer ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 24, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-          <span style={{ fontFamily: MONO, fontSize: 11, color: '#4A5568' }}>CLAUDE CODE // SWEY INNOVATIONS // GSD PIPELINE</span>
-          <span style={{ fontFamily: MONO, fontSize: 11, color: '#4A5568' }}>
+          <span style={{ fontFamily: MONO, fontSize: 14, color: '#4A5568' }}>CLAUDE CODE // SWEY INNOVATIONS // GSD PIPELINE</span>
+          <span style={{ fontFamily: MONO, fontSize: 14, color: '#4A5568' }}>
             {data.project_count} projects · refreshed {data.source_refreshed}
           </span>
         </div>

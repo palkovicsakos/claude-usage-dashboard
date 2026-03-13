@@ -31,7 +31,8 @@ run_parse_and_push() {
   git add data/gsd-state.json
   git commit -m "chore: auto-sync gsd-state $(date '+%Y-%m-%d %H:%M')" --no-verify
   git push origin main
-  log "Pushed — Vercel deploy triggered"
+  log "Pushed — deploying to Vercel..."
+  vercel --prod --yes > /tmp/gsd-vercel-deploy.log 2>&1 && log "Vercel deployed ✓" || log "Vercel deploy failed — check /tmp/gsd-vercel-deploy.log"
 }
 
 log "Starting GSD watcher on: $OVERVIEW"
