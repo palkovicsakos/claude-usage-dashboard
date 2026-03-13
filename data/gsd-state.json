@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-13T18:22:19.951Z",
-  "source_refreshed": "2026-03-13 17:02 UTC",
+  "generated_at": "2026-03-13T18:22:57.935Z",
+  "source_refreshed": "2026-03-13 18:22 UTC",
   "project_count": 18,
   "projects": [
     {
@@ -432,7 +432,7 @@
           "name": "Knowledge Base Automation",
           "status": "pending",
           "plans_complete": 0,
-          "plans_total": 2,
+          "plans_total": 3,
           "completed_date": null
         },
         {
