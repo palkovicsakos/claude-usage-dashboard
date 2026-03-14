@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-14T07:36:26.894Z",
-  "source_refreshed": "2026-03-14 07:36 UTC",
+  "generated_at": "2026-03-14T07:37:04.931Z",
+  "source_refreshed": "2026-03-14 07:37 UTC",
   "project_count": 19,
   "projects": [
     {
@@ -47,12 +47,19 @@
       "name": "agent-team",
       "milestone": "Agent Team — Autonomous Business Operations",
       "phases_complete": 0,
-      "phases_total": 6,
+      "phases_total": 7,
       "gsd_status": "NOT_STARTED",
       "current_phase": null,
       "phases": [
         {
-          "name": "Sage Core + Infrastructure",
+          "name": "a. Sage Core (Backend)",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "b. Slack + Dashboard (Frontend)",
           "status": "pending",
           "plans_complete": 0,
           "plans_total": 0,
