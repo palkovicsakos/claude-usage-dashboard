@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-14T00:42:47.065Z",
-  "source_refreshed": "2026-03-14 00:42 UTC",
-  "project_count": 18,
+  "generated_at": "2026-03-14T00:43:23.689Z",
+  "source_refreshed": "2026-03-14 00:43 UTC",
+  "project_count": 19,
   "projects": [
     {
       "id": "workspace",
@@ -39,6 +39,59 @@
           "plans_complete": 1,
           "plans_total": 1,
           "completed_date": "2026-03-06"
+        }
+      ]
+    },
+    {
+      "id": "agent-team",
+      "name": "agent-team",
+      "milestone": "Agent Team — Autonomous Business Operations",
+      "phases_complete": 0,
+      "phases_total": 6,
+      "gsd_status": "NOT_STARTED",
+      "current_phase": null,
+      "phases": [
+        {
+          "name": "Sage Core + Infrastructure",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Decision Preference Model + Shadow Validation",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Sales Agent",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Content Agent",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Marketing + Delivery Agents",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
+        },
+        {
+          "name": "Finance Agent",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
         }
       ]
     },
