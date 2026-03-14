@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-14T02:21:00.151Z",
+  "generated_at": "2026-03-14T02:21:45.429Z",
   "source_refreshed": "2026-03-14 02:21 UTC",
   "project_count": 19,
   "projects": [
@@ -702,9 +702,9 @@
       "name": "swey-aios",
       "milestone": "SWEY ERP",
       "phases_complete": 15,
-      "phases_total": 30,
+      "phases_total": 31,
       "gsd_status": "IN_PROGRESS",
-      "current_phase": "Data OS Foundation",
+      "current_phase": "3. Bank Statement Connectors",
       "phases": [
         {
           "name": "Foundation",
@@ -810,6 +810,13 @@
           "plans_complete": 3,
           "plans_total": 4,
           "completed_date": "2026-03-11"
+        },
+        {
+          "name": "3. Bank Statement Connectors",
+          "status": "pending",
+          "plans_complete": 0,
+          "plans_total": 0,
+          "completed_date": null
         },
         {
           "name": "Data OS Foundation",
